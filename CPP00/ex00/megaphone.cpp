@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 16:52:01 by tboumadj          #+#    #+#             */
-/*   Updated: 2022/12/30 19:54:40 by tboumadj         ###   ########.fr       */
+/*   Updated: 2022/12/30 19:58:07 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int main(int argc, char **argv)
     else
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     std::cout << std::endl;
-    return 0;
+    return (0);
 }
