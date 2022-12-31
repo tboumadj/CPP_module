@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   testcin.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/30 16:52:01 by tboumadj          #+#    #+#             */
-/*   Updated: 2022/12/31 17:07:35 by tboumadj         ###   ########.fr       */
+/*   Created: 2022/12/31 17:21:15 by tboumadj          #+#    #+#             */
+/*   Updated: 2022/12/31 17:23:57 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <ctype.h>
 
-int main(int argc, char **argv) 
-{
-    if (argc > 1)
-    {
-        int i = 0;
-        int j;
-        while (++i < argc)
-        {
-            j = 0;
-            while(argv[i][j])
-                    std::cout << (char)std::toupper(argv[i][j++]);
-        }
+struct Foo {
+    int n;
+    Foo() {
+       std::cout << "Enter n: "; // no flush needed
+       std::cin >> n;
     }
-    else
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    std::cout << std::endl;
-    return (0);
+};
+
+Foo f; // static object
+
+int main()
+{
+    std::cout << "f.n is " << f.n << '\n';
 }
