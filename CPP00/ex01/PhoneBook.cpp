@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:09 by tboumadj          #+#    #+#             */
-/*   Updated: 2022/12/31 19:31:53 by tboumadj         ###   ########.fr       */
+/*   Updated: 2022/12/31 19:33:59 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void    PhoneBook::print(void)
     std::cout << "Enter name: ";
     getline(std::cin, this->name);
     if (name.empty())
-        std::cout << "Empty name !" << std::endl;
+        this->print();
     else
         std::cout << "name =  [" << name << "]" << std::endl;
 
