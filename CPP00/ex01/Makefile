@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/30 17:24:38 by tboumadj          #+#    #+#              #
-#    Updated: 2022/12/31 17:24:52 by tboumadj         ###   ########.fr        #
+#    Updated: 2022/12/31 18:25:33 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CHECK			=	-fsanitize=address
 
 #PATH
 
-SRCS	=	test/testcin.cpp
+SRCS	=	PhoneBook.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
