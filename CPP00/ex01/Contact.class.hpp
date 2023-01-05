@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/31 17:14:07 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/05 05:31:10 by tboumadj@student ###   ########.fr       */
+/*   Created: 2023/01/05 05:07:53 by tboumadj@student  #+#    #+#             */
+/*   Updated: 2023/01/05 05:19:02 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PHONEBOOK_CLASS_H
-# define	PHONEBOOK_CLASS_H
-#include "Contact.class.hpp"
+#ifndef CONTACT_CLASS_H
+# define CONTACT_CLASS_H
 #include <iostream>
 #include <string>
 
-class PhoneBook {
+class Contact {
 
 public :
 
-	PhoneBook(void);
-	~PhoneBook(void);
+    Contact(void);
+    ~Contact(void);
 
+    std::string     FirstName;
+    std::string     LastName;
+    std::string     NickName;
+    std::string     PhoneNumber;
+    std::string     DarkestSecret;
 
 private :
 
-	void	welcome(void);
+    //AddContact;
 };
 
 #endif

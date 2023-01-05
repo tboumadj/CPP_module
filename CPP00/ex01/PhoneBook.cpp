@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:09 by tboumadj          #+#    #+#             */
-/*   Updated: 2022/12/31 19:33:59 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/05 05:27:17 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,19 @@
 
 PhoneBook::PhoneBook(void)
 {
-
-	std::cout << "Constructor called" << std::endl;
-    this->print();
+	std::cout << "Constructor of PhoneBook called" << std::endl;
+    this->welcome();
 	return ;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-
-	std::cout  << "Destructor called" << std::endl;
+	std::cout << "Destructor of PhoneBook called" << std::endl;
 	return ;
 }
 
-void    PhoneBook::print(void)
+void    PhoneBook::welcome(void)
 {
-    std::cout << "Enter name: ";
-    getline(std::cin, this->name);
-    if (name.empty())
-        this->print();
-    else
-        std::cout << "name =  [" << name << "]" << std::endl;
-
-    return ;
-}
-
-int main()
-{
-    PhoneBook instance;
-    return (0);
+    std::cout << "Welcome to your Phone" << std::endl;
+    return;
 }

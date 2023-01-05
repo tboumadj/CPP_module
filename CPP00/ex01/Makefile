@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
+#    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/30 17:24:38 by tboumadj          #+#    #+#              #
-#    Updated: 2022/12/31 18:25:33 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/01/05 05:28:39 by tboumadj@student ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CHECK			=	-fsanitize=address
 
 #PATH
 
-SRCS	=	PhoneBook.cpp
+SRCS	=	PhoneBook.cpp Contact.cpp main.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
