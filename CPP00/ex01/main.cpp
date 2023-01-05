@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:29:52 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/05 05:31:50 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/01/05 15:05:47 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int main()
 {
-    PhoneBook instance;
-    Contact contact;
+    PhoneBook pb;
+    //Contact cnt;
+
+    std::string str;
+    pb.entry_road();
     return (0);
 }

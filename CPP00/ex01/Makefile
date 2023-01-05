@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
+#    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/30 17:24:38 by tboumadj          #+#    #+#              #
-#    Updated: 2023/01/05 05:28:39 by tboumadj@student ###   ########.fr        #
+#    Updated: 2023/01/05 13:48:28 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ _GREEN  =   $'\x1b[32m
 		@$(CC) $(FLAGS) -c $< -o $(<:cpp=o) $@
 
 $(NAME): $(OBJS)
-		@echo "$(_RED)Compilation de megaphone en cours...$(_END)"
+		@echo "$(_RED)Compilation de PhoneBook en cours...$(_END)"
 		$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
 		@echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 

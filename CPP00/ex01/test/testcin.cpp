@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   testcin.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:21:15 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/05 05:21:46 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/01/05 13:49:17 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

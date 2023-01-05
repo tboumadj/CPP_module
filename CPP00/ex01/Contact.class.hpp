@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:07:53 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/05 05:19:02 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/01/05 15:36:51 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CONTACT_CLASS_H
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <stdlib.h>
 
 class Contact {
 
@@ -25,12 +27,11 @@ public :
     std::string     FirstName;
     std::string     LastName;
     std::string     NickName;
-    std::string     PhoneNumber;
+    int     PhoneNumber;
     std::string     DarkestSecret;
 
-private :
+    void	add_contact(void);
 
-    //AddContact;
 };
 
 #endif
