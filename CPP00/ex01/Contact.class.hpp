@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:07:53 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/05 15:36:51 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:21:37 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,20 @@ public :
     Contact(void);
     ~Contact(void);
 
-    std::string     FirstName;
-    std::string     LastName;
-    std::string     NickName;
-    int     PhoneNumber;
-    std::string     DarkestSecret;
+    std::string		FirstName;
+    std::string		LastName;
+    std::string		NickName;
+    std::string		PhoneNumber;
+    std::string		DarkestSecret;
+	int				index;
 
-    void	add_contact(void);
+    void			add_contact(int count);
+    std::string		get_Fname(void);
+    std::string		get_Lname(void);
+    std::string		get_Nname(void);
+    std::string		get_Pnum(void);
+    std::string		get_Dsec(void);
+	int				get_index(void);
 
 };
 

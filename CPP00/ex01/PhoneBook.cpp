@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:09 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/05 15:14:47 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:33:46 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 PhoneBook::PhoneBook(void)
 {
 	std::cout << "Constructor of PhoneBook called" << std::endl;
+	this->count = 0;
 	this->welcome();
 	return ;
 }
@@ -35,16 +36,66 @@ void	PhoneBook::entry_road(void)
 {
 	std::cout << "PhoneBook : ";
 	std::getline(std::cin, this->data);
-	if (data.empty())
-		entry_road();
-	else if (data == "add")
-		cnt.add_contact();
+	if (data == "add")
+	{
+		if (count < 8)
+		{
+			count++;
+			if (len < 8)
+			len++;
+		}
+		else
+			count = 1;
+		std::cout << "count = " << this->count <<std::endl;
+		cnt[count].add_contact(count);
+	}
+	else if (data == "search")
+		print_contact();
 	else if (data == "exit")
 	{
 		std::cout << "PhoneBook Shut Down ..." << std::endl;
-		return ;
+		exit(EXIT_SUCCESS) ;
 	}
-	else
-		entry_road();
+	entry_road();
 	return ;
 }
+
+void	PhoneBook::print_contact(void)
+{	
+	int i = 1;
+
+	while (i <= this->len)
+	{
+		std::cout << " " << cnt[i].get_index();
+		std::cout << " | [" << cnt[i].get_Fname() << "] ";
+		std::cout << "[" << cnt[i].get_Lname() << "] ";
+		std::cout << "[" << cnt[i].get_Nname() << "] ";
+		std::cout << "[" << cnt[i].get_Pnum() << "] ";
+		std::cout << "[" << cnt[i].get_Dsec() << "] " << std::endl;
+		i++;
+	}
+	if (this->count > 1)
+	{
+	int size = 0;
+	std::cout << "Enter the index : ";
+	std::getline(std::cin, this->data);
+	try
+	{
+		size = std::stoi(data);
+	}
+	catch(...)
+	{
+		return ;
+	}
+		if (size > 0 && size < 9 && size <= this->len)
+		{
+			std::cout << " " << cnt[size].get_index();
+			std::cout << " | [" << cnt[size].get_Fname() << "] ";
+			std::cout << "[" << cnt[size].get_Lname() << "] ";
+			std::cout << "[" << cnt[size].get_Nname() << "] ";
+			std::cout << "[" << cnt[size].get_Pnum() << "] ";
+			std::cout << "[" << cnt[size].get_Dsec() << "] " << std::endl;
+		}
+	}
+	return ;
+	}
