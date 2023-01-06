@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:21:57 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/06 15:22:06 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/06 20:55:27 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@ void	Contact::add_contact(int count)
 {
     std::string str;
 
-    while (str.empty())
+    while (str.empty() || !str.compare(" ") || !str.compare("  ")
+            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
+                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
     {
         std::cout << "Type First Name : ";
         std::getline(std::cin, str);
@@ -66,7 +68,9 @@ void	Contact::add_contact(int count)
     if (!str.empty())
         this->FirstName = str;
     str = "";
-    while (str.empty())
+    while (str.empty() || !str.compare(" ") || !str.compare("  ")
+            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
+                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
     {
         std::cout << "Type Last Name : ";
         std::getline(std::cin, str);
@@ -74,7 +78,9 @@ void	Contact::add_contact(int count)
     if (!str.empty())
         this->LastName = str;
     str = "";
-    while (str.empty())
+    while (str.empty() || !str.compare(" ") || !str.compare("  ")
+            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
+                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
     {
         std::cout << "Type NickName : ";
         std::getline(std::cin, str);
@@ -82,7 +88,9 @@ void	Contact::add_contact(int count)
     if (!str.empty())
         this->NickName = str;
     str = "";
-    while (str.empty())
+    while (str.empty() || !str.compare(" ") || !str.compare("  ")
+            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
+                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
     {
         std::cout << "Type Phone Number : ";
         std::getline(std::cin, str);
@@ -90,7 +98,9 @@ void	Contact::add_contact(int count)
     if (!str.empty())
         this->PhoneNumber = str;
     str = "";
-    while (str.empty())
+    while (str.empty() || !str.compare(" ") || !str.compare("  ")
+            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
+                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
     {
         std::cout << "Type Darkest Secret : ";
         std::getline(std::cin, str);

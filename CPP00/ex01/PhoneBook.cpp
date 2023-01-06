@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:09 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/06 17:33:46 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:37:55 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    PhoneBook::welcome(void)
 
 void	PhoneBook::entry_road(void)
 {
-	std::cout << "PhoneBook : ";
+	std::cout << "[PhoneBook] : ";
 	std::getline(std::cin, this->data);
 	if (data == "add")
 	{
@@ -74,7 +74,7 @@ void	PhoneBook::print_contact(void)
 		std::cout << "[" << cnt[i].get_Dsec() << "] " << std::endl;
 		i++;
 	}
-	if (this->count > 1)
+	if (this->count > 0)
 	{
 	int size = 0;
 	std::cout << "Enter the index : ";
