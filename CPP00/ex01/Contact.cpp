@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:21:57 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/06 20:55:27 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/07 16:13:21 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Contact::Contact(void)
 {
-    std::cout << "Constructor of Contact called" << std::endl;
+    //std::cout << "Constructor of Contact called" << std::endl;
     return ;
 }
 
 Contact::~Contact(void)
 {
-    std::cout << "Destructor of Contact called" << std::endl;
+    //std::cout << "Destructor of Contact called" << std::endl;
     return ;
 }
 
@@ -94,6 +94,9 @@ void	Contact::add_contact(int count)
     {
         std::cout << "Type Phone Number : ";
         std::getline(std::cin, str);
+        std::size_t found = str.find_first_not_of(" 0123456789");
+        if (found!=std::string::npos)
+            str = "";
     }
     if (!str.empty())
         this->PhoneNumber = str;
