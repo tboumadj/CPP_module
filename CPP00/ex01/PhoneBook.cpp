@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:09 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/07 16:10:15 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/08 17:43:28 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void    PhoneBook::welcome(void)
 	std::cout << "   | |                         | | " << std::endl;
 	std::cout << "   | |                         | | " << std::endl;
 	std::cout << "   | |                         | | " << std::endl;
-	std::cout << "   | |                         | | " << std::endl;
-	std::cout << "   | |                         | | " << std::endl;
-	std::cout << "   | |                         | | " << std::endl;
+	std::cout << "   | |   *add*                 | | " << std::endl;
+	std::cout << "   | |   *search*              | | " << std::endl;
+	std::cout << "   | |   *exit*                | | " << std::endl;
 	std::cout << "   | |                         | | " << std::endl;
 	std::cout << "   | |                         | | " << std::endl;
 	std::cout << "   | |                         | | " << std::endl;
@@ -119,6 +119,8 @@ void	PhoneBook::print_contact(void)
 {	
 	int i = 1;
 
+	if ( i > this->len)
+		std::cout << "Add Contact to search one.." << std::endl;
 	while (i <= this->len)
 	{
 		std::cout << " " << cnt[i].get_index();

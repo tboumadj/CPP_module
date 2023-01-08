@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:21:57 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/07 16:13:21 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/08 17:40:47 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,59 +58,61 @@ void	Contact::add_contact(int count)
 {
     std::string str;
 
-    while (str.empty() || !str.compare(" ") || !str.compare("  ")
-            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
-                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
+    while (str.empty())
     {
         std::cout << "Type First Name : ";
         std::getline(std::cin, str);
+        std::size_t found = str.find_first_of(" \t");
+        if (found!=std::string::npos)
+            str.clear();
     }
     if (!str.empty())
         this->FirstName = str;
-    str = "";
-    while (str.empty() || !str.compare(" ") || !str.compare("  ")
-            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
-                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
+    str.clear();
+    while (str.empty())
     {
         std::cout << "Type Last Name : ";
         std::getline(std::cin, str);
+        std::size_t found = str.find_first_of(" \t");
+        if (found!=std::string::npos)
+        str.clear();
     }
     if (!str.empty())
         this->LastName = str;
-    str = "";
-    while (str.empty() || !str.compare(" ") || !str.compare("  ")
-            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
-                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
+    str.clear();
+    while (str.empty())
     {
         std::cout << "Type NickName : ";
         std::getline(std::cin, str);
+        std::size_t found = str.find_first_of(" \t");
+        if (found!=std::string::npos)
+        str.clear();
     }
     if (!str.empty())
         this->NickName = str;
-    str = "";
-    while (str.empty() || !str.compare(" ") || !str.compare("  ")
-            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
-                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
+    str.clear();
+    while (str.empty())
     {
         std::cout << "Type Phone Number : ";
         std::getline(std::cin, str);
         std::size_t found = str.find_first_not_of(" 0123456789");
-        if (found!=std::string::npos)
-            str = "";
+        if (found!=std::string::npos || str.size() < 10 )
+            str.clear();
     }
     if (!str.empty())
         this->PhoneNumber = str;
-    str = "";
-    while (str.empty() || !str.compare(" ") || !str.compare("  ")
-            || !str.compare("   ") || !str.compare("    ") || !str.compare("     ")
-                || !str.compare("      ") || !str.compare("       ") || !str.compare("       ") || !str.compare("	"))
+    str.clear();
+    while (str.empty())
     {
         std::cout << "Type Darkest Secret : ";
         std::getline(std::cin, str);
+        std::size_t found = str.find_first_of(" \t");
+        if (found!=std::string::npos)
+        str.clear();
     }
     if (!str.empty())
         this->DarkestSecret = str;
-    str = "";
+    str.clear();
     this->index = count;
     return ;
 }
