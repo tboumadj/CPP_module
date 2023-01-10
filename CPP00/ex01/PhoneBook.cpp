@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:09 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/10 15:07:11 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:56:28 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	PhoneBook::entry_road(void)
 {
 	std::cout << "[PhoneBook] : ";
 	std::getline(std::cin, this->data);
-	if (data == "add")
+	if (data == "add" || data == "ADD")
 	{
 		if (count < 8)
 		{
@@ -74,11 +74,11 @@ void	PhoneBook::entry_road(void)
 		}
 		else
 			count = 1;
-		cnt[count].add_contact(count);
+		cnt[count-1].add_contact(count);
 	}
-	else if (data == "search")
+	else if (data == "search" || data == "SEARCH")
 		print_contact();
-	else if (data == "exit")
+	else if (data == "exit" || data == "EXIT")
 	{
 		std::cout << "       _______________________" << std::endl;
 		std::cout << "    .'.-----_____________-----.'." << std::endl;
@@ -115,51 +115,26 @@ void	PhoneBook::entry_road(void)
 	return ;
 }
 
-std::string	PhoneBook::ft_shinter(std::string str)
-{
-	if (str.size() > 10)
-	{
-		str.resize(9);
-		str.insert(9, ".");
-	}
-	return (str);
-}
-
 void	PhoneBook::print_contact(void)
 {	
-	int i = 1;
-	std::string temp;
+	int i = 0;
 
-	if ( i > this->len)
-		std::cout << "Add Contact to search one.." << std::endl;
-	while (i <= this->len)
+	if ( i + 1 > this->len)
 	{
-		std::cout << "|" << std::setw(10) << cnt[i].get_index();
-		temp = cnt[i].get_Fname();
-		if (cnt[i].FirstName.size() > 10)
-			temp = ft_shinter(cnt[i].FirstName);
-		std::cout << "|" << std::setw(10) << temp;
-		temp.clear();
-		temp = cnt[i].get_Lname();
-		if (cnt[i].LastName.size() > 10)
-			temp = ft_shinter(cnt[i].LastName);
-		std::cout << "|" << std::setw(10) << temp;
-		temp.clear();
-		temp = cnt[i].get_Nname();
-		if (cnt[i].NickName.size() > 10)
-			temp = ft_shinter(cnt[i].NickName);
-		std::cout << "|" << std::setw(10) << temp;
-		temp.clear();
-		temp = cnt[i].get_Pnum();
-		if (cnt[i].PhoneNumber.size() > 10)
-			temp = ft_shinter(cnt[i].PhoneNumber);
-		std::cout << "|" << std::setw(10) << temp;
-		temp.clear();
-		temp = cnt[i].get_Dsec();
-		if (cnt[i].DarkestSecret.size() > 10)
-			temp = ft_shinter(cnt[i].DarkestSecret);
-		std::cout << "|" << std::setw(10) << temp << std::endl;
-		temp.clear();
+		std::cout << "Add Contact to search one.." << std::endl;
+		return ;
+	}
+	std::cout << "*----------------------------------------------------------------------*" << std::endl;
+	std::cout << "|" << std::setw(11) << "|" << std::setw(12) << "|" << std::setw(12) << "|"
+	<< std::setw(12) << "|" << std::setw(12) << "|" << std::setw(12) << "|" << std::endl;
+	std::cout << "|" << std::setw(10) << "Index" << "| "
+	<< std::setw(10) << "First Name" << "| " << std::setw(10) << "Last Name"
+	<< "| " << std::setw(10) << "Nick Name" << "| " << std::setw(10) << "Phone Num."
+	<< "| " << std::setw(10) << "D. Secret" << "|" << std::endl;
+	std::cout << "|----------------------------------------------------------------------|" << std::endl;
+	while (i + 1 <= this->len)
+	{
+		cnt[i].print_search();
 		i++;
 	}
 	if (this->count > 0)
@@ -172,12 +147,12 @@ void	PhoneBook::print_contact(void)
 		size = std::stoi(data);
 		if (size > 0 && size < 9 && size <= this->len)
 		{
-			std::cout << " * Index *          [" << cnt[size].get_index() << "]" << std::endl;
-			std::cout << " * First Name *     [" << cnt[size].get_Fname() << "]" << std::endl;
-			std::cout << " * Last Name *      [" << cnt[size].get_Lname() << "]" << std::endl;
-			std::cout << " * Nick Name *      [" << cnt[size].get_Nname() << "]" << std::endl;
-			std::cout << " * Phone Number *   [" << cnt[size].get_Pnum() << "]" << std::endl;
-			std::cout << " * Darkest Secret * [" << cnt[size].get_Dsec() << "]" << std::endl;
+			std::cout << " * Index *          [" << cnt[size - 1].get_index() << "]" << std::endl;
+			std::cout << " * First Name *     [" << cnt[size - 1].get_Fname() << "]" << std::endl;
+			std::cout << " * Last Name *      [" << cnt[size - 1].get_Lname() << "]" << std::endl;
+			std::cout << " * Nick Name *      [" << cnt[size - 1].get_Nname() << "]" << std::endl;
+			std::cout << " * Phone Number *   [" << cnt[size - 1].get_Pnum() << "]" << std::endl;
+			std::cout << " * Darkest Secret * [" << cnt[size - 1].get_Dsec() << "]" << std::endl;
 		}
 		else
 			std::cout << "wrond index..." << std::endl;

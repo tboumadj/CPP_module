@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:07 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/10 14:45:33 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:00:33 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,14 @@ public :
 	PhoneBook(void);
 	~PhoneBook(void);
 
-	int				len;
-	int				count;
-	std::string		data;
 	void			entry_road(void);
 	void			print_contact(void);
-	std::string		ft_shinter(std::string str);
 
 private :
 
+	int				len;
+	int				count;
+	std::string		data;
 	Contact cnt[8];
 	void	welcome(void);
 };

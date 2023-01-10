@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:21:57 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/08 17:40:47 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:43:19 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,49 @@ void	Contact::add_contact(int count)
         this->DarkestSecret = str;
     str.clear();
     this->index = count;
+    return ;
+}
+
+std::string	Contact::ft_shinter(std::string str)
+{
+	if (str.size() > 10)
+	{
+		str.resize(9);
+		str.insert(9, ".");
+	}
+	return (str);
+}
+
+void    Contact::print_search(void)
+{
+    std::string temp;
+    
+	std::cout << "|" << std::setw(8) << "[" << this->get_index() << "]";
+	temp = this->get_Fname();
+	if (this->FirstName.size() > 10)
+		temp = ft_shinter(this->FirstName);
+	std::cout << "|" << std::setw(10) << temp;
+	temp.clear();
+	temp = this->get_Lname();
+	if (this->LastName.size() > 10)
+		temp = ft_shinter(this->LastName);
+	std::cout << " |" << std::setw(10) << temp;
+	temp.clear();
+	temp = this->get_Nname();
+	if (this->NickName.size() > 10)
+		temp = ft_shinter(this->NickName);
+	std::cout << " |" << std::setw(10) << temp;
+	temp.clear();
+	temp = this->get_Pnum();
+	if (this->PhoneNumber.size() > 10)
+		temp = ft_shinter(this->PhoneNumber);
+	std::cout << " |" << std::setw(10) << temp;
+	temp.clear();
+	temp = this->get_Dsec();
+	if (this->DarkestSecret.size() > 10)
+		temp = ft_shinter(this->DarkestSecret);
+	std::cout << " |" << std::setw(10) << temp << " |" << std::endl;
+	temp.clear();
+	std::cout << "*----------------------------------------------------------------------*" << std::endl;
     return ;
 }

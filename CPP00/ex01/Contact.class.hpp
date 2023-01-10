@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:07:53 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/10 14:37:10 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:44:06 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@ public :
     Contact(void);
     ~Contact(void);
 
-    std::string		FirstName;
-    std::string		LastName;
-    std::string		NickName;
-    std::string		PhoneNumber;
-    std::string		DarkestSecret;
-	int				index;
-
     void			add_contact(int count);
     std::string		get_Fname(void);
     std::string		get_Lname(void);
@@ -39,6 +32,17 @@ public :
     std::string		get_Pnum(void);
     std::string		get_Dsec(void);
 	int				get_index(void);
+    void            print_search(void);
+    std::string		ft_shinter(std::string str);
+
+private :
+
+    std::string		FirstName;
+    std::string		LastName;
+    std::string		NickName;
+    std::string		PhoneNumber;
+    std::string		DarkestSecret;
+	int				index;
 
 };
 
