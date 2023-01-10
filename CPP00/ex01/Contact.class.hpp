@@ -6,13 +6,14 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:07:53 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/06 15:21:37 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/10 14:37:10 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_H
 # define CONTACT_CLASS_H
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <cstdlib>
 #include <stdlib.h>

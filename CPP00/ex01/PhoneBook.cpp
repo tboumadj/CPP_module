@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:09 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/08 17:43:28 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:07:11 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,20 +115,51 @@ void	PhoneBook::entry_road(void)
 	return ;
 }
 
+std::string	PhoneBook::ft_shinter(std::string str)
+{
+	if (str.size() > 10)
+	{
+		str.resize(9);
+		str.insert(9, ".");
+	}
+	return (str);
+}
+
 void	PhoneBook::print_contact(void)
 {	
 	int i = 1;
+	std::string temp;
 
 	if ( i > this->len)
 		std::cout << "Add Contact to search one.." << std::endl;
 	while (i <= this->len)
 	{
-		std::cout << " " << cnt[i].get_index();
-		std::cout << " | [" << cnt[i].get_Fname() << "] ";
-		std::cout << "[" << cnt[i].get_Lname() << "] ";
-		std::cout << "[" << cnt[i].get_Nname() << "] ";
-		std::cout << "[" << cnt[i].get_Pnum() << "] ";
-		std::cout << "[" << cnt[i].get_Dsec() << "] " << std::endl;
+		std::cout << "|" << std::setw(10) << cnt[i].get_index();
+		temp = cnt[i].get_Fname();
+		if (cnt[i].FirstName.size() > 10)
+			temp = ft_shinter(cnt[i].FirstName);
+		std::cout << "|" << std::setw(10) << temp;
+		temp.clear();
+		temp = cnt[i].get_Lname();
+		if (cnt[i].LastName.size() > 10)
+			temp = ft_shinter(cnt[i].LastName);
+		std::cout << "|" << std::setw(10) << temp;
+		temp.clear();
+		temp = cnt[i].get_Nname();
+		if (cnt[i].NickName.size() > 10)
+			temp = ft_shinter(cnt[i].NickName);
+		std::cout << "|" << std::setw(10) << temp;
+		temp.clear();
+		temp = cnt[i].get_Pnum();
+		if (cnt[i].PhoneNumber.size() > 10)
+			temp = ft_shinter(cnt[i].PhoneNumber);
+		std::cout << "|" << std::setw(10) << temp;
+		temp.clear();
+		temp = cnt[i].get_Dsec();
+		if (cnt[i].DarkestSecret.size() > 10)
+			temp = ft_shinter(cnt[i].DarkestSecret);
+		std::cout << "|" << std::setw(10) << temp << std::endl;
+		temp.clear();
 		i++;
 	}
 	if (this->count > 0)
