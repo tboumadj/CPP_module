@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 05:21:57 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/01/10 16:43:19 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/11 12:45:26 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	Contact::add_contact(int count)
     {
         std::cout << "Type First Name : ";
         std::getline(std::cin, str);
+        if(std::cin.eof())
+		    exit (EXIT_SUCCESS) ;
         std::size_t found = str.find_first_of(" \t");
         if (found!=std::string::npos)
             str.clear();
@@ -73,6 +75,8 @@ void	Contact::add_contact(int count)
     {
         std::cout << "Type Last Name : ";
         std::getline(std::cin, str);
+        if(std::cin.eof())
+		    exit (EXIT_SUCCESS) ;
         std::size_t found = str.find_first_of(" \t");
         if (found!=std::string::npos)
         str.clear();
@@ -84,6 +88,8 @@ void	Contact::add_contact(int count)
     {
         std::cout << "Type NickName : ";
         std::getline(std::cin, str);
+        if(std::cin.eof())
+		    exit (EXIT_SUCCESS) ;
         std::size_t found = str.find_first_of(" \t");
         if (found!=std::string::npos)
         str.clear();
@@ -95,6 +101,8 @@ void	Contact::add_contact(int count)
     {
         std::cout << "Type Phone Number : ";
         std::getline(std::cin, str);
+        if(std::cin.eof())
+		    exit (EXIT_SUCCESS) ;
         std::size_t found = str.find_first_not_of(" 0123456789");
         if (found!=std::string::npos || str.size() < 10 )
             str.clear();
@@ -106,6 +114,8 @@ void	Contact::add_contact(int count)
     {
         std::cout << "Type Darkest Secret : ";
         std::getline(std::cin, str);
+        if(std::cin.eof())
+		    exit (EXIT_SUCCESS) ;
         std::size_t found = str.find_first_of(" \t");
         if (found!=std::string::npos)
         str.clear();

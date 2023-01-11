@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:07 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/10 17:00:33 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/11 11:59:13 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ private :
 	int				len;
 	int				count;
 	std::string		data;
-	Contact cnt[8];
-	void	welcome(void);
+	Contact 		cnt[8];
+	void			welcome(void);
 };
 
 #endif

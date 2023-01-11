@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 17:14:09 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/10 16:56:28 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:04:25 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void    PhoneBook::welcome(void)
 	std::cout << "   | |                         | | " << std::endl;
 	std::cout << "   | | 	       Welcome         | | " << std::endl;
 	std::cout << "   | | 		 to            | | " << std::endl;
-	std::cout << "   | | 	        your           | | " << std::endl;
+	std::cout << "   | | 	         My            | | " << std::endl;
 	std::cout << "   | | 	      PhoneBook        | | " << std::endl;
 	std::cout << "   | |                         | | " << std::endl;
 	std::cout << "   | |                         | | " << std::endl;
@@ -64,6 +64,8 @@ void	PhoneBook::entry_road(void)
 {
 	std::cout << "[PhoneBook] : ";
 	std::getline(std::cin, this->data);
+	if(std::cin.eof())
+		return ;
 	if (data == "add" || data == "ADD")
 	{
 		if (count < 8)
@@ -142,6 +144,8 @@ void	PhoneBook::print_contact(void)
 	int size = 0;
 	std::cout << "Enter the index : ";
 	std::getline(std::cin, this->data);
+	if(std::cin.eof())
+		return ;
 	try
 	{
 		size = std::stoi(data);
