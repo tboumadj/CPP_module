@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:41:20 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/22 11:50:46 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:44:04 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public  :
     Zombie(void);
     ~Zombie(void);
     
+    std::string		name;
 	void	entry_road(void);
 	void	announce(void);
 	void	randomChump(std::string name);
@@ -34,7 +35,6 @@ public  :
 private :
 
 	void	welcome(void);
-    std::string		name;
 
 };
 

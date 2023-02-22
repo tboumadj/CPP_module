@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/30 17:24:38 by tboumadj          #+#    #+#              #
-#    Updated: 2023/02/22 09:58:58 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/02/22 13:06:23 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CHECK			=	-fsanitize=address
 
 #PATH
 
-SRCS	=	main.cpp Zombie.cpp
+SRCS	=	main.cpp Zombie.cpp randomChump.cpp
 
 OBJS	=	$(SRCS:.cpp=.o)
 
