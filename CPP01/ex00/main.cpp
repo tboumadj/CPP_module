@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:38:59 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/22 13:09:07 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:47:10 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main()
 {
-	Zombie z;
+	Zombie z("");
 
 	z.entry_road();
 	return (0);

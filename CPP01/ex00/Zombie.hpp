@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:41:20 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/22 12:44:04 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:44:08 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class   Zombie
 
 public  :
 
-    Zombie(void);
+    Zombie(std::string name);
     ~Zombie(void);
     
     std::string		name;

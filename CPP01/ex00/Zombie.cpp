@@ -6,22 +6,25 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:44:29 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/22 13:12:20 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:00:45 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)
+Zombie::Zombie(std::string name)
 {
     std::cout << "Constructor of Zombie called" <<  std::endl;
+	this->name = name;
     this->welcome();
     return ;
 }
 
 Zombie::~Zombie(void)
 {
-    std::cout << this->name << " is dead..." << std::endl;
+	if (!this->name.empty())
+    	std::cout << this->name << " is dead..." << std::endl;
+	//delete(this);
     return ;
 }
 
@@ -58,9 +61,8 @@ void    Zombie::entry_road(void)
 		}
         else if (!data.empty())
     	{
-            this->name = data;
-			//newZombie(this->name);
-            std::cout << this->name << " : BraiiiiiiinnnzzzZ..." << std::endl;
+			Zombie *tmp = newZombie(data);
+			this->announce();
 			data.clear();
     	}
 	}
