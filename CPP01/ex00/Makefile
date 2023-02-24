@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/30 17:24:38 by tboumadj          #+#    #+#              #
-#    Updated: 2023/02/22 14:43:26 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/02/24 19:05:22 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ _GREEN  =   $'\x1b[32m
 
 $(NAME): $(OBJS)
 		@echo "$(_GREY)Compilation de Zombie en cours...$(_END)"
-		$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
+		$(CC) $(OBJS) $(FLAGS) -o $(NAME)
 		@echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 
 .SILENT : $(OBJS) $(NAME)
