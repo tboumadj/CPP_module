@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:57:06 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/27 18:22:59 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/28 10:38:39 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,7 @@ public	:
     ~Zombie(void);
 	
     void    annonce(void);
-
-private	:
-
 	std::string	name;
-	Zombie* newZombie(std::string str);
 	
 };
 
@@ -47,9 +43,10 @@ public	:
 	~Data(void);
 
 	void	welcome(void);
-	Zombie	scav[20];
+	//Zombie	scav[20];
 };
 
+Zombie* newZombie(std::string str);
 Zombie*	zombieHorde( int N, std::string name );
 
 #endif

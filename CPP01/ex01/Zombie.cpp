@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 20:57:27 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/27 18:22:38 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/28 10:37:46 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,4 @@ Zombie::~Zombie(void)
 void    Zombie::annonce(void)
 {
     std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
-
-Zombie* Zombie::newZombie(std::string str)
-{
-    Zombie *tmp;
-    tmp = new Zombie;
-    tmp->name = str;
-    return (tmp);
 }
