@@ -18,8 +18,6 @@
 #include <cstdlib>
 #include <stdlib.h>
 
-char *data_name[20];
-
 class   Zombie
 {
 
@@ -29,7 +27,9 @@ public	:
     ~Zombie(void);
 	
     void    annonce(void);
-	std::string	name;
+    void    setName(std::string str);
+	  std::string	name;
+    char  *data_name[20];
 	
 };
 

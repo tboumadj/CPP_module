@@ -33,7 +33,7 @@ _GREEN  =   $'\x1b[32m
 
 $(NAME): $(OBJS)
 		@echo "$(_GREY)Compilation de Zombie en cours...$(_END)"
-		$(CC) $(OBJS) $(FLAGS) -o $(NAME)
+		$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
 		@echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 
 .SILENT : $(OBJS) $(NAME)

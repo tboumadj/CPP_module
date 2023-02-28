@@ -22,24 +22,25 @@ Zombie* newZombie(std::string str)
 
 Zombie*		zombieHorde(int N, std::string name)
 {
-	Zombie *horde[N];
-	int	i;
+	Zombie *horde = new Zombie[N];
+	int	i = 0;
 	
 	while (i < N)
 	{
-		name = data_name[i];
-		horde[i] = newZombie(name);
-    horde[i]->annonce();
+		name = horde->data_name[i];
+    horde[i].setName(name);
+    horde[i].annonce();
 		i++;
+    name.clear();
 	}
-	return (*horde);
+	return (horde);
 }
 
 /*
 Zombie*		zombieHorde(int N, std::string name)
 {
 	Zombie *horde;
-	int	i;
+	int	i = 0;
 	
 	while (i < N)
 	{

@@ -36,23 +36,28 @@ int main(int argc, char **argv)
 	int	count = argc - 1;
 	int	i = 0;
 	int j = count;
+  Zombie  *horde;
+  Zombie z;
+  std::string buf;
 
 	std::cout << count << std::endl;
 	d.welcome();
 	//---------TEST-------//;
 	while (i < count)
 	{
-		data_name[i] = argv[i + 1];
+	z.data_name[i] = argv[i + 1];
 		i++;
 	}
 	i = 0;
 	while (i < count)
 	{
-		std::cout << data_name[i] << std::endl;
+    buf += z.data_name[i];
+    buf += ' ';
 		i++;
 	}
+  std::cout << buf << std::endl;
 	//--------------------//;
-	zombieHorde(count, "name");
+  horde = zombieHorde(count, buf);
 
     return (0);
 }
