@@ -42,18 +42,17 @@ int main(int argc, char **argv)
 	//---------TEST-------//;
 	while (i < count)
 	{
-		data[i] = argv[i + 1];
+		data_name[i] = argv[i + 1];
 		i++;
 	}
 	i = 0;
 	while (i < count)
 	{
-		std::cout << data[i] << std::endl;
+		std::cout << data_name[i] << std::endl;
 		i++;
 	}
 	//--------------------//;
 	zombieHorde(count, "name");
-	//announce();
 
     return (0);
 }

@@ -20,16 +20,34 @@ Zombie* newZombie(std::string str)
     return (tmp);
 }
 
-Zombie*		zombieHorde(int N, std::string name )
+Zombie*		zombieHorde(int N, std::string name)
 {
-	Zombie horde[N];
+	Zombie *horde[N];
 	int	i;
 	
-	while (i <= N)
+	while (i < N)
 	{
-		name = data[i];
+		name = data_name[i];
 		horde[i] = newZombie(name);
+    horde[i]->annonce();
+		i++;
+	}
+	return (*horde);
+}
+
+/*
+Zombie*		zombieHorde(int N, std::string name)
+{
+	Zombie *horde;
+	int	i;
+	
+	while (i < N)
+	{
+		name = data_name[i];
+		horde = newZombie(name);
+    horde->annonce();
 		i++;
 	}
 	return (horde);
 }
+*/

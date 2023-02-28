@@ -18,7 +18,7 @@
 #include <cstdlib>
 #include <stdlib.h>
 
-char *data[20];
+char *data_name[20];
 
 class   Zombie
 {
