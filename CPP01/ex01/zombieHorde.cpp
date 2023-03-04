@@ -21,9 +21,9 @@ Zombie*		Data::zombieHorde(int N, std::string name)
 	{
 		name = this->data_name[i];
     horde[i].setName(name);
-    horde[i].annonce();
+    horde[i].announce();
 		i++;
-    //name.clear();
+    name.clear();
 	}
 	return (horde);
 }

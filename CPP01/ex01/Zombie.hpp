@@ -26,11 +26,9 @@ public	:
     Zombie(void);
     ~Zombie(void);
 	
-    void    annonce(void);
-    void    setName(std::string str);
 	  std::string	name;
-    //char  *data_name[20];
-    
+    void  announce(void);
+    void  setName(std::string str);
 };
 
 
@@ -39,16 +37,14 @@ class	Data
 
 public	:
 
-	Data(void);
-	~Data(void);
+	  Data(void);
+	  ~Data(void);
 
-	void	welcome(void);
-  char  *data_name[20];
-  Zombie* zombieHorde(int N, std::string name);
-	//Zombie	scav[20];
+    void  welcome(void);
+    char  *data_name[20];
+    Zombie* zombieHorde(int N, std::string name);
 };
 
 Zombie* newZombie(std::string str);
-//Zombie*	zombieHorde( int N, std::string name );
 
 #endif
