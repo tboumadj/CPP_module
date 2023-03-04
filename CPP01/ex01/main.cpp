@@ -14,13 +14,13 @@
 
 Data::Data(void)
 {
-	std::cout<<"Constructor called!"<<std::endl;
+	std::cout<<"Constructor Data called!"<<std::endl;
 	return ;
 }
 
 Data::~Data(void)
 {
-	std::cout<<"Destructor called!"<<std::endl;
+	std::cout<<"Destructor Data called!"<<std::endl;
 	return ;
 }
 
@@ -37,27 +37,17 @@ int main(int argc, char **argv)
 	int	i = 0;
 	int j = count;
   Zombie  *horde;
-  Zombie z;
-  std::string buf;
 
 	std::cout << count << std::endl;
 	d.welcome();
 	//---------TEST-------//;
 	while (i < count)
 	{
-	z.data_name[i] = argv[i + 1];
+	  d.data_name[i] = argv[i + 1];
 		i++;
 	}
-	i = 0;
-	while (i < count)
-	{
-    buf += z.data_name[i];
-    buf += ' ';
-		i++;
-	}
-  std::cout << buf << std::endl;
 	//--------------------//;
-  horde = zombieHorde(count, buf);
+  horde = d.zombieHorde(count, "name");
 
     return (0);
 }

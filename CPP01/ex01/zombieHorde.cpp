@@ -12,43 +12,18 @@
 
 #include "Zombie.hpp"
 
-Zombie* newZombie(std::string str)
-{
-    Zombie *tmp;
-    tmp = new Zombie;
-    tmp->name = str;
-    return (tmp);
-}
-
-Zombie*		zombieHorde(int N, std::string name)
+Zombie*		Data::zombieHorde(int N, std::string name)
 {
 	Zombie *horde = new Zombie[N];
 	int	i = 0;
 	
 	while (i < N)
 	{
-		name = horde->data_name[i];
+		name = this->data_name[i];
     horde[i].setName(name);
     horde[i].annonce();
 		i++;
-    name.clear();
+    //name.clear();
 	}
 	return (horde);
 }
-
-/*
-Zombie*		zombieHorde(int N, std::string name)
-{
-	Zombie *horde;
-	int	i = 0;
-	
-	while (i < N)
-	{
-		name = data_name[i];
-		horde = newZombie(name);
-    horde->annonce();
-		i++;
-	}
-	return (horde);
-}
-*/

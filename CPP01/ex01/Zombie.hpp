@@ -29,8 +29,8 @@ public	:
     void    annonce(void);
     void    setName(std::string str);
 	  std::string	name;
-    char  *data_name[20];
-	
+    //char  *data_name[20];
+    
 };
 
 
@@ -43,10 +43,12 @@ public	:
 	~Data(void);
 
 	void	welcome(void);
+  char  *data_name[20];
+  Zombie* zombieHorde(int N, std::string name);
 	//Zombie	scav[20];
 };
 
 Zombie* newZombie(std::string str);
-Zombie*	zombieHorde( int N, std::string name );
+//Zombie*	zombieHorde( int N, std::string name );
 
 #endif
