@@ -23,7 +23,7 @@ _GREEN	=		$'\x1b[32m
 
 $(NAME):	$(OBJS)
 									@echo "$(_GREY)Compilation de Brain en cours...$(_END)"
-									$(CC) ($OBJS) $(FLAGS) -o $(NAME) $(CHECK)
+									$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
 									@echo "$(_GREEN)$(_BOLD)Fin de la compilatoin!$(_END)"
 
 .SILENT	: $(OBJS) $(NAME)
