@@ -16,22 +16,38 @@ Data::~Data(void)
   return ;
 }
 
-void  Data::road(void)
+void  Data::road_inf(void)
 {
-  std::ifstream ofs;
+  std::ifstream inf;
   std::string tmp;
   char  c;
 
-  ofs.open(this->_filename);
-  if (ofs.fail())
+  inf.open(this->_filename);
+  if (inf.fail())
   {
       std::cout << this->_filename << " does not exist" << std::endl;
       exit(0);
   }
-  while (!ofs.eof() && ofs >> std::noskipws >> c)
+  while (!inf.eof() && inf >> std::noskipws >> c)
     tmp += c;
   std::cout << std::endl;
   std::cout << tmp << std::endl;
-  ofs.close();
+  inf.close();
+  this->road_out(tmp);
+  return ;
+}
+
+void  Data::road_out(std::string text)
+{
+  std::ofstream outf;
+
+  outf.open("outfile.replace");
+  if (outf.fail())
+  {
+    std::cout << "error with outfile" << std::endl;
+    exit(0);
+  }
+  std::cout << "outfile is ok!" << std::endl;
+  (void)text;
   return ;
 }

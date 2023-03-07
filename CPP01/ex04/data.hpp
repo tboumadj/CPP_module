@@ -18,7 +18,8 @@ public:
     std::string _string1;
     std::string _string2;
 
-    void  road(void);
+    void  road_inf(void);
+    void  road_out(std::string text);
   
 };
 #endif
