@@ -48,6 +48,7 @@ void  Data::road_out(std::string text)
     exit(0);
   }
   std::cout << "outfile is ok!" << std::endl;
-  (void)text;
+  outf << text;
+  outf.close();
   return ;
 }
