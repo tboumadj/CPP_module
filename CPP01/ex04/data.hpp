@@ -17,6 +17,8 @@ public:
     std::string _filename;
     std::string _string1;
     std::string _string2;
+
+    void  road(void);
   
 };
 #endif

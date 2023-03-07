@@ -6,6 +6,7 @@ int main(int argc, char **argv)
   {
     //Data stock = Data(argv[1], argv[2], argv[3]);
     Data stock(argv[1], argv[2], argv[3]);
+    stock.road();
   }
   return (0);
 }
