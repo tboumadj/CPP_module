@@ -18,9 +18,20 @@ Data::~Data(void)
 
 void  Data::road(void)
 {
-  std::ofstream ofs;
+  std::ifstream ofs;
   std::string tmp;
-  ofs.open(this->_filename, std::ofstream::out | std::ofstream::app);
+  char  c;
+
+  ofs.open(this->_filename);
+  if (ofs.fail())
+  {
+      std::cout << this->_filename << " does not exist" << std::endl;
+      exit(0);
+  }
+  while (!ofs.eof() && ofs >> std::noskipws >> c)
+    tmp += c;
+  std::cout << std::endl;
+  std::cout << tmp << std::endl;
   ofs.close();
   return ;
 }
