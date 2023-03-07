@@ -20,6 +20,7 @@ public:
 
     void  road_inf(void);
     void  road_out(std::string text);
+    void  print_outf(void);
   
 };
 #endif
