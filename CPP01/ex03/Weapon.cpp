@@ -1,6 +1,6 @@
 #include "Weapon.hpp"
 
-Weapon::Weapon(void)
+Weapon::Weapon(std::string type): type(type)
 {
   std::cout << "constructor Weapon called!" << std::endl;
   return ;
@@ -12,14 +12,14 @@ Weapon::~Weapon(void)
   return ;
 }
 
-std::string   Weapon::getType(void)
+std::string&   Weapon::getType(void)
 {
-  std::string str = "TEST";
-  return (str);
+  return (this->type);
 }
 
-void  Weapon::setType(void)
+void  Weapon::setType(std::string param)
 {
+  this->type = param;
   return ;
 }
 

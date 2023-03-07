@@ -8,6 +8,12 @@ class  HumanB
 
     HumanB(std::string name);
     ~HumanB(void);
+   
+    std::string name;
+    Weapon  *weapon;
+
+    void  attack(void);
+    void  setWeapon(Weapon &nweapon);
 
   private :
 
