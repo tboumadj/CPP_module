@@ -13,7 +13,7 @@ OBJS		=		$(SRCS:.cpp=.o)
 
 #COLORS
 
-_GREY		=		$'\x1b[30m
+_GREY		=		$'\x1b[33m
 _GREEN	=		$'\x1b[32m
 
 ##
