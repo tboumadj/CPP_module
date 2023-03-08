@@ -8,5 +8,9 @@ int main(int argc, char **argv)
     stock.road_inf();
     stock.print_outf();
   }
+  else
+  {
+	  std::cout << "Wrong arguments" << std::endl << "PLS type *filename* + *string_to_find* + *string_to_replace*" << std::endl;
+  }
   return (0);
 }

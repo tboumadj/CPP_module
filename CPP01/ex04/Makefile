@@ -13,7 +13,7 @@ OBJS		=		$(SRCS:.cpp=.o)
 
 #COLORS
 
-_GREY		=		$'\x1b[30m
+_GREY		=		$'\x1b[33m
 _GREEN	=		$'\x1b[32m
 
 ##
@@ -22,7 +22,7 @@ _GREEN	=		$'\x1b[32m
 								@$(CC) $(FLAGS) -c $< -o $(<:cpp=o) $@
 
 $(NAME):	$(OBJS)
-									@echo "$(_GREY)Compilation de Violence en cours...$(_END)"
+									@echo "$(_GREY)Compilation de Sed en cours...$(_END)"
 									$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
 									@echo "$(_GREEN)$(_BOLD)Fin de la compilatoin!$(_END)"
 
