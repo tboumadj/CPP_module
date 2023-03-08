@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/30 17:24:38 by tboumadj          #+#    #+#              #
-#    Updated: 2023/02/24 19:05:22 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/03/08 13:32:53 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS	=	main.cpp Zombie.cpp randomChump.cpp newZombie.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 
 #COLORS
-_GREY    =   $'\x1b[30m
+_GREY    =   $'\x1b[33m
 _GREEN  =   $'\x1b[32m
 
 ##
