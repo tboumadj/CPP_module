@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 19:25:51 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/27 18:17:33 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:32:08 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,23 @@ void    Data::welcome(void)
 
 int main(int argc, char **argv)
 {
-	Data	d;
-	int	count = argc - 1;
-	int	i = 0;
-  Zombie  *horde;
-
-	d.welcome();
-	while (i < count)
+	if (argc > 1)
 	{
-	  d.data_name[i] = argv[i + 1];
-		i++;
+		Data	d;
+		int	count = argc - 1;
+		int	i = 0;
+  		Zombie  *horde;
+
+		d.welcome();
+		while (i < count)
+		{
+	  		d.data_name[i] = argv[i + 1];
+			i++;
+		}
+  		horde = d.zombieHorde(count, "name");
+  		delete []horde;
 	}
-  horde = d.zombieHorde(count, "name");
-  delete []horde; 
+	else
+		std::cout << "PLS type name for your Horde" << std::endl << "Ex: *name* + *name* + *name* ..." << std::endl;	
   return (0);
 }
