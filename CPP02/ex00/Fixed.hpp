@@ -11,6 +11,7 @@ class	Fixed
 public:
 
 	Fixed(void);
+	Fixed(const Fixed&);
 	~Fixed(void);
 
 private:
