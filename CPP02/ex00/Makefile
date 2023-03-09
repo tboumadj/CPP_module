@@ -8,7 +8,7 @@ CHECK		=		-fsanitize=address
 
 #PATH
 
-SRCS		=		main.cpp
+SRCS		=		main.cpp Fixed.cpp
 OBJS		=		$(SRCS:.cpp=.o)
 
 #COLORS

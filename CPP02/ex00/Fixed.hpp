@@ -11,10 +11,17 @@ class	Fixed
 public:
 
 	Fixed(void);
-	Fixed(const Fixed&);
+	Fixed(const Fixed &n);
+	Fixed & operator = (const Fixed &n);
 	~Fixed(void);
 
+	int	getRawBits(void) const;
+	void	setRawBits(int const raw);
+
 private:
+
+	int	_num;
+	int const static _numstat = 8;
 
 };
 
