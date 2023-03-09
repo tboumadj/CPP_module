@@ -42,9 +42,18 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	std::string count[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-   	void	(Harl::*f[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string count[4];
+   	void	(Harl::*f[4])(void);
 	int i = 0;
+	count[0] = "DEBUG";
+	count[1] = "INFO";
+	count[2] = "WARNING";
+	count[3] = "ERROR";
+
+	f[0] = &Harl::debug;
+	f[1] = &Harl::info;
+	f[2] = &Harl::warning;
+	f[3] = &Harl::error;
 
 	while (i < 4)
 	{
