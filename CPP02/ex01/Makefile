@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/09 19:11:05 by tboumadj@student  #+#    #+#              #
-#    Updated: 2023/03/09 19:11:11 by tboumadj@student ###   ########.fr        #
+#    Created: 2023/03/09 19:11:41 by tboumadj@student  #+#    #+#              #
+#    Updated: 2023/03/09 19:11:42 by tboumadj@student ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #FLAG
 
-NAME		=		Canon
+NAME		=		First
 CC			=		g++
 FLAGS		=		-Wall -Wextra -Werror -std=c++98
 RM			=		rm -f
