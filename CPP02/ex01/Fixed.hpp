@@ -6,13 +6,14 @@
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:11:50 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/03/11 18:12:13 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/11 19:24:40 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 #include <iostream>
+#include <ostream>
 #include <string>
 #include <cstdlib>
 #include <stdlib.h>
