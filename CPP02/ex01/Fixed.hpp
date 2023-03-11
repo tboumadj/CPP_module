@@ -6,7 +6,7 @@
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:11:50 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/03/11 18:03:02 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:12:13 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <cstdlib>
 #include <stdlib.h>
+#include <cmath>
 
 class	Fixed
 {
@@ -24,11 +25,12 @@ public:
 
 	Fixed(void);
 	Fixed(const Fixed &n);
+  Fixed(const bool &f);
 	Fixed & operator = (const Fixed &n);
 	~Fixed(void);
 
 	int	getRawBits(void) const;
-	void	setRawBits(int const raw);
+//	void	setRawBits(int const raw);
   float toFloat(void) const;
   int   toInt(void) const;
 

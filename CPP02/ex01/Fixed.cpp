@@ -6,7 +6,7 @@
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:11:57 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/03/11 17:57:14 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/11 18:11:14 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@ Fixed::Fixed(const Fixed &n)
   std::cout << "*Recopy constructor of fixed called!*" << std::endl;
   *this = n;
   return;
+}
+
+Fixed::Fixed(const bool &f)
+{
+  std::cout << "*Recopy constructor float of Fixed called!*" << std::endl;
+  *this = f;
+  return ;
 }
 
 Fixed &Fixed::operator=(const Fixed &n) 
@@ -44,11 +51,11 @@ int Fixed::getRawBits(void) const
   return (this->_num);
 }
 
-void Fixed::setRawBits(int const raw) 
-{
-  this->_num = raw;
-  return;
-}
+//void Fixed::setRawBits(int const raw) 
+//{
+//  this->_num = raw;
+//  return;
+//}
 
 float Fixed::toFloat(void) const
 {
