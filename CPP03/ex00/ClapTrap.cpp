@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:53:17 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/14 15:31:47 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:38:48 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,26 @@ void  ClapTrap::takeDamage(unsigned int amount)
 {
   if ( this->_hit < amount)
     this->_hit = 0;
-  else if (this->_hit > amount)
+  else if (this->_hit > amount && this->_nrj > 0)
   {
     this->_hit -= amount;
+    this->_nrj--;
     std::cout << "*ClapTrap* " << this->_name << " take " << amount << " damage" << std::endl;
     return ;
   }
-  std::cout << "*ClapTrap* " << this->_name << " is dead!" << std::endl;
+  if (this->_nrj == 0)
+    std::cout << "*ClapTrap* " << this->_name << " energy is void" << std::endl;
+  else
+    std::cout << "*ClapTrap* " << this->_name << " is dead!" << std::endl;
   return ;
 }
 
 void  ClapTrap::beRepaired(unsigned int amount)
 {
-  if (this->_hit != 0)
+  if (this->_hit != 0 && this->_nrj > 0)
   {
     this->_hit += amount;
+    this->_nrj--;
     std::cout << "*ClapTrap* " << this->_name << " healing " << amount << " of life!" << std::endl;
   }
   else
