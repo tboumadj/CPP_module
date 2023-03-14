@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:53:19 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/14 13:19:21 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:59:56 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class ClapTrap
 {
 public:
+  ClapTrap();
   ClapTrap(std::string str);
   ~ClapTrap();
   ClapTrap(const ClapTrap &co);
