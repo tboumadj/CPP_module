@@ -6,14 +6,14 @@
 #    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 19:11:41 by tboumadj@student  #+#    #+#              #
-#    Updated: 2023/03/09 19:11:42 by tboumadj@student ###   ########.fr        #
+#    Updated: 2023/03/14 10:10:11 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #FLAG
 
 NAME		=		First
-CC			=		g++
+CC			=		c++
 FLAGS		=		-Wall -Wextra -Werror -std=c++98
 RM			=		rm -f
 CHECK		=		-fsanitize=address

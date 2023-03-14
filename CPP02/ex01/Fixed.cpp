@@ -6,7 +6,7 @@
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:11:57 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/03/11 18:11:14 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:26:54 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ Fixed::~Fixed(void)
 {
   std::cout << "*Destructor of Fixed called!*" << std::endl;
   return;
+}
+
+std::ostream &operator<<(std::ostream &os, const Fixed &nbr)
+{
+  return (os << nbr.toFloat());
 }
 
 int Fixed::getRawBits(void) const 
