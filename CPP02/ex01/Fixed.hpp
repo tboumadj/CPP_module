@@ -25,13 +25,14 @@ class	Fixed
 public:
 
 	Fixed(void);
-	Fixed(const Fixed &n);
-  Fixed(const bool &f);
-	Fixed & operator = (const Fixed &n);
+  Fixed(const int ni);
+  Fixed(const float f);
+  Fixed(const Fixed &co);
 	~Fixed(void);
+  Fixed & operator = (const Fixed &n);
 
 	int	getRawBits(void) const;
-//	void	setRawBits(int const raw);
+	void	setRawBits(int const raw);
   float toFloat(void) const;
   int   toInt(void) const;
 

@@ -18,16 +18,23 @@ Fixed::Fixed(void) : _num(0)
   return;
 }
 
-Fixed::Fixed(const Fixed &n) 
+Fixed::Fixed(const Fixed &co) 
 {
   std::cout << "*Recopy constructor of fixed called!*" << std::endl;
-  *this = n;
+  *this = co;
   return;
 }
 
-Fixed::Fixed(const bool &f)
+Fixed::Fixed(const int ni)
 {
-  std::cout << "*Recopy constructor float of Fixed called!*" << std::endl;
+  std::cout << "*Constructor int of Fixed called!*" << std::endl;
+  *this = ni;
+  return ;
+}
+
+Fixed::Fixed(const float f)
+{
+  std::cout << "*constructor float of Fixed called!*" << std::endl;
   *this = f;
   return ;
 }
@@ -51,11 +58,11 @@ int Fixed::getRawBits(void) const
   return (this->_num);
 }
 
-//void Fixed::setRawBits(int const raw) 
-//{
-//  this->_num = raw;
-//  return;
-//}
+void Fixed::setRawBits(int const raw) 
+{
+  this->_num = raw;
+  return;
+}
 
 float Fixed::toFloat(void) const
 {
