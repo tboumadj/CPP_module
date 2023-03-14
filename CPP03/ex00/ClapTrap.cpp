@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:53:17 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/14 12:08:12 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:38:14 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,37 @@ ClapTrap::~ClapTrap()
   return ;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &co)
+{
+  std::cout << "*Recopy constructor called!*" << std::endl;
+  *this = co;
+  return ;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &co)
+{
+  std::cout << "*Assignement operator called!*" << std::endl;
+  this->_name = co._name;
+  this->_hit = co._hit;
+  this->_nrj = co._nrj;
+  this->_atk = co._atk;
+  return(*this);
+}
+
 void  ClapTrap::attack(const std::string &target)
 {
+  std::cout << "ClapTrap " << this->_name << " attacks " << "(TARGET)" << " , " << "causing " << this->_atk << " points of damage!" << std::endl;
   return ;
 }
 
 void  ClapTrap::takeDamage(unsigned int amount)
 {
+  std::cout << "ClapTrap " << this->_name << " take damage" << std::endl;  
   return ;
 }
 
 void  ClapTrap::beRepaired(unsigned int amount)
 {
+  std::cout << "ClapTrap " << this->_name << " healing nmr de vie" << std::endl;
   return ;
 }

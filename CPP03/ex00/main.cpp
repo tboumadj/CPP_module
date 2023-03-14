@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:53:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/14 12:10:56 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/14 13:31:15 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 int main()
 {
   ClapTrap c("Killa");
+  ClapTrap b(c);
   return (0);
 }
