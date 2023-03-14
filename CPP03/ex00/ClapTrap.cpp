@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:53:17 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/14 14:19:18 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:31:47 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,38 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &co)
 
 void  ClapTrap::attack(const std::string &target)
 {
-  std::cout << "*ClapTrap* " << this->_name << " attacks " << target << ", causing " << this->_atk << " points of damage!" << std::endl;
+  if (this->_nrj > 0 && this->_hit > 0)
+  {
+    std::cout << "*ClapTrap* " << this->_name << " attacks " << target << ", causing " << this->_atk << " points of damage!" << std::endl;
+    this->_nrj--;
+  }
+  else
+    std::cout << "*ClapTrap* " << this->_name << " No more life or energy" << std::endl;
   return ;
 }
 
 void  ClapTrap::takeDamage(unsigned int amount)
 {
-  std::cout << "*ClapTrap* " << this->_name << " take damage" << std::endl;  
+  if ( this->_hit < amount)
+    this->_hit = 0;
+  else if (this->_hit > amount)
+  {
+    this->_hit -= amount;
+    std::cout << "*ClapTrap* " << this->_name << " take " << amount << " damage" << std::endl;
+    return ;
+  }
+  std::cout << "*ClapTrap* " << this->_name << " is dead!" << std::endl;
   return ;
 }
 
 void  ClapTrap::beRepaired(unsigned int amount)
 {
-  std::cout << "*ClapTrap* " << this->_name << " healing nmr de vie" << std::endl;
+  if (this->_hit != 0)
+  {
+    this->_hit += amount;
+    std::cout << "*ClapTrap* " << this->_name << " healing " << amount << " of life!" << std::endl;
+  }
+  else
+    std::cout << "*ClapTrap* " << this->_name << " is already dead cannot be heal!" << std::endl;
   return ;
 }
