@@ -54,8 +54,10 @@ void  ClapTrap::attack(const std::string &target)
     std::cout << "*ClapTrap* " << this->_name << " attacks " << target << ", causing " << this->_atk << " points of damage!" << std::endl;
     this->_nrj--;
   }
+  else if (this->_nrj == 0)
+    std::cout << "*ClapTrap* " << this->_name << " No more energy..." << std::endl;
   else
-    std::cout << "*ClapTrap* " << this->_name << " No more life or energy" << std::endl;
+    std::cout << "*ClapTrap* " << this->_name << " is already dead..." << std::endl;
   return ;
 }
 

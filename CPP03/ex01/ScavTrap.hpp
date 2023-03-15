@@ -16,6 +16,8 @@ public:
 
 private:
 
+  unsigned int _guardmode;
+
 };
 
 #endif
