@@ -2,7 +2,7 @@
 # define SCAVTRAP_HPP
 #include "ClapTrap.hpp"
 
-class ScavTrap
+class ScavTrap: public ClapTrap
 {
 public:
   ScavTrap();
@@ -12,15 +12,9 @@ public:
   ScavTrap &operator=(const ScavTrap &co);
   
   void  attack(const std::string &target);
-  void  takeDamage(unsigned int amount);
-  void  beRepaired(unsigned int amount);
+  void  guardGate();
 
 private:
-
-  std::string   _name;
-  unsigned int  _hit;
-  unsigned int  _nrj;
-  unsigned int  _atk;
 
 };
 
