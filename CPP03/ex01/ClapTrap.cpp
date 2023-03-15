@@ -14,36 +14,36 @@
 
 ClapTrap::ClapTrap(): _name(""), _hit(10), _nrj(10), _atk(0)
 {
-  std::cout << "*Constructor default called!*" << std::endl;
+  std::cout << "*Constructor default ClapTrap called!*" << std::endl;
   return ;
 }
 
 ClapTrap::ClapTrap(std::string str): _name(str), _hit(10), _nrj(10), _atk(0)
 {
-  std::cout << "*Constructor of " << this->_name << " called!*" << std::endl;
+  std::cout << "*Constructor Clap of " << this->_name << " called!*" << std::endl;
   return ;
 }
 
 ClapTrap::~ClapTrap()
 {
-  std::cout << "*Destructor of " << this->_name << " called!*" << std::endl;
+  std::cout << "*Destructor Clap of " << this->_name << " called!*" << std::endl;
   return ;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &co)
 {
   *this = co;
-  std::cout << "*Recopy constructor called!* Welcome to " << this->_name << std::endl;
+  std::cout << "*Recopy Clap constructor called!* Welcome to " << this->_name << std::endl;
   return ;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &co)
 {
-  this->_name = co._name + "Clone";
+  this->_name = co._name + "ClapClone";
   this->_hit = co._hit;
   this->_nrj = co._nrj;
   this->_atk = co._atk;
-  std::cout << "*Assignement operator called!*" << std::endl;
+  std::cout << "*Assignement Clap operator called!*" << std::endl;
   return(*this);
 }
 

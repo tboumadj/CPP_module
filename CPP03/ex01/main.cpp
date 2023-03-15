@@ -10,25 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-  ClapTrap a("Killa");
-  ClapTrap b(a);
-  //ClapTrap c;
- // c = a;
-  int i = 0;
+  //ClapTrap a("Killa");
+  ScavTrap b("Tagilla");
+  //int i = 0;
 
-  while (i++ < 12)
-  {
-    a.attack("PMC");
-    a.takeDamage(6);
-    a.beRepaired(4);
-    b.attack("SCAV");
-    b.beRepaired(2);
-    b.takeDamage(6);
-    //c.attack("Robot");
-  }
+  //while (i++ < 12)
+  //{
+    //a.attack("PMC");
+    //b.attack("Scav");
+  //}
   return (0);
 }
