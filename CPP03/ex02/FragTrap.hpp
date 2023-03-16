@@ -10,11 +10,8 @@ public:
   ~FragTrap();
   FragTrap(const FragTrap &co);
   FragTrap &operator=(const FragTrap &co);
-
-private:
-  
-  unsigned int _high;
   void  highFivesGuys(void);
+
 };
 
 #endif
