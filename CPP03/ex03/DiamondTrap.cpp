@@ -6,19 +6,19 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:45:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/16 14:45:48 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:56:10 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 #include "FragTrap.hpp"
 
-DiamondTrap::DiamondTrap(): ClapTrap()
+DiamondTrap::DiamondTrap(): FragTrap(), ScavTrap()
 {
   std::cout << "*Constructor default DiamondTrap called!*" << std::endl;
   this->_hit = FragTrap::_hit;
-  this->_nrj = ScavTrap::_nrj;
-  this->_atk = FragTrap::_atk;
+  //this->_nrj = ScavTrap::_nrj;
+  //this->_atk = FragTrap::_atk;
   return ;
 }
 

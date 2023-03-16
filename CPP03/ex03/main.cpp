@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:53:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/16 13:55:33 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:50:38 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
   ClapTrap a("Tagilla");
   ScavTrap b("Killa");
   FragTrap c("Shturmann");
-  DiamondTrap d("Gluhar");
+  DiamondTrap d("Glukhar");
   d.whoAmi();  
   //int i = 0;
 
