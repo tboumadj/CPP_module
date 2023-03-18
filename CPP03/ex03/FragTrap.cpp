@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
-#include "ScavTrap.hpp"
 
 FragTrap::FragTrap(): ClapTrap()
 {
   std::cout << "*Constructor default FragTrap called!*" << std::endl;
-  this->_name = "";
+  this->_name = "None_FT";
   this->_hit = 100;
   this->_nrj = 100;
   this->_atk = 30;

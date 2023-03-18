@@ -12,7 +12,7 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name(""), _hit(10), _nrj(10), _atk(0)
+ClapTrap::ClapTrap(): _name("None_CT"), _hit(10), _nrj(10), _atk(0)
 {
   std::cout << "*Constructor default ClapTrap called!*" << std::endl;
   return ;

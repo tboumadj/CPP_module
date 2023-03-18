@@ -14,11 +14,18 @@
 
 int main()
 {
-  ClapTrap a("Tagilla");
-  ScavTrap b("Killa");
-  FragTrap c("Shturmann");
-  DiamondTrap d("Glukhar");
-  d.whoAmi();  
+  //ClapTrap a("Tagilla");
+  //ScavTrap b("Killa");
+  //FragTrap c("Shturmann");
+  DiamondTrap d;
+  DiamondTrap e("Glukhar");
+  DiamondTrap f(e);
+  d.attack("PMC");
+  d.whoAmi();
+  e.attack("SCAV");
+  e.whoAmi();
+  f.whoAmi();
+  f.attack("WALL");
   //int i = 0;
 
   //Test1

@@ -11,12 +11,11 @@
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
   std::cout << "*Constructor default ScavTrap called!*" << std::endl;
-  this->_name = "";
+  this->_name = "None_ST";
   this->_hit = 100;
   this->_nrj = 50;
   this->_atk = 20;
