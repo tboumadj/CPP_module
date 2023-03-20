@@ -6,12 +6,13 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 11:45:03 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/16 16:54:39 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:14:17 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
+#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
@@ -26,6 +27,7 @@ public:
 
   void  whoAmi();
   void  attack(const std::string &target);
+  void  print();
 
   private:
 

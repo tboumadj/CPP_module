@@ -6,20 +6,28 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 11:53:17 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/16 11:45:51 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:41:42 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name("None_CT"), _hit(10), _nrj(10), _atk(0)
+ClapTrap::ClapTrap()//: _name("None_CT"), _hit(10), _nrj(10), _atk(0)
 {
+  this->_name = "None_CT";
+  this->_hit = 10;
+  this->_nrj = 10;
+  this->_atk = 0;
   std::cout << "*Constructor default ClapTrap called!*" << std::endl;
   return ;
 }
 
-ClapTrap::ClapTrap(std::string str): _name(str), _hit(10), _nrj(10), _atk(0)
+ClapTrap::ClapTrap(std::string str)//: _name(str), _hit(10), _nrj(10), _atk(0)
 {
+  this->_name = str;
+  this->_hit = 10;
+  this->_nrj = 10;
+  this->_atk = 0;
   std::cout << "*Constructor Clap of " << this->_name << " called!*" << std::endl;
   return ;
 }
