@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:43:22 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/21 17:39:59 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:14:04 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ public:
     virtual ~Cat();
     Cat(const Cat &co);
     Cat &operator=(const Cat &co);
+
+    virtual void makeSound();
 };
 
 #endif

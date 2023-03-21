@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:42:59 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/21 17:45:21 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:14:08 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ public:
     virtual ~Dog();
     Dog(const Dog &co);
     Dog &operator=(const Dog &co);
+
+    virtual void  makeSound();
   };
 #endif

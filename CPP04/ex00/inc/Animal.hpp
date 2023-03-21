@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:58:24 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/21 17:36:46 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:54:41 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ public:
     ~Animal();
     Animal(const Animal &co);
     Animal &operator=(const Animal &co);
+
+    virtual void  makeSound(void);
 
 protected:
 
