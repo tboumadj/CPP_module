@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:58:24 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/21 19:54:41 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:48:16 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,32 @@ class Animal
 public:
     Animal();
     Animal(std::string str);
-    ~Animal();
+    virtual ~Animal();
     Animal(const Animal &co);
     Animal &operator=(const Animal &co);
 
-    virtual void  makeSound(void);
+    virtual void  makeSound(void) const;
+    virtual std::string  getType() const;
 
 protected:
 
   std::string _type;
 };
 
+class WrongAnimal
+{
+public:
+    WrongAnimal();
+    WrongAnimal(std::string str);
+    virtual ~WrongAnimal();
+    WrongAnimal(const WrongAnimal &co);
+    WrongAnimal &operator=(const WrongAnimal &co);
+
+    void makeSound(void) const;
+    virtual std::string getType() const;
+
+protected:
+
+std::string _wrongtype;
+};
 #endif

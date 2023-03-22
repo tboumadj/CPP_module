@@ -6,11 +6,12 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:45:15 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/21 20:13:50 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/22 14:20:49 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Dog.hpp"
+#include <string>
 
 Dog::Dog(): Animal()
 {
@@ -42,9 +43,13 @@ Dog &Dog::operator=(const Dog &co)
   return (*this);
 }
 
-void  Dog::makeSound()
+void  Dog::makeSound() const
 {
   std::cout << this->_type << " Bark!" << std::endl;
   return ;
 }
 
+std::string Dog::getType() const
+{
+  return (this->_type);
+}
