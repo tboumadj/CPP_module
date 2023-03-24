@@ -6,13 +6,13 @@
 #    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 19:11:41 by tboumadj@student  #+#    #+#              #
-#    Updated: 2023/03/24 15:07:57 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/03/24 16:43:47 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #FLAG
 
-NAME		=		Brain
+NAME		=		Abstract
 CC			=		c++
 FLAGS		=		-Wall -Wextra -Werror -std=c++98
 RM			=		rm -f
@@ -35,7 +35,7 @@ _GREEN	=		$'\x1b[32m
 								@$(CC) $(FLAGS) -c $< -o $(<:cpp=o) $@
 
 $(NAME):	$(OBJS)
-									@echo "$(_GREY)Compilation de Poly en cours...$(_END)"
+									@echo "$(_GREY)Compilation de Abstract en cours...$(_END)"
 									$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
 									@echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 
