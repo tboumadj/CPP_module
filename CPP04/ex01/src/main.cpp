@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 15:56:24 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/24 16:22:09 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/28 07:56:07 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int main()
   //TEST2
   int i = 0;
   const Animal* j[20];
-  std::string str = "Clebs";
-  std::string str2 = "Gat";
+  std::string str = "Dog";
+  std::string str2 = "Cat";
 
   while (i <= 20)
   {
@@ -38,7 +38,7 @@ int main()
     i++;
   }
   i--;
-  while (i > 0)
+  while (i >= 0)
   {
     delete j[i];
     i--;

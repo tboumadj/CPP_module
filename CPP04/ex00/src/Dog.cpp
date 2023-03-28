@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:45:15 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/22 14:20:49 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/28 07:10:37 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ Dog::Dog(): Animal()
 
 Dog::Dog(std::string str): Animal(str)
 {
-  std::cout << "*Constructor of Dog " << this->_type << " called!*" << std::endl;
+  std::cout << "*Constructor of Dog named " << this->_type << " called!*" << std::endl;
   return ;
 }
 
 Dog::~Dog()
 {
-  std::cout << "*Destructor of Dog " << this->_type << " called!*" << std::endl;
+  std::cout << "*Destructor of Dog named " << this->_type << " called!*" << std::endl;
   return ;
 }
 

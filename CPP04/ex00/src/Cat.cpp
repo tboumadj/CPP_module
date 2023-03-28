@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:45:16 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/03/22 14:44:31 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/28 07:10:46 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ Cat::Cat(): Animal()
 
 Cat::Cat(std::string str): Animal(str)
 {
-  std::cout << "*Constructor of Cat " << this->_type << " called!*" << std::endl;
+  std::cout << "*Constructor of Cat named " << this->_type << " called!*" << std::endl;
   return ;
 }
 
 Cat::~Cat()
 {
-  std::cout << "*Destructor of Cat " << this->_type << " called!*" << std::endl;
+  std::cout << "*Destructor of Cat named " << this->_type << " called!*" << std::endl;
   return ;
 }
 
