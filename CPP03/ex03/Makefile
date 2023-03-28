@@ -6,7 +6,7 @@
 #    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 19:11:41 by tboumadj@student  #+#    #+#              #
-#    Updated: 2023/03/16 11:45:16 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/03/28 08:47:46 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,9 @@ CHECK		=		-fsanitize=address
 
 #PATH
 
-SRCS		=		main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRCS		=		src/main.cpp src/ClapTrap.cpp src/ScavTrap.cpp src/FragTrap.cpp src/DiamondTrap.cpp
 OBJS		=		$(SRCS:.cpp=.o)
+HEADER	=		inc/ClapTrap.hpp
 
 #COLORS
 
@@ -36,7 +37,7 @@ _GREEN	=		$'\x1b[32m
 $(NAME):	$(OBJS)
 									@echo "$(_GREY)Compilation de DiamondTrap en cours...$(_END)"
 									$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
-									@echo "$(_GREEN)$(_BOLD)Fin de la compilatoin!$(_END)"
+									@echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 
 .SILENT	: $(OBJS) $(NAME)
 
