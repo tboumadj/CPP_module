@@ -6,7 +6,7 @@
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:11:50 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/03/14 10:49:06 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/31 19:01:19 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <cstdlib>
 #include <stdlib.h>
 #include <cmath>
+#include <math.h>
 
 class	Fixed
 {

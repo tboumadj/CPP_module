@@ -6,7 +6,7 @@
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:11:57 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/03/28 09:14:22 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/03/31 19:12:13 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 Fixed::Fixed(void) : _num(0) 
 {
   std::cout << "*Constructor of Fixed called!*" << std::endl;
-  return;
+  return ;
 }
 
 Fixed::Fixed(const Fixed &co) 
 {
   std::cout << "*Recopy constructor of fixed called!*" << std::endl;
   *this = co;
-  return;
+  return ;
 }
 
 Fixed::Fixed(const int ni)
 {
   std::cout << "*Constructor int of Fixed called!*" << std::endl;
-  *this = ni;
+  this->_num = ni << this->_numint;
   return ;
 }
 
 Fixed::Fixed(const float f)
 {
   std::cout << "*constructor float of Fixed called!*" << std::endl;
-  *this = f;
+  this->_num = roundf(f * (1 << this->_numint));
   return ;
 }
 
@@ -71,13 +71,11 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-  float t;//test
-  return(t);
+  return((float)this->_num / (float)(1 << this->_numint));
 }
 
 int Fixed::toInt(void) const
 {
-  int t = 0;//test
-  return (t);
+  return (this->_num >> this->_numint);
 }
 
