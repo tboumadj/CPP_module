@@ -6,7 +6,7 @@
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:11:50 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/03/31 19:01:19 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/01 07:13:23 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public:
 private:
 
 	int	_num;
-  const static int _numint = 8;
+  const static int _rawbits = 8;
 
 };
 

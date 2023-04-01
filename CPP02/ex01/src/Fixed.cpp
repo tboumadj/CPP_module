@@ -6,7 +6,7 @@
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:11:57 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/03/31 19:12:13 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/01 07:34:08 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ Fixed::Fixed(const Fixed &co)
 Fixed::Fixed(const int ni)
 {
   std::cout << "*Constructor int of Fixed called!*" << std::endl;
-  this->_num = ni << this->_numint;
+  this->_num = ni << this->_rawbits;
   return ;
 }
 
 Fixed::Fixed(const float f)
 {
   std::cout << "*constructor float of Fixed called!*" << std::endl;
-  this->_num = roundf(f * (1 << this->_numint));
+  this->_num = roundf(f * (1 << this->_rawbits));
   return ;
 }
 
@@ -54,7 +54,8 @@ Fixed::~Fixed(void)
 
 std::ostream &operator<<(std::ostream &os, const Fixed &nbr)
 {
-  return (os << nbr.toFloat());
+  os << nbr.toFloat();
+  return (os);
 }
 
 int Fixed::getRawBits(void) const 
@@ -71,11 +72,11 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-  return((float)this->_num / (float)(1 << this->_numint));
+  return((float)this->_num / (float)(1 << this->_rawbits));
 }
 
 int Fixed::toInt(void) const
 {
-  return (this->_num >> this->_numint);
+  return (this->_num >> this->_rawbits);
 }
 
