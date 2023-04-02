@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:46 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/01 10:15:09 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/02 18:21:31 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ public :
   ~Bureaucrat();
   Bureaucrat(const Bureaucrat &co);
   Bureaucrat &operator=(const Bureaucrat &co);
+
+  std::string  getName();
+  int  getGrade();
 
 private:
   std::string _name;
