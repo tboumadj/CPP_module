@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:46 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/02 18:21:31 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/08 11:11:06 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # include <ostream>
 # include <iostream>
 # include <string>
+# include <exception>
+#include <sys/_types/_size_t.h>
 
 class Bureaucrat
 {
@@ -25,12 +27,28 @@ public :
   Bureaucrat(const Bureaucrat &co);
   Bureaucrat &operator=(const Bureaucrat &co);
 
-  std::string  getName();
-  int  getGrade();
+  friend std::ostream &operator<<(std::ostream &os, Bureaucrat *n);
 
-private:
+  std::string   getName();
+  int           getGrade();
+  void          setGrade(int nbr);
+
+  void          Increment();
+  void          Decrement();
+
+  class GradeTooHighException : public std::exception
+  {
+    public:
+      const char *what() const throw();
+  };
+  class GradeTooLowException : public std::exception
+  {
+    public:
+      const char *what() const throw();
+  };
+private :
   std::string _name;
-  int         _grade;
+  size_t      _grade;
 };
 
 #endif
