@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/08 11:39:15 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/09 09:47:51 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ Bureaucrat::Bureaucrat(std::string str, int nbr): _name(str)
     }
     catch(GradeTooHighException &e)
     {
-     std::cout << "Error instanciate grade! " << e.what() << std::endl;
+      std::cout << "Error instanciate grade! " << e.what() << std::endl;
+      delete (this);
     }
   }
   else
@@ -41,6 +42,7 @@ Bureaucrat::Bureaucrat(std::string str, int nbr): _name(str)
     catch(GradeTooLowException &e)
     {
       std::cout << "Error instanciate garde ! " << e.what() << std::endl;
+      delete (this);
     }
   }
   return ;
