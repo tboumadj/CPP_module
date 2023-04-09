@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:44:19 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/08 12:06:13 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/09 09:56:17 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public :
     Form &operator=(const Form &co);
 
 private :
-    std::string const _name;
+    std::string _name;
     size_t            _gradesign;
     size_t            _gradexec;
 };
