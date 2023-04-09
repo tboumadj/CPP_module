@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:56:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/09 12:29:41 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/09 12:39:08 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ const char *Form::GradeTooHighException::what() const throw()
 
 //Method
 
-void  Form::signForm(Bureaucrat &b)
-{
-  std::cout << b.getName() << " signed " << this->_name << std::endl;
-  std::cout << b.getName() << "couldn't sign " << this->_name << " because <reason> " << std::endl;
-  return ;
-}
+//void  Form::signForm(Bureaucrat &b)
+//{
+//  std::cout << b.getName() << " signed " << this->_name << std::endl;
+//  std::cout << b.getName() << " couldn't sign " << this->_name << " because <reason> " << std::endl;
+//  return ;
+//}

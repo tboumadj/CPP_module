@@ -6,11 +6,11 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:55 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/09 11:47:44 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/09 12:39:31 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Form.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 int main()
 {

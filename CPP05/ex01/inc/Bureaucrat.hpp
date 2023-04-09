@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:46 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/09 11:26:38 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/09 12:41:13 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <exception>
 # include <sys/_types/_size_t.h>
+# include  "Form.hpp"
 
 class Bureaucrat
 {
@@ -35,6 +36,7 @@ public :
   //Method
   void          Increment();
   void          Decrement();
+  //void          signForm(Form &f);
   //Exception
   class GradeTooHighException : public std::exception
   {
