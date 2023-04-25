@@ -93,7 +93,11 @@ void Bureaucrat::setGrade(int nbr)
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat *n)
 {
-  os << n->getName() << ", bureaucrat grade " << n->getGrade() << "." << std::endl;
+  if (n->getGrade() > 0)
+  {
+    os << n->getName() << ", bureaucrat grade " << n->getGrade() << "." << std::endl;
+    return (os);
+  }
   return (os);
 }
 
