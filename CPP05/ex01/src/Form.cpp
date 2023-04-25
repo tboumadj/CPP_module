@@ -58,7 +58,10 @@ Form &Form::operator=(const Form &co)
 
 std::ostream &operator<<(std::ostream &os, Form *n)
 {
-  //TEXT
+  os << n->getName() << ", signed grade [" << n->getGradeSign() << "], " <<
+  "exec grade [" << n->getGradeXec() << "], " <<
+  //"is signed [" << n->getsigned() << "]" << std::endl;
+  std::endl;
   return (os);
 }
 

@@ -47,8 +47,8 @@ public :
 
 private :
     std::string       _name;
-    size_t            _gradesign;
-    size_t            _gradexec;
+    const size_t      _gradesign;
+    const size_t      _gradexec;
     bool              _signed;
 };
 
