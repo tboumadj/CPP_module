@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:56:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/09 12:39:08 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:35:26 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,17 @@ std::ostream &operator<<(std::ostream &os, Form *n)
 
 //Getter//Setter
 
-std::string Form::getName()
+const std::string Form::getName()const
 {
   return (this->_name);
 }
 
-int Form::getGradeSign()
+size_t Form::getGradeSign()const
 {
   return (this->_gradesign);
 }
 
-int Form::getGradeXec()
+size_t Form::getGradeXec()const
 {
   return (this->_gradexec);
 }

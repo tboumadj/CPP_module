@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/09 12:41:03 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:46:07 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Bureaucrat::Bureaucrat(): _name("Default"), _grade(150)
   return ;
 }
 
-Bureaucrat::Bureaucrat(std::string str, int nbr): _name(str)
+Bureaucrat::Bureaucrat(const std::string str, int nbr): _name(str), _grade(0)
 {
   std::cout << "*Constructor Bureaucrat [" << this->_name << "] and graded [" << nbr << "] called!*" << std::endl;
   if (nbr < 1)
@@ -62,19 +62,19 @@ Bureaucrat::Bureaucrat(const Bureaucrat &co)
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &co)
 {
-  this->_name = co._name;
-  this->_grade = co._grade;
+  this->_name = co.getName();
+  this->_grade = co.getGrade();
   return (*this);
 }
 
 //Getter//Setter-------------------
 
-std::string  Bureaucrat::getName()
+const std::string  Bureaucrat::getName()const
 {
   return (this->_name);
 }
 
-int Bureaucrat::getGrade()
+size_t Bureaucrat::getGrade()const
 {
   return (this->_grade);
 }

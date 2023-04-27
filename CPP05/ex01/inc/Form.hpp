@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:44:19 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/09 12:38:54 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:35:49 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ public :
     //Surcharge
     friend std::ostream &operator<<(std::ostream &os, Form *n);
     //G&S
-    std::string getName();
-    int         getGradeSign();
-    int         getGradeXec();
+    const std::string getName()const;
+    size_t            getGradeSign()const;
+    size_t            getGradeXec()const;
     //Method
     //void  signForm(Bureaucrat &b);
     //Execption
@@ -46,10 +46,10 @@ public :
     };
 
 private :
-    std::string       _name;
-    const size_t      _gradesign;
-    const size_t      _gradexec;
-    bool              _signed;
+    const std::string   _name;
+    const size_t        _gradesign;
+    const size_t        _gradexec;
+    bool                _signed;
 };
 
 #endif
