@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:46 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/09 11:30:47 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:57:42 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ public :
   //Surcharge
   friend std::ostream &operator<<(std::ostream &os, Bureaucrat *n);
   //G&S
-  std::string   getName();
-  int           getGrade();
+  const std::string   getName()const;
+  size_t           getGrade()const;
   void          setGrade(int nbr);
   //Method
   void          Increment();
@@ -48,8 +48,8 @@ public :
   };
 
 private :
-  std::string _name;
-  size_t      _grade;
+  const std::string _name;
+  size_t            _grade;
 };
 
 #endif

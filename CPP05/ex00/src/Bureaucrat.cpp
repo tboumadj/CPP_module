@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/09 09:47:51 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:01:18 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,19 @@ Bureaucrat::Bureaucrat(const Bureaucrat &co)
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &co)
 {
-  this->_name = co._name;
+  this->_name = co.getName();
   this->_grade = co._grade;
   return (*this);
 }
 
 //Getter//Setter-------------------
 
-std::string  Bureaucrat::getName()
+const std::string  Bureaucrat::getName()const
 {
   return (this->_name);
 }
 
-int Bureaucrat::getGrade()
+size_t Bureaucrat::getGrade()const
 {
   return (this->_grade);
 }
