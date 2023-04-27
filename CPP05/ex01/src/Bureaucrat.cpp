@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/27 13:55:45 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:41:50 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Bureaucrat::Bureaucrat(const std::string str, int nbr): _name(str), _grade(0)
 
 Bureaucrat::~Bureaucrat()
 {
-  std::cout << "*Destructor Bureaucrat called!*" << std::endl;
+  std::cout << "*Destructor of " << this->_name <<" Bureaucrat called!*" << std::endl;
   return ;
 }
 
@@ -62,8 +62,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat &co)
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &co)
 {
-  //this->_name = co.getName();
-  this->_grade = co.getGrade();
+  if (this != &co)
+  {
+    *this = co;
+  }
   return (*this);
 }
 
@@ -93,7 +95,7 @@ void Bureaucrat::setGrade(int nbr)
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat *n)
 {
-  if (n->getGrade() > 0)
+  if (n->getGrade() > 0 && n->getGrade() < 151)
   {
     os << n->getName() << ", bureaucrat grade " << n->getGrade() << "." << std::endl;
     return (os);
