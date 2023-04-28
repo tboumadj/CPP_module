@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:56:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/27 13:35:26 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:28:07 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Form::~Form()
   return ;
 }
 
-Form::Form(const Form &co)
+Form::Form(const Form &co): _gradesign(co._gradesign), _gradexec(co._gradexec)
 {
   *this = co;
   return ;
@@ -48,9 +48,10 @@ Form::Form(const Form &co)
 
 Form &Form::operator=(const Form &co)
 {
-  this->_name = co._name;
-  this->_gradesign = co._gradesign;
-  this->_gradexec = co._gradexec;
+  if (this != &co)
+  {
+    *this = co;
+  }
   return (*this);
 }
 
