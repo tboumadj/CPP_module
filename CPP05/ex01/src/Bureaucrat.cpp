@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/27 15:41:50 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:23:18 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat *n)
 {
   if (n->getGrade() > 0 && n->getGrade() < 151)
   {
-    os << n->getName() << ", bureaucrat grade " << n->getGrade() << "." << std::endl;
+    os << n->getName() << ", bureaucrat grade [" << n->getGrade() << "]." << std::endl;
     return (os);
   }
   return (os);

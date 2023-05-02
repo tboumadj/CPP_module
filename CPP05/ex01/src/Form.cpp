@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:56:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/28 17:28:07 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:26:40 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,27 @@ Form::Form(): _name("Default"), _gradesign(150), _gradexec(150), _signed(false)
   std::cout << "*Default constructor Form [" << this->_name << "] called!*" << std::endl;
   std::cout << "grade to sign [" << this->_gradesign << "] " << std::endl;
   std::cout << "grade to exec [" << this->_gradexec << "] " << std::endl;
+
   return ;
 }
 
 Form::Form(std::string str, int sign, int exec): _name(str), _gradesign(sign), _gradexec(exec), _signed(false)
 {
-  std::cout << "*Constructor Form [" << this->_name << "] called!*" << std::endl;
-  std::cout << "grade to signe [" << this->_gradesign << "] " << std::endl;
-  std::cout << "grade to exec [" << this->_gradexec << "] " << std::endl;
-  size_t i = this->getGradeSign();
-  size_t j = this->getGradeXec();
-  if (i > 150 || j > 150)
-    throw(Form::GradeTooLowException());
-  else if (i < 1 || j < 1)
-    throw(Form::GradeTooHighException());
+  std::cout << "*Constructor Form [" << this->_name << "] called! " << 
+  "grade to signe [" << this->_gradesign << "] " <<
+  "and grade to exec [" << this->_gradexec << "]*" << std::endl;
+//size_t i = this->getGradeSign();
+//size_t j = this->getGradeXec();
+//  if (i > 150 || j > 150)
+//    throw(Form::GradeTooLowException());
+//  else if (i < 1 || j < 1)
+//   throw(Form::GradeTooHighException());
   return ;
 }
 
 Form::~Form()
 {
-  std::cout << "*Destructor Form called!*" << std::endl;
+  std::cout << "*Destructor of " << this->_name << " Form called!*" << std::endl;
   return ;
 }
 
@@ -61,7 +62,7 @@ std::ostream &operator<<(std::ostream &os, Form *n)
 {
   os << n->getName() << ", signed grade [" << n->getGradeSign() << "], " <<
   "exec grade [" << n->getGradeXec() << "], " <<
-  //"is signed [" << n->getsigned() << "]" << std::endl;
+  //"is signed [" << n->beSigned() << "]" << std::endl;
   std::endl;
   return (os);
 }
@@ -97,6 +98,12 @@ const char *Form::GradeTooHighException::what() const throw()
 
 //Method
 
+//void  Form::beSigned()
+//{
+//  if()
+//  else if()
+//  return;
+//}
 //void  Form::signForm(Bureaucrat &b)
 //{
 //  std::cout << b.getName() << " signed " << this->_name << std::endl;

@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:44:19 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/27 13:35:49 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:20:34 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Form
 {
 public :
     Form();
-    Form(std::string str, int sign, int exec);
+    Form(const std::string str, int sign, int exec);
     ~Form();
     Form(const Form &co);
     Form &operator=(const Form &co);
@@ -32,6 +32,7 @@ public :
     size_t            getGradeSign()const;
     size_t            getGradeXec()const;
     //Method
+    //void beSigned();
     //void  signForm(Bureaucrat &b);
     //Execption
     class GradeTooLowException : public std::exception
