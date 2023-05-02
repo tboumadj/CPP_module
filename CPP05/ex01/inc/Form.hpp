@@ -6,16 +6,19 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:44:19 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/02 16:20:34 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:12:44 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#pragma once
 #ifndef FORM_HPP
 # define FORM_HPP
 # include <ostream>
 # include <iostream>
 # include <string>
 # include <exception>
+# include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
@@ -32,8 +35,7 @@ public :
     size_t            getGradeSign()const;
     size_t            getGradeXec()const;
     //Method
-    //void beSigned();
-    //void  signForm(Bureaucrat &b);
+    bool              beSigned(Bureaucrat *b);
     //Execption
     class GradeTooLowException : public std::exception
     {

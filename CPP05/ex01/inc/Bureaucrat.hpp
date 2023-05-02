@@ -6,10 +6,10 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:46 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/02 15:31:59 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:43:23 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#pragma once
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 # include <ostream>
@@ -17,7 +17,9 @@
 # include <string>
 # include <exception>
 # include <sys/_types/_size_t.h>
-# include  "Form.hpp"
+# include "Form.hpp" 
+
+class Form;
 
 class Bureaucrat
 {
@@ -36,7 +38,7 @@ public :
   //Method
   void          Increment();
   void          Decrement();
-  //void          signForm(Form &f);
+  void          signForm(Form &f);
   //Exception
   class GradeTooHighException : public std::exception
   {

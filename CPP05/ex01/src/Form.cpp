@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:56:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/02 16:26:40 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:17:32 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,14 @@ const char *Form::GradeTooHighException::what() const throw()
 
 //Method
 
-//void  Form::beSigned()
-//{
-//  if()
-//  else if()
-//  return;
-//}
+bool  Form::beSigned(Bureaucrat *b)
+{
+  int grade = b->getGrade();
+  if(grade >= this->_gradesign)
+    this->_signed = true;
+  return (_signed);
+}
+
 //void  Form::signForm(Bureaucrat &b)
 //{
 //  std::cout << b.getName() << " signed " << this->_name << std::endl;

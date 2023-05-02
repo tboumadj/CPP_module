@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/02 16:23:18 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:13:30 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,9 +143,11 @@ void  Bureaucrat::Decrement()
   return ;
 }
 
-//void  Bureaucrat::signForm(Form &f)
-//{
-//  std::cout << this->_name << " signed " << f.getName() << std::endl;
-//  std::cout << this->_name << " couldn't sign " << f.getName() << " because <reason> " << std::endl;
-//  return ;
-//}
+void  Bureaucrat::signForm(Form &f)
+{
+  if (f.beSigned(this) == true)
+    std::cout << this->_name << " signed " << f.getName() << std::endl;
+  else
+    std::cout << this->_name << " couldn't sign " << f.getName() << " because <reason> " << std::endl;
+  return ;
+}
