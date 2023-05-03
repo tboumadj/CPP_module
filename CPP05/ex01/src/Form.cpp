@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:56:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/02 17:17:32 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:25:27 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,32 @@ Form::Form(std::string str, int sign, int exec): _name(str), _gradesign(sign), _
   std::cout << "*Constructor Form [" << this->_name << "] called! " << 
   "grade to signe [" << this->_gradesign << "] " <<
   "and grade to exec [" << this->_gradexec << "]*" << std::endl;
-//size_t i = this->getGradeSign();
-//size_t j = this->getGradeXec();
-//  if (i > 150 || j > 150)
-//    throw(Form::GradeTooLowException());
-//  else if (i < 1 || j < 1)
-//   throw(Form::GradeTooHighException());
+  if (sign < 1 || exec < 1)
+  {
+    try
+      {
+        this->getGradeSign();
+        this->getGradeXec();
+      }
+    catch(GradeTooHighException &e)
+      {
+        std::cout << "Error instanciate grade of form! " << e.what() << std::endl;
+       // delete (this);
+      }
+  }
+  else if (sign > 150 || exec > 150)
+  {
+    try
+      {
+        this->getGradeSign();
+        this->getGradeXec();
+      }
+    catch(GradeTooLowException &e)
+      {
+        std::cout << "Error instanciat grade of form! " << e.what() << std::endl;
+        // delete (this);
+      }
+    }
   return ;
 }
 
@@ -60,10 +80,8 @@ Form &Form::operator=(const Form &co)
 
 std::ostream &operator<<(std::ostream &os, Form *n)
 {
-  os << n->getName() << ", signed grade [" << n->getGradeSign() << "], " <<
-  "exec grade [" << n->getGradeXec() << "], " <<
-  //"is signed [" << n->beSigned() << "]" << std::endl;
-  std::endl;
+  os << n->getName() << " form, signed grade [" << n->getGradeSign() << "], " <<
+  "exec grade [" << n->getGradeXec() << "], " << std::endl;
   return (os);
 }
 
@@ -76,12 +94,22 @@ const std::string Form::getName()const
 
 size_t Form::getGradeSign()const
 {
-  return (this->_gradesign);
+  if (this->_gradesign  > 150)
+    throw GradeTooLowException();
+  else if (this->_gradesign < 1)
+    throw GradeTooHighException();
+  else
+    return (this->_gradesign);
 }
 
 size_t Form::getGradeXec()const
 {
-  return (this->_gradexec);
+  if (this->_gradexec > 150)
+    throw GradeTooLowException();
+  else if (this->_gradexec < 1)
+    throw GradeTooHighException();
+  else
+    return (this->_gradexec);
 }
 
 //Exception
@@ -101,14 +129,8 @@ const char *Form::GradeTooHighException::what() const throw()
 bool  Form::beSigned(Bureaucrat *b)
 {
   int grade = b->getGrade();
-  if(grade >= this->_gradesign)
+  if(grade >= this->_gradesign && this->_signed != true)
     this->_signed = true;
   return (_signed);
 }
 
-//void  Form::signForm(Bureaucrat &b)
-//{
-//  std::cout << b.getName() << " signed " << this->_name << std::endl;
-//  std::cout << b.getName() << " couldn't sign " << this->_name << " because <reason> " << std::endl;
-//  return ;
-//}

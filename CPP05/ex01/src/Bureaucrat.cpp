@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/02 17:13:30 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:48:27 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Bureaucrat::Bureaucrat(const std::string str, int nbr): _name(str), _grade(0)
     catch(GradeTooHighException &e)
     {
       std::cout << "Error instanciate grade! " << e.what() << std::endl;
-      delete (this);
+     // delete (this);
     }
   }
   else
@@ -42,7 +42,7 @@ Bureaucrat::Bureaucrat(const std::string str, int nbr): _name(str), _grade(0)
     catch(GradeTooLowException &e)
     {
       std::cout << "Error instanciate garde ! " << e.what() << std::endl;
-      delete (this);
+     // delete (this);
     }
   }
   return ;
@@ -148,6 +148,7 @@ void  Bureaucrat::signForm(Form &f)
   if (f.beSigned(this) == true)
     std::cout << this->_name << " signed " << f.getName() << std::endl;
   else
-    std::cout << this->_name << " couldn't sign " << f.getName() << " because <reason> " << std::endl;
+    std::cout << this->_name << " couldn't sign " << f.getName() <<
+    " because Grade is too low!" << std::endl;
   return ;
 }
