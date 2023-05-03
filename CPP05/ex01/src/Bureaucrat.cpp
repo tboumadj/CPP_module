@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/03 15:48:27 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:32:48 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,38 @@ Bureaucrat::Bureaucrat(): _name("Default"), _grade(150)
   return ;
 }
 
-Bureaucrat::Bureaucrat(const std::string str, int nbr): _name(str), _grade(0)
+//Bureaucrat::Bureaucrat(const std::string str, int nbr): _name(str), _grade(0)
+//{
+//  std::cout << "*Constructor Bureaucrat [" << this->_name << "] and graded [" << nbr << "] called!*" << std::endl;
+//  if (nbr < 1)
+//  {
+//    try
+//    {
+//     this->setGrade(nbr);
+//    }
+//   catch(GradeTooHighException &e)
+//    {
+//      std::cout << "Error instanciate grade! " << e.what() << std::endl;
+//     // delete (this);
+//    }
+//  }
+//  else
+//  {
+//    try
+//    {
+//      this->setGrade(nbr);
+//    }
+//    catch(GradeTooLowException &e)
+//    {
+//      std::cout << "Error instanciate garde ! " << e.what() << std::endl;
+//     // delete (this);
+//    }
+//  }
+//  return ;
+//}
+
+Bureaucrat::Bureaucrat(const std::strin str, int nbr): _name(str), _grade(0)
 {
-  std::cout << "*Constructor Bureaucrat [" << this->_name << "] and graded [" << nbr << "] called!*" << std::endl;
-  if (nbr < 1)
-  {
-    try
-    {
-     this->setGrade(nbr);
-    }
-    catch(GradeTooHighException &e)
-    {
-      std::cout << "Error instanciate grade! " << e.what() << std::endl;
-     // delete (this);
-    }
-  }
-  else
-  {
-    try
-    {
-      this->setGrade(nbr);
-    }
-    catch(GradeTooLowException &e)
-    {
-      std::cout << "Error instanciate garde ! " << e.what() << std::endl;
-     // delete (this);
-    }
-  }
   return ;
 }
 
