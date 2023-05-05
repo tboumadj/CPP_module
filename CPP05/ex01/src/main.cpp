@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:55 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/05 18:10:55 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:23:52 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@
 
 int main()
 {
+  Bureaucrat *a;
+  Form *b;
   try
   {
-    Bureaucrat *a = new Bureaucrat("truc", 52);
-    Form *b = new Form("machin", 50, 150);
+    a = new Bureaucrat("truc", 52);
+    b = new Form("machin", 50, 150);
     a->signForm(*b);
     a->Increment();
     std::cout << a;
@@ -44,8 +46,6 @@ int main()
     a->Increment();
     std::cout << a;
     a->signForm(*b);
-    delete (a);
-    delete (b);
   }
   catch (Bureaucrat::GradeTooHighException &e)
   {
@@ -63,5 +63,7 @@ int main()
   {
     std::cout << "error exception4 " << e.what() << std::endl;
   }
+  delete (a);
+  delete (b);
   return (0);
 }
