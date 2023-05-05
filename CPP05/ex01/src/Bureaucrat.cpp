@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/05 18:06:01 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/05 19:28:12 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,26 +138,30 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 void  Bureaucrat::Increment()
 {
-  try
+  if (this->_grade - 1 < 1)
+  {
+    std::cout << "try to Increment but " << std::endl;
+    throw GradeTooHighException();
+  }
+  else
   {
     this->setGrade(this->_grade - 1);
-  }
-  catch(GradeTooHighException &e)
-  {
-    std::cout << "try to Increment but " << e.what() << std::endl;
+    std::cout << "increment of " << this->_name << " done!" << std::endl;
   }
   return ;
 }
 
 void  Bureaucrat::Decrement()
 {
-  try
+  if (this->_grade + 1 > 150)
+  {
+    std::cout << "try to decrement but " << std::endl;
+    throw GradeTooLowException();
+  }
+  else
   {
     this->setGrade(this->_grade + 1);
-  }
-  catch(GradeTooLowException &e)
-  {
-    std::cout << "try to Decrement but " << e.what() << std::endl;
+    std::cout << "decrement of " << this->_name << " done!" << std::endl;
   }
   return ;
 }

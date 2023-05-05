@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/04/27 15:38:00 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/05 19:23:13 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,57 @@ Bureaucrat::Bureaucrat(): _name("Default"), _grade(150)
   return ;
 }
 
+//Bureaucrat::Bureaucrat(std::string str, int nbr): _name(str)
+//{
+//  std::cout << "*Constructor Bureaucrat [" << this->_name << "] and graded [" << nbr << "] called!*" << std::endl;
+//  if (nbr < 1)
+//  {
+//    try
+//    {
+//     this->setGrade(nbr);
+//    }
+//    catch(GradeTooHighException &e)
+//    {
+//      std::cout << "Error instanciate grade! " << e.what() << std::endl;
+//      delete (this);
+//    }
+//  }
+//  else
+//  {
+//    try
+//    {
+//      this->setGrade(nbr);
+//    }
+//    catch(GradeTooLowException &e)
+//    {
+//      std::cout << "Error instanciate grade ! " << e.what() << std::endl;
+//      delete (this);
+//   }
+//  }
+//  return ;
+//}
+
 Bureaucrat::Bureaucrat(std::string str, int nbr): _name(str)
 {
-  std::cout << "*Constructor Bureaucrat [" << this->_name << "] and graded [" << nbr << "] called!*" << std::endl;
   if (nbr < 1)
   {
-    try
-    {
-     this->setGrade(nbr);
-    }
-    catch(GradeTooHighException &e)
-    {
-      std::cout << "Error instanciate grade! " << e.what() << std::endl;
-      delete (this);
-    }
+    throw GradeTooHighException();
+  }
+  else if (nbr > 150)
+  {
+  throw GradeTooLowException();
   }
   else
   {
-    try
-    {
-      this->setGrade(nbr);
-    }
-    catch(GradeTooLowException &e)
-    {
-      std::cout << "Error instanciate grade ! " << e.what() << std::endl;
-      delete (this);
-    }
+    this->setGrade(nbr);
+    std::cout << "*Constructor Bureaucrat [" << this->_name << "] and graded [" << this->_grade << "] called!*" << std::endl;
   }
   return ;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-  std::cout << "*Destructor " << this->_name << " Bureaucrat called!*" << std::endl;
+  std::cout << "*Destructor of " << this->_name << " Bureaucrat called!*" << std::endl;
   return ;
 }
 
@@ -83,11 +101,11 @@ size_t Bureaucrat::getGrade()const
 
 void Bureaucrat::setGrade(int nbr)
 {
-  if (nbr > 150)
-    throw GradeTooLowException();
-  else if (nbr < 1)
-    throw GradeTooHighException();
-  else
+  //if (nbr > 150)
+  //  throw GradeTooLowException();
+  //else if (nbr < 1)
+  //  throw GradeTooHighException();
+  //else
     this->_grade = nbr;
 }
 
@@ -119,26 +137,30 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 void  Bureaucrat::Increment()
 {
-  try
+  if (this->_grade - 1 < 1)
+  {
+    std::cout << "try to Increment but " << std::endl;
+    throw GradeTooHighException();
+  }
+  else
   {
     this->setGrade(this->_grade - 1);
-  }
-  catch(GradeTooHighException &e)
-  {
-    std::cout << "try to Increment but " << e.what() << std::endl;
+    std::cout << "increment of " << this->_name << " done!" << std::endl;
   }
   return ;
 }
 
 void  Bureaucrat::Decrement()
 {
-  try
+  if (this->_grade + 1 > 150)
+  {
+    std::cout << "try to Decrement but " << std::endl;
+    throw GradeTooLowException();
+  }
+  else
   {
     this->setGrade(this->_grade + 1);
-  }
-  catch(GradeTooLowException &e)
-  {
-    std::cout << "try to Decrement but " << e.what() << std::endl;
+    std::cout << "decrement of " << this->_name << " done!" << std::endl;
   }
   return ;
 }

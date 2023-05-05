@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:55 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/05 18:23:52 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/05 19:14:37 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main()
   Form *b;
   try
   {
-    a = new Bureaucrat("truc", 52);
+    a = new Bureaucrat("truc", 1);
     b = new Form("machin", 50, 150);
     a->signForm(*b);
     a->Increment();
