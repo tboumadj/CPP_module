@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/03 17:32:48 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:06:01 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,22 @@ Bureaucrat::Bureaucrat(): _name("Default"), _grade(150)
 //  return ;
 //}
 
-Bureaucrat::Bureaucrat(const std::strin str, int nbr): _name(str), _grade(0)
+Bureaucrat::Bureaucrat(const std::string str, int nbr): _name(str), _grade(0)
 {
+  if (nbr < 1)
+  {
+    throw GradeTooHighException();
+  }
+  else if (nbr > 150)
+  {
+    throw GradeTooLowException();
+  }
+  else
+  {
+    this->setGrade(nbr);
+    std::cout << "*Constructor Bureaucrat [" << this->_name << "] and graded [" << this->_grade <<
+    "] called!* " << std::endl;
+  }
   return ;
 }
 
@@ -88,11 +102,11 @@ size_t Bureaucrat::getGrade()const
 
 void Bureaucrat::setGrade(int nbr)
 {
-  if (nbr > 150)
-    throw GradeTooLowException();
-  else if (nbr < 1)
-    throw GradeTooHighException();
-  else
+  //if (nbr > 150)
+  //  throw GradeTooLowException();
+  //else if (nbr < 1)
+  //  throw GradeTooHighException();
+  //else
     this->_grade = nbr;
 }
 
@@ -151,9 +165,9 @@ void  Bureaucrat::Decrement()
 void  Bureaucrat::signForm(Form &f)
 {
   if (f.beSigned(this) == true)
-    std::cout << this->_name << " signed " << f.getName() << std::endl;
+    std::cout << "[" << this->_name << "] signed [" << f.getName() << "]" << std::endl;
   else
-    std::cout << this->_name << " couldn't sign " << f.getName() <<
-    " because Grade is too low!" << std::endl;
+    std::cout << "[" << this->_name << "] couldn't sign [" << f.getName() <<
+    "] because Grade is too low!" << std::endl;
   return ;
 }

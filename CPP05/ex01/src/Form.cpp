@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:56:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/03 16:25:27 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/05 18:10:17 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,37 +21,56 @@ Form::Form(): _name("Default"), _gradesign(150), _gradexec(150), _signed(false)
   return ;
 }
 
+//Form::Form(std::string str, int sign, int exec): _name(str), _gradesign(sign), _gradexec(exec), _signed(false)
+//{
+//  std::cout << "*Constructor Form [" << this->_name << "] called! " << 
+//  "grade to signe [" << this->_gradesign << "] " <<
+//  "and grade to exec [" << this->_gradexec << "]*" << std::endl;
+//  if (sign < 1 || exec < 1)
+//  {
+//    try
+//      {
+//        this->getGradeSign();
+//        this->getGradeXec();
+//      }
+//    catch(GradeTooHighException &e)
+//      {
+//        std::cout << "Error instanciate grade of form! " << e.what() << std::endl;
+//       // delete (this);
+//      }
+//  }
+//  else if (sign > 150 || exec > 150)
+//  {
+//    try
+//      {
+//        this->getGradeSign();
+//        this->getGradeXec();
+//      }
+//    catch(GradeTooLowException &e)
+//      {
+//        std::cout << "Error instanciat grade of form! " << e.what() << std::endl;
+//        // delete (this);
+//      }
+//    }
+//  return ;
+//}
+
 Form::Form(std::string str, int sign, int exec): _name(str), _gradesign(sign), _gradexec(exec), _signed(false)
 {
-  std::cout << "*Constructor Form [" << this->_name << "] called! " << 
-  "grade to signe [" << this->_gradesign << "] " <<
-  "and grade to exec [" << this->_gradexec << "]*" << std::endl;
-  if (sign < 1 || exec < 1)
+  if (_gradesign < 1 || _gradexec < 1)
   {
-    try
-      {
-        this->getGradeSign();
-        this->getGradeXec();
-      }
-    catch(GradeTooHighException &e)
-      {
-        std::cout << "Error instanciate grade of form! " << e.what() << std::endl;
-       // delete (this);
-      }
+    throw GradeTooHighException();
   }
-  else if (sign > 150 || exec > 150)
+  else if (_gradesign > 150 || _gradexec > 150)
   {
-    try
-      {
-        this->getGradeSign();
-        this->getGradeXec();
-      }
-    catch(GradeTooLowException &e)
-      {
-        std::cout << "Error instanciat grade of form! " << e.what() << std::endl;
-        // delete (this);
-      }
-    }
+    throw GradeTooLowException();
+  }
+  else
+  {
+    std::cout << "*Constructor Form [" << this->_name << "] called! " <<
+    "grade to sign is [" << this->_gradesign << "] " <<
+    "and grade to exec is [" << this->_gradexec << "]*" << std::endl;
+  }
   return ;
 }
 
@@ -94,21 +113,21 @@ const std::string Form::getName()const
 
 size_t Form::getGradeSign()const
 {
-  if (this->_gradesign  > 150)
-    throw GradeTooLowException();
-  else if (this->_gradesign < 1)
-    throw GradeTooHighException();
-  else
+  //if (this->_gradesign  > 150)
+  //  throw GradeTooLowException();
+  //else if (this->_gradesign < 1)
+  //  throw GradeTooHighException();
+  //else
     return (this->_gradesign);
 }
 
 size_t Form::getGradeXec()const
 {
-  if (this->_gradexec > 150)
-    throw GradeTooLowException();
-  else if (this->_gradexec < 1)
-    throw GradeTooHighException();
-  else
+  //if (this->_gradexec > 150)
+  //  throw GradeTooLowException();
+  //else if (this->_gradexec < 1)
+  //  throw GradeTooHighException();
+  //else
     return (this->_gradexec);
 }
 
@@ -129,7 +148,7 @@ const char *Form::GradeTooHighException::what() const throw()
 bool  Form::beSigned(Bureaucrat *b)
 {
   int grade = b->getGrade();
-  if(grade >= this->_gradesign && this->_signed != true)
+  if(grade <= this->_gradesign && this->_signed != true)
     this->_signed = true;
   return (_signed);
 }

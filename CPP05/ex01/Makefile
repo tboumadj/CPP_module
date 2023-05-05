@@ -6,7 +6,7 @@
 #    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 19:11:05 by tboumadj@student  #+#    #+#              #
-#    Updated: 2023/05/02 15:56:24 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/05/05 18:01:55 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ _GREEN	=		$'\x1b[32m
 
 $(NAME):	$(OBJS)
 									@echo "$(_GREY)Compilation de Form en cours...$(_END)"
-									$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
+									$(CC) $(OBJS) $(FLAGS) -o $(NAME) #(CHECK)
 									@echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 
 .SILENT	: $(OBJS) $(NAME)
