@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:44:19 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 15:00:13 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:07:32 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #pragma once
@@ -36,6 +36,7 @@ public :
     virtual size_t            getGradeXec()const;
     //Method
     bool              beSigned(Bureaucrat *b);
+    virtual void      execute(Bureaucrat const &executor)const = 0;
     //Execption
     class GradeTooLowException : public std::exception
     {

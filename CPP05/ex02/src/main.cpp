@@ -6,12 +6,15 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:55 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/05 19:14:37 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:10:08 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Bureaucrat.hpp"
 #include "../inc/Form.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
+#include "../inc/RobotomyRequestForm.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
 
 //int main()
 //{
@@ -34,18 +37,18 @@
 int main()
 {
   Bureaucrat *a;
-  Form *b;
+  PresidentialPardonForm *b;
   try
   {
     a = new Bureaucrat("truc", 1);
-    b = new Form("machin", 50, 150);
-    a->signForm(*b);
-    a->Increment();
-    std::cout << a;
-    a->signForm(*b);
-    a->Increment();
-    std::cout << a;
-    a->signForm(*b);
+    b = new PresidentialPardonForm("John Snow");
+    //a->signForm(*b);
+    //a->Increment();
+    //std::cout << a;
+    //a->signForm(*b);
+    //a->Increment();
+    //std::cout << a;
+    //a->signForm(*b);
   }
   catch (Bureaucrat::GradeTooHighException &e)
   {

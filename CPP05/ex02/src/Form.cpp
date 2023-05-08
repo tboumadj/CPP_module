@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:56:39 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 15:00:07 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:04:46 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,3 +153,8 @@ bool  Form::beSigned(Bureaucrat *b)
   return (_signed);
 }
 
+void  Form::execute(Bureaucrat const &executor)const
+{
+  //exec
+  return ;
+}

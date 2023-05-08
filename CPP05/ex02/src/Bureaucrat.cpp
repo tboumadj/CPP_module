@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/05 19:28:12 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:01:35 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,5 +173,11 @@ void  Bureaucrat::signForm(Form &f)
   else
     std::cout << "[" << this->_name << "] couldn't sign [" << f.getName() <<
     "] because Grade is too low!" << std::endl;
+  return ;
+}
+
+void  Bureaucrat::executeForm(Form &f)
+{
+  //execute form
   return ;
 }
