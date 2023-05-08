@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 17:47:43 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 13:50:47 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:16:20 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string>
 # include <exception>
 # include "Form.hpp"
+# include "Bureaucrat.hpp"
 
 class Form;
 
@@ -29,8 +30,12 @@ class RobotomyRequestForm: public Form
     ~RobotomyRequestForm();
     RobotomyRequestForm(const RobotomyRequestForm &co);
     RobotomyRequestForm &operator=(const RobotomyRequestForm &co);
-    //method
-    
+    //G&S
+    const std::string getTarget()const;
+    //Method
+    void  execute(Bureaucrat const &executor)const;
+  private:
+    const std::string _target;
 };
 
 #endif

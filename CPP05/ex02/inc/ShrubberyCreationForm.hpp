@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 17:40:32 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 14:17:02 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:26:00 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,12 @@ class ShrubberyCreationForm: public Form
     ~ShrubberyCreationForm();
     ShrubberyCreationForm(const ShrubberyCreationForm &co);
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &co);
+    //G&S
+    const std::string getTarget()const;
     //Method
-
+    void  execute(Bureaucrat const &executor)const;
+  private:
+    const std::string _target;
   };
 
 #endif

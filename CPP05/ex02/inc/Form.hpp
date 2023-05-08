@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 11:44:19 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 14:13:05 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:00:13 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #pragma once
@@ -35,7 +35,7 @@ public :
     virtual size_t            getGradeSign()const;
     virtual size_t            getGradeXec()const;
     //Method
-    virtual bool              beSigned(Bureaucrat *b)const;
+    bool              beSigned(Bureaucrat *b);
     //Execption
     class GradeTooLowException : public std::exception
     {
