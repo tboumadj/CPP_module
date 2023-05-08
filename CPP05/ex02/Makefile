@@ -6,7 +6,7 @@
 #    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 19:11:05 by tboumadj@student  #+#    #+#              #
-#    Updated: 2023/05/06 16:10:02 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/05/08 13:27:17 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ CHECK		=		-fsanitize=address
 
 #PATH
 
-SRCS		=		src/main.cpp src/Bureaucrat.cpp src/Form.cpp
+SRCS		=		src/main.cpp src/Bureaucrat.cpp src/Form.cpp \
+						src/ShrubberyCreationForm.cpp src/RobotomyRequestForm.cpp src/PresidentialPardonForm.cpp
 OBJS		=		$(SRCS:.cpp=.o)
 HEADER	=		inc/Bureaucrat.hpp
 
