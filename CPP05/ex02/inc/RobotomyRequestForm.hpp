@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 17:47:43 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 15:16:20 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:35:13 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include <cstdlib>
 # include "Form.hpp"
 # include "Bureaucrat.hpp"
 

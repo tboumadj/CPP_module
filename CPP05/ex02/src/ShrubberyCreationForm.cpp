@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 17:55:15 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 15:36:19 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:28:26 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,58 @@ const   std::string ShrubberyCreationForm::getTarget()const
 
 void  ShrubberyCreationForm::execute(Bureaucrat const &executor)const
 {
-  //check grade and create file with _target name
-  std::cout << "TREE" << std::endl;
+  if (this->_signed != true || this->_gradexec < executor.getGrade())
+  {
+    throw GradeTooLowException();
+  }
+  else
+  {
+    std::ofstream outf; 
+    outf.open(this->getTarget() + ("_shrubbery"));
+    if(outf.fail())
+    {
+      std::cout << "Error with creation file ..." << std::endl;
+      return ;
+    }
+    std::cout << "[" << this->_target << "]"<< " making ASCII TREE ..." << std::endl;
+      outf <<
+      "$$$$$$$$$$$$$$^$$$$$$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$$$$$'   $$$$$$$$$$$$$$$" << std::endl << 
+      "$$$$$$$$$$$  d$  $$$$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$$$  d$$$  *$$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$$' d$$$$$  *$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$' d$$$$$$$. '$$$$$$$$$$" << std::endl <<
+      "$$$$$$$' J$$$$$$$$$c '$$$$$$$$$" << std::endl <<
+      "$$$$$$% z$$$$$$$$$$$c ^$$$$$$$$" << std::endl <<
+      "$$$$$' z$$$$$$$$$$$$$b ^$$$$$$$" << std::endl <<
+      "$$$$' 4$$$$$$$$$$$$$$$b  $$$$$$" << std::endl << 
+      "$$$P        $$$$$$       4$$$$$" << std::endl <<
+      "$$$$aaaaar .$$$$$$r  ....$$$$$$" << std::endl <<
+      "$$$$$$$$' .$$$$$$$$c '$$$$$$$$$" << std::endl <<
+      "$$$$$$$' 4$$$$$$$$$$c ^$$$$$$""" << std::endl <<
+      "$$$$$$% z$$$$$$$$$$$$L ^$$$$$$$" << std::endl <<
+      "$$$$$' z$$$$$$$$$$$$$$b ^$$$$$$" << std::endl <<
+      "$$$$' d$$$$$$$$$$$$$$$$b  $$$$$" << std::endl <<
+      "$$$  d$$$$$$$$$$$$$$$$$$$  $$$$" << std::endl <<
+      "$$         $$$$$$$$$        $$$" << std::endl <<
+      "$$c...... .$$$$$$$$$  eeeeee$$F" << std::endl <<
+      "$$$$$$$$  $$$$$$$$$$L *$$$$$$$$" << std::endl <<
+      "$$$$$$$  $$$$$$$$$$$$  $$$$$$$$" << std::endl <<
+      "$$$$$$' $$$$$$$$$$$$$$ '$$$$$$$" << std::endl <<
+      "$$$$$' d$$$$$$$$$$$$$$r *$$$$$$" << std::endl <<
+      "$$$$' z$$$$$$$$$$$$$$$$  $$$$$$" << std::endl <<
+      "$$$P .$$$$$$$$$$$$$$$$$b '$$$$$" << std::endl <<
+      "$$$  $$$$$$$$$$$$$$$$$$$. $$$$$" << std::endl <<
+      "$$                         $$$F" << std::endl <<
+      "$b                         $$$$" << std::endl <<
+      "$$$$$$$$$$$$$F  4$$$$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$$$$$$F  4$$$$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$$$$$$F  4$$$$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$$$$$$F  4$$$$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$$$$$$$ze$$$$$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" << std::endl <<
+      "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" << std::endl;
+      outf.close();
+  }
   return ;
 }

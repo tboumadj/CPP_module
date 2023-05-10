@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 17:40:32 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 15:26:00 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:17:24 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <string>
 # include <exception>
+# include <fstream>
 # include "Form.hpp"
 
 class Form;

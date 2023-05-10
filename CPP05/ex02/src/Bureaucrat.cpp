@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:56 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 16:01:35 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:26:19 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,6 @@ void  Bureaucrat::signForm(Form &f)
 
 void  Bureaucrat::executeForm(Form &f)
 {
-  //execute form
+  f.execute(*this);
   return ;
 }

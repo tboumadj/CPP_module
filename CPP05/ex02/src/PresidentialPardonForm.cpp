@@ -6,19 +6,19 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 17:56:03 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 15:34:25 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:48:02 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(): Form("FormPresidential", 25, 5), _target("Default")
+PresidentialPardonForm::PresidentialPardonForm(): Form("PresidentialForm", 25, 5), _target("Default")
 {
   std::cout << "*Default constructor Presidential called!*" << std::endl;
   return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string str): Form("FormPresidential", 25, 5), _target(str)
+PresidentialPardonForm::PresidentialPardonForm(const std::string str): Form("PresidentialForm", 25, 5), _target(str)
 {
   std::cout << "*Constructor of Presidential for [" << this->getTarget() << "] target called!*" << std::endl;
   return ;
@@ -30,7 +30,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
   return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &co): Form("FormPresidential", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &co): Form("PresidentialForm", 25, 5)
 {
   *this = co;
   return ;
@@ -56,7 +56,13 @@ const std::string PresidentialPardonForm::getTarget()const
 
 void  PresidentialPardonForm::execute(Bureaucrat const &executor)const
 {
-  //check grade
-  std::cout << this->getTarget() << "has been forgived by Zaphod Beelbebrox." << std::endl;
+  if (this->_signed != true || this->_gradexec < executor.getGrade())
+  {
+    throw GradeTooLowException();
+  }
+  else
+  {
+    std::cout << this->getTarget() << " has been forgived by Zaphod Beelbebrox." << std::endl;
+  }
   return ;
 }

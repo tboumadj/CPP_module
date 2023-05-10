@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:58:55 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/08 16:10:08 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:12:24 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,25 @@
 int main()
 {
   Bureaucrat *a;
+  Bureaucrat *a2;
+  Bureaucrat *a3;
   PresidentialPardonForm *b;
+  RobotomyRequestForm *c;
+  ShrubberyCreationForm *e;
   try
   {
-    a = new Bureaucrat("truc", 1);
+    a = new Bureaucrat("truc", 3);
+    a2 = new Bureaucrat("SuperTruc", 38);
+    a3 = new Bureaucrat("MegaTruc", 99);
     b = new PresidentialPardonForm("John Snow");
-    //a->signForm(*b);
-    //a->Increment();
-    //std::cout << a;
-    //a->signForm(*b);
-    //a->Increment();
-    //std::cout << a;
-    //a->signForm(*b);
+    c = new RobotomyRequestForm("R2D2");
+    e = new ShrubberyCreationForm("Sapin");
+    a->signForm(*b);
+    a2->signForm(*c);
+    a3->signForm(*e);
+    a->executeForm(*b);
+    a2->executeForm(*c);
+    a3->executeForm(*e);
   }
   catch (Bureaucrat::GradeTooHighException &e)
   {
