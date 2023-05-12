@@ -81,7 +81,7 @@ Form *Intern::makeForm(const std::string formname_, const std::string target_)
     while (i < 3)
   {
     if (arg[i] == formname_)
-        return (f*[i](target_));
+        return (this->*f[i](target_));
     i++;
   }
   return (NULL);
