@@ -49,25 +49,25 @@ Intern &Intern::operator=(const Intern &co)
 //
 //Method
 
-Form  Intern::makePresident()
+Form  *Intern::makePresident(const std::string target)
 {
-  return (NULL);
+  return (new PresidentialPardonForm(target));
 }
 
-Form  Intern::makeRobot()
+Form  *Intern::makeRobot(const std::string target)
 {
-  return (NULL);
+  return (new RobotomyRequestForm(target));
 }
 
-Form  Intern::makeShrubbery()
+Form  *Intern::makeShrubbery(const std::string target)
 {
-  return (NULL);
+  return (new ShrubberyCreationForm(target));
 }
 
-Form Intern::makeForm(const std::string formname_, const std::string target_)
+Form *Intern::makeForm(const std::string formname_, const std::string target_)
 {
   std::string arg[3];
-    Form (Intern::*f[3])(void);
+    Form *(Intern::*f[3])(const std::string target);
 
     int i = 0;
     arg[0] = "PresidentialForm";
@@ -81,7 +81,7 @@ Form Intern::makeForm(const std::string formname_, const std::string target_)
     while (i < 3)
   {
     if (arg[i] == formname_)
-        (this->*f[i]());
+        return (f*[i](target_));
     i++;
   }
   return (NULL);

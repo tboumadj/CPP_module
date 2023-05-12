@@ -18,6 +18,9 @@
 # include <exception>
 # include "Bureaucrat.hpp"
 # include "Form.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
 class Intern
 {
@@ -30,10 +33,10 @@ class Intern
     //G&S
     //
     //Method
-    Form  makePresident();
-    Form  makeRobot();
-    Form  makeShrubbery();
-    Form  makeForm(const std::string formname_, const std::string target_);
+    Form  *makePresident(const std::string target);
+    Form  *makeRobot(const std::string target);
+    Form  *makeShrubbery(const std::string target);
+    Form  *makeForm(const std::string formname_, const std::string target_);
   private :
   };
 
