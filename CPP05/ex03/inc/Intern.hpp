@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:40:43 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/11 16:31:00 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:36:38 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ class Intern
     //G&S
     //
     //Method
-    Form  *makePresident(const std::string target);
-    Form  *makeRobot(const std::string target);
-    Form  *makeShrubbery(const std::string target);
     Form  *makeForm(const std::string formname_, const std::string target_);
   private :
   };

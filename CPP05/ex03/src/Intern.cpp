@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:44:25 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/11 16:31:42 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/13 15:36:41 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,39 +49,40 @@ Intern &Intern::operator=(const Intern &co)
 //
 //Method
 
-Form  *Intern::makePresident(const std::string target)
+static Form  *makePresident(const std::string target)
 {
   return (new PresidentialPardonForm(target));
 }
 
-Form  *Intern::makeRobot(const std::string target)
+static Form  *makeRobot(const std::string target)
 {
   return (new RobotomyRequestForm(target));
 }
 
-Form  *Intern::makeShrubbery(const std::string target)
+static Form  *makeShrubbery(const std::string target)
 {
   return (new ShrubberyCreationForm(target));
 }
 
 Form *Intern::makeForm(const std::string formname_, const std::string target_)
 {
-  std::string arg[3];
-    Form *(Intern::*f[3])(const std::string target);
+  std::string arg[3] ;
+  Form *(*f[3])(const std::string target) ;
+
 
     int i = 0;
     arg[0] = "PresidentialForm";
     arg[1] = "RobotomyForm";
     arg[2] = "ShrubberyForm";
 
-    f[0] = &Intern::makePresident;
-    f[1] = &Intern::makeRobot;
-    f[2] = &Intern::makeShrubbery;
+    f[0] = &makePresident;
+    f[1] = &makeRobot;
+    f[2] = &makeShrubbery;
 
     while (i < 3)
   {
     if (arg[i] == formname_)
-        return (this->*f[i](target_));
+        return (f[i](target_));
     i++;
   }
   return (NULL);
