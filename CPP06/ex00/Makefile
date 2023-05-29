@@ -6,7 +6,7 @@
 #    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 19:11:05 by tboumadj@student  #+#    #+#              #
-#    Updated: 2023/05/13 16:08:11 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/05/29 15:51:28 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,9 @@ CHECK		=		-fsanitize=address
 
 #PATH
 
-SRCS		=		src/main.cpp
+SRCS		=		src/main.cpp src/Literal.cpp
 OBJS		=		$(SRCS:.cpp=.o)
-##HEADER	=
+HEADER	=		inc/literal.hpp
 
 #COLORS
 
