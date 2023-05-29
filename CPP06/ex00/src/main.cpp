@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 16:12:43 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/29 15:52:58 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/29 16:06:28 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,6 @@ int main(int argc, char **argv)
   }
   return (0);
 }
+
+//UTILS
+//atof
