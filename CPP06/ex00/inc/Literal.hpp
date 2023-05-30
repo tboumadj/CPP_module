@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 13:58:37 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/29 15:50:19 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:46:08 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,15 @@
 # include <ostream>
 # include <iostream>
 # include <string>
-# include <stdlib.h>
+# include <cstdlib>
 # include <exception>
+
+# define CHAR 1
+# define INT 2
+# define FLOAT 3
+# define DOUBLE 4
+# define SPEC 5
+# define ERROR 6
 
 class Literal
 {
@@ -28,6 +35,7 @@ class Literal
   //Surcharge
     Literal &operator=(const Literal &co);
   //Method
+    int   checkType()const;
   //G&S
     std::string getData()const;
     int         getType()const;

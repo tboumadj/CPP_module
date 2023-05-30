@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:38:12 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/29 15:48:46 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:42:04 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ Literal::Literal()
 Literal::Literal(const std::string str): _data(str)
 {
   std::cout << "*Constructor called! for [" << this->getData() << "] called!*" << std::endl;
+  this->_int = atoi(this->getData().c_str());
+  //std::cout << "int: " << this->getInt() << std::endl;
+  this->_double = atof(this->getData().c_str());
+  //std::cout << "double: " << this->getDouble() << std::endl;
+  this->_type = checkType();
   return ;
 }
 
@@ -77,6 +82,10 @@ double Literal::getDouble()const
 }
 
 //Method-------------------------
+int   Literal::checkType()const
+{
+  return (0);
+}
 //Exception----------------------
 //const char *Literal::ErrorExcept::what() const throw()
 //{
