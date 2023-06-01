@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 14:38:12 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/30 17:42:04 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/06/01 17:39:04 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ Literal::Literal()
 Literal::Literal(const std::string str): _data(str)
 {
   std::cout << "*Constructor called! for [" << this->getData() << "] called!*" << std::endl;
-  this->_int = atoi(this->getData().c_str());
+  //this->_int = atoi(this->getData().c_str());
   //std::cout << "int: " << this->getInt() << std::endl;
-  this->_double = atof(this->getData().c_str());
+  //this->_double = atof(this->getData().c_str());
   //std::cout << "double: " << this->getDouble() << std::endl;
   this->_type = checkType();
+  std::cout << "Type is: " << _type << std::endl;
   return ;
 }
 
@@ -82,10 +83,74 @@ double Literal::getDouble()const
 }
 
 //Method-------------------------
-int   Literal::checkType()const
+
+bool  Literal::isInt(const char *tmp)
 {
+  if (tmp == NULL || *tmp == '\0')
+    return false;
+  while (*tmp != '\0')
+  {
+    if (!isdigit(*tmp))
+      return false;
+    ++tmp;
+  }
+  return true;
+}
+
+bool  Literal::isDouble(const char *tmp)
+{
+  if (tmp == NULL || *tmp == '\0')
+    return false;
+  char *endTmp;
+  strtod(tmp, &endTmp);
+
+  return (*endTmp == '\0');
+  //return true;
+}
+
+bool Literal::isFloat(const char *tmp)
+{
+  return false;
+}
+
+bool  Literal::isChar(const char *tmp)
+{
+  //return true;
+  return (tmp != NULL && std::strlen(tmp) == 1);
+}
+
+int   Literal::checkType()
+{
+  const char *tmp = _data.c_str();
+  
+  if (isInt(tmp))
+  {
+    std::cout << "Integer: " << atoi(tmp) << std::endl;
+    return (INT);
+  }
+  else if (isDouble(tmp))
+  {
+    std::cout << "Double: " << atof(tmp) << std::endl;
+    return (DOUBLE);
+  }
+  else if (isFloat(tmp))
+  {
+    std::cout << "Float: " << static_cast<float>(strtod(tmp, NULL)) << std::endl;
+  }
+  else if (isChar(tmp))
+  {
+    std::cout << "Char: " << *tmp << std::endl;
+    return (CHAR);
+  }
+  else
+  {
+    std::cout << "Error: invalid" << std::endl;
+    //throw
+    return (ERROR);
+  }
   return (0);
 }
+
 //Exception----------------------
 //const char *Literal::ErrorExcept::what() const throw()
 //{

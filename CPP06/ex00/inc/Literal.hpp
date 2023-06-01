@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 13:58:37 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/05/30 17:46:08 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/06/01 17:36:08 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <ostream>
 # include <iostream>
 # include <string>
+# include <cstring>
 # include <cstdlib>
 # include <exception>
 
@@ -35,7 +36,13 @@ class Literal
   //Surcharge
     Literal &operator=(const Literal &co);
   //Method
-    int   checkType()const;
+    int   checkType();
+    //-------------------
+    bool  isInt(const char *tmp);
+    bool  isDouble(const char *tmp);
+    bool  isFloat(const char *tmp);
+    bool  isChar(const char *tmp);
+    //------------------
   //G&S
     std::string getData()const;
     int         getType()const;
