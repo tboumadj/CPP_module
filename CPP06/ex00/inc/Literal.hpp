@@ -24,17 +24,18 @@
 # define FLOAT 3
 # define DOUBLE 4
 # define SPEC 5
-# define ERROR 6
+# define NANIF 6
+# define ERROR 7
 
-class Literal
+class ScalarConverter
 {
   public:
-    Literal();
-    Literal(const std::string str);
-    ~Literal();
-    Literal(const Literal &co);
+    ScalarConverter();
+    ScalarConverter(const std::string str);
+    ~ScalarConverter();
+    ScalarConverter(const ScalarConverter &co);
   //Surcharge
-    Literal &operator=(const Literal &co);
+    ScalarConverter &operator=(const ScalarConverter &co);
   //Method
     int   checkType();
     //-------------------
@@ -42,6 +43,7 @@ class Literal
     bool  isDouble(const char *tmp);
     bool  isFloat(const char *tmp);
     bool  isChar(const char *tmp);
+    bool  isNanif(const char *tmp);
     //------------------
   //G&S
     std::string getData()const;

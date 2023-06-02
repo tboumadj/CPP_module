@@ -16,11 +16,11 @@ int main(int argc, char **argv)
 {
   if (argc == 2)
   {
-    Literal *a;
+    ScalarConverter *a;
     std::cout << "GO to convert" << std::endl;
     try
     {
-      a = new Literal(argv[1]);
+      a = new ScalarConverter(argv[1]);
     }
       catch(...)
     {

@@ -12,13 +12,13 @@
 
 #include "../inc/Literal.hpp"
 
-Literal::Literal()
+ScalarConverter::ScalarConverter()
 {
   std::cout << "*Default constructor called!*" << std::endl;
   return ;
 }
 
-Literal::Literal(const std::string str): _data(str)
+ScalarConverter::ScalarConverter(const std::string str): _data(str)
 {
   std::cout << "*Constructor called! for [" << this->getData() << "] called!*" << std::endl;
   //this->_int = atoi(this->getData().c_str());
@@ -30,20 +30,20 @@ Literal::Literal(const std::string str): _data(str)
   return ;
 }
 
-Literal::~Literal()
+ScalarConverter::~ScalarConverter()
 {
   std::cout << "*Destructor for [" << this->getData() << "] called!*" << std::endl;
   return ;
 }
 
-Literal::Literal(const Literal &co)
+ScalarConverter::ScalarConverter(const ScalarConverter &co)
 {
   *this = co;
   return ;
 }
 
 //Surcharge-----------------------
-Literal &Literal::operator=(const Literal &co)
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &co)
 {
   if (this != &co)
   {
@@ -52,42 +52,44 @@ Literal &Literal::operator=(const Literal &co)
   return (*this);
 }
 //G&S----------------------------
-std::string Literal::getData()const
+std::string ScalarConverter::getData()const
 {
   return (this->_data);
 }
 
-int Literal::getType()const
+int ScalarConverter::getType()const
 {
   return (this->_type);
 }
 
-char Literal::getChar()const
+char ScalarConverter::getChar()const
 {
   return (this->_char);
 }
 
-int Literal::getInt()const
+int ScalarConverter::getInt()const
 {
   return (this->_int);
 }
 
-float Literal::getFloat()const
+float ScalarConverter::getFloat()const
 {
   return (this->_float);
 }
 
-double Literal::getDouble()const
+double ScalarConverter::getDouble()const
 {
   return (this->_double);
 }
 
 //Method-------------------------
 
-bool  Literal::isInt(const char *tmp)
+bool  ScalarConverter::isInt(const char *tmp)
 {
   if (tmp == NULL || *tmp == '\0')
     return false;
+  if (*tmp == '-' || *tmp == '+')
+    ++tmp;
   while (*tmp != '\0')
   {
     if (!isdigit(*tmp))
@@ -97,9 +99,13 @@ bool  Literal::isInt(const char *tmp)
   return true;
 }
 
-bool  Literal::isDouble(const char *tmp)
+bool  ScalarConverter::isDouble(const char *tmp)
 {
   if (tmp == NULL || *tmp == '\0')
+    return false;
+  if (*tmp == '-' || *tmp == '+')
+    ++tmp;
+  if (isdigit(*tmp) == 0)
     return false;
   char *endTmp;
   strtod(tmp, &endTmp);
@@ -108,18 +114,26 @@ bool  Literal::isDouble(const char *tmp)
   //return true;
 }
 
-bool Literal::isFloat(const char *tmp)
+bool ScalarConverter::isFloat(const char *tmp)
 {
   return false;
 }
 
-bool  Literal::isChar(const char *tmp)
+bool  ScalarConverter::isChar(const char *tmp)
 {
   //return true;
   return (tmp != NULL && std::strlen(tmp) == 1);
 }
 
-int   Literal::checkType()
+bool  ScalarConverter::isNanif(const char *tmp)
+{
+  if (this->getData().compare("nan") == 0 || this->getData().compare("nanf") == 0 || this->getData().compare("+inf") == 0 ||
+        this->getData().compare("+inff") == 0 || this->getData().compare("-inf") == 0 || this->getData().compare("-inff") == 0)
+    return true;
+  return false;
+}
+
+int   ScalarConverter::checkType()
 {
   const char *tmp = _data.c_str();
   
@@ -127,6 +141,11 @@ int   Literal::checkType()
   {
     std::cout << "Integer: " << atoi(tmp) << std::endl;
     return (INT);
+  }
+  else if (isNanif(tmp))
+  {
+    std::cout << "Nanif: " << tmp << std::endl;
+    return (NANIF);
   }
   else if (isDouble(tmp))
   {
@@ -136,6 +155,7 @@ int   Literal::checkType()
   else if (isFloat(tmp))
   {
     std::cout << "Float: " << static_cast<float>(strtod(tmp, NULL)) << std::endl;
+    return (FLOAT);
   }
   else if (isChar(tmp))
   {
