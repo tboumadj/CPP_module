@@ -107,6 +107,8 @@ bool  ScalarConverter::isDouble(const char *tmp)
     ++tmp;
   if (isdigit(*tmp) == 0)
     return false;
+  if (this->_data.back() == '.')
+    return false;
   char *endTmp;
   strtod(tmp, &endTmp);
 
@@ -116,7 +118,43 @@ bool  ScalarConverter::isDouble(const char *tmp)
 
 bool ScalarConverter::isFloat(const char *tmp)
 {
-  return false;
+  bool decimdot = false;
+  bool decimf = false;
+  //std::cout << "_Data : " << this->_data << std::endl;
+  if (tmp == NULL || *tmp == '\0')
+    return false;
+  if (*tmp == '-' || *tmp == '+')
+    ++tmp;
+  if (isdigit(*tmp) == 0)
+    return false;
+  while (tmp)
+  {
+    if (isdigit(*tmp))
+      ++tmp;
+    else if (*tmp == '.')
+    {
+      if (decimdot == true || isdigit(*tmp+1))
+        return false;
+      decimdot = true;
+      ++tmp;
+    }
+    else if (*tmp == 'f' || *tmp == 'F')
+    {
+      if (decimf == true)
+        return false;
+      decimf = true;
+      ++tmp;
+    }
+    else
+    {
+      if (*tmp == '\0')
+        break;
+      return false;
+    }
+  }
+  if (this->_data.back() != 'f' && this->_data.back() != 'F')
+    return false;
+  return true;
 }
 
 bool  ScalarConverter::isChar(const char *tmp)
