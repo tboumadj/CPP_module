@@ -37,7 +37,6 @@ class ScalarConverter
   //Surcharge
     ScalarConverter &operator=(const ScalarConverter &co);
   //Method
-    int   checkType();
     //-------------------
     bool  isInt(const char *tmp);
     bool  isDouble(const char *tmp);
@@ -45,6 +44,14 @@ class ScalarConverter
     bool  isChar(const char *tmp);
     bool  isNanif(const char *tmp);
     //------------------
+    void  convertChar();
+    void  convertInt();
+    void  convertFloat();
+    void  convertDouble();
+    //------------------
+    int   checkType();
+    void  convert();
+    void  printConvert()const;
   //G&S
     std::string getData()const;
     int         getType()const;

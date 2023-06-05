@@ -27,6 +27,7 @@ ScalarConverter::ScalarConverter(const std::string str): _data(str)
   //std::cout << "double: " << this->getDouble() << std::endl;
   this->_type = checkType();
   std::cout << "Type is: " << _type << std::endl;
+  convert();
   return ;
 }
 
@@ -83,7 +84,7 @@ double ScalarConverter::getDouble()const
 }
 
 //Method-------------------------
-
+//------------------
 bool  ScalarConverter::isInt(const char *tmp)
 {
   if (tmp == NULL || *tmp == '\0')
@@ -170,6 +171,51 @@ bool  ScalarConverter::isNanif(const char *tmp)
     return true;
   return false;
 }
+//---------------------------
+
+void  ScalarConverter::convertChar()
+{
+  this->_char = static_cast<unsigned char>(this->getData()[0]);
+  this->_int = static_cast<int>(this->getChar());
+  this->_float = static_cast<float>(this->getInt());
+  this->_double = static_cast<double>(this->getChar());
+  return ;
+}
+
+void  ScalarConverter::convertInt()
+{
+  this->_int = atoi(this->getData().c_str());
+  this->_double = atof(this->getData().c_str());
+  //-------------
+  this->_int = static_cast<int>(this->getDouble());
+  this->_char = static_cast<unsigned char>(this->getInt());
+  this->_float = static_cast<float>(this->getDouble());
+  return ;
+}
+
+void  ScalarConverter::convertFloat()
+{
+  this->_int = atoi(this->getData().c_str());
+  this->_double = atof(this->getData().c_str());
+  //----------------
+  this->_float = static_cast<float>(this->getDouble());
+  this->_char = static_cast<char>(this->getFloat());
+  this->_int = static_cast<int>(this->getFloat());
+  return ;
+}
+
+void  ScalarConverter::convertDouble()
+{
+  this->_int = atoi(this->getData().c_str());
+  this->_double = atof(this->getData().c_str());
+  //------------------
+  this->_char = static_cast<char>(this->getDouble());
+  this->_int = static_cast<int>(this->getDouble());
+  this->_float = static_cast<float>(this->getDouble());
+  return ;
+}
+
+//----------------------------
 
 int   ScalarConverter::checkType()
 {
@@ -207,6 +253,33 @@ int   ScalarConverter::checkType()
     return (ERROR);
   }
   return (0);
+}
+
+void  ScalarConverter::convert()
+{
+  void (ScalarConverter::*f[])() = {&ScalarConverter::convertChar, &ScalarConverter::convertInt, &ScalarConverter::convertFloat, &ScalarConverter::convertDouble};
+  int types[] = {CHAR, INT, FLOAT, DOUBLE};
+
+  if (this->getType() == NANIF)
+    return ;
+
+  int i = -1;
+  while (++i < 4)
+  {
+    if (this->getType() == types[i])
+    {
+      (this->*f[i])();
+        break ;
+    }
+  }
+  //if (i == 4)
+  //  throw ScalarConverter::ErrorExcept();
+  return ;
+}
+
+void  ScalarConverter::printConvert()const
+{
+  return ;
 }
 
 //Exception----------------------
