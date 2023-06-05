@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/Literal.hpp"
+#include <climits>
 
 ScalarConverter::ScalarConverter()
 {
@@ -184,12 +185,34 @@ void  ScalarConverter::convertChar()
 
 void  ScalarConverter::convertInt()
 {
-  this->_int = atoi(this->getData().c_str());
-  this->_double = atof(this->getData().c_str());
   //-------------
-  this->_int = static_cast<int>(this->getDouble());
-  this->_char = static_cast<unsigned char>(this->getInt());
-  this->_float = static_cast<float>(this->getDouble());
+  std::cout << "length of _Data: " << strlen(this->getData().c_str()) << std::endl;
+  if(this->getData().c_str()[0] == '-')
+  {
+    const int INT_MIN_LENGTH = std::to_string(INT_MIN).length();
+    std::cout << "int min lgth: " << INT_MIN_LENGTH << std::endl;
+    if (strlen(this->getData().c_str()) > INT_MIN_LENGTH)
+      {
+        std::cout << "Integer Int min not valable .." << std::endl;
+        return ;
+      }
+  }
+  else
+  {
+    const int INT_MAX_LENGTH = std::to_string(INT_MAX).length();
+    std::cout << "int max lgth: " << INT_MAX_LENGTH << std::endl;
+    if (strlen(this->getData().c_str()) > INT_MAX_LENGTH)
+    {
+      std::cout << "int max not valable.." << std::endl;
+      return ;
+    }
+  } 
+    this->_int = atoi(this->getData().c_str());
+    this->_double = atof(this->getData().c_str());
+  //-------------
+    this->_int = static_cast<int>(this->getDouble());
+    this->_char = static_cast<unsigned char>(this->getInt());
+    this->_float = static_cast<float>(this->getDouble());
   return ;
 }
 
@@ -279,6 +302,10 @@ void  ScalarConverter::convert()
 
 void  ScalarConverter::printConvert()const
 {
+  if (this->getType() == CHAR)
+  {
+    
+  }
   return ;
 }
 
