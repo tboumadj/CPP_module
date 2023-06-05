@@ -18,6 +18,7 @@
 # include <cstring>
 # include <cstdlib>
 # include <exception>
+# include <climits>
 
 # define CHAR 1
 # define INT 2
