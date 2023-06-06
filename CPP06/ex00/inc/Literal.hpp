@@ -50,6 +50,7 @@ class ScalarConverter
     void  convertFloat();
     void  convertDouble();
     //------------------
+    bool  checkMax();
     int   checkType();
     void  convert();
     void  printConvert()const;

@@ -186,6 +186,50 @@ void  ScalarConverter::convertChar()
 void  ScalarConverter::convertInt()
 {
   //-------------
+  if (checkMax() == true)
+  {
+    this->_int = atoi(this->getData().c_str());
+    this->_double = atof(this->getData().c_str());
+  //-------------
+    this->_int = static_cast<int>(this->getDouble());
+    this->_char = static_cast<unsigned char>(this->getInt());
+    this->_float = static_cast<float>(this->getDouble());
+  }
+  return ;
+}
+
+void  ScalarConverter::convertFloat()
+{
+  if (checkMax() == true)
+  {
+    this->_int = atoi(this->getData().c_str());
+    this->_double = atof(this->getData().c_str());
+  //----------------
+    this->_float = static_cast<float>(this->getDouble());
+    this->_char = static_cast<char>(this->getFloat());
+    this->_int = static_cast<int>(this->getFloat());
+  }
+  return ;
+}
+
+void  ScalarConverter::convertDouble()
+{
+  if (checkMax() == true)
+  {
+    this->_int = atoi(this->getData().c_str());
+    this->_double = atof(this->getData().c_str());
+  //------------------
+    this->_char = static_cast<char>(this->getDouble());
+    this->_int = static_cast<int>(this->getDouble());
+    this->_float = static_cast<float>(this->getDouble());
+  }
+  return ;
+}
+
+//----------------------------
+
+bool  ScalarConverter::checkMax()
+{
   std::cout << "length of _Data: " << strlen(this->getData().c_str()) << std::endl;
   if(this->getData().c_str()[0] == '-')
   {
@@ -194,7 +238,7 @@ void  ScalarConverter::convertInt()
     if (strlen(this->getData().c_str()) > INT_MIN_LENGTH)
       {
         std::cout << "Integer Int min not valable .." << std::endl;
-        return ;
+        return false;
       }
   }
   else
@@ -204,41 +248,18 @@ void  ScalarConverter::convertInt()
     if (strlen(this->getData().c_str()) > INT_MAX_LENGTH)
     {
       std::cout << "int max not valable.." << std::endl;
-      return ;
+      return false;
     }
-  } 
-    this->_int = atoi(this->getData().c_str());
-    this->_double = atof(this->getData().c_str());
-  //-------------
-    this->_int = static_cast<int>(this->getDouble());
-    this->_char = static_cast<unsigned char>(this->getInt());
-    this->_float = static_cast<float>(this->getDouble());
-  return ;
+  }
+  const long max_long = atol(this->_data.c_str());
+  std::cout << "long : " << max_long << std::endl;
+  if (max_long > INT_MAX || max_long < INT_MIN)
+  {
+    std::cout << "error value of Integer.." << std::endl;
+    return false;
+  }
+  return true;
 }
-
-void  ScalarConverter::convertFloat()
-{
-  this->_int = atoi(this->getData().c_str());
-  this->_double = atof(this->getData().c_str());
-  //----------------
-  this->_float = static_cast<float>(this->getDouble());
-  this->_char = static_cast<char>(this->getFloat());
-  this->_int = static_cast<int>(this->getFloat());
-  return ;
-}
-
-void  ScalarConverter::convertDouble()
-{
-  this->_int = atoi(this->getData().c_str());
-  this->_double = atof(this->getData().c_str());
-  //------------------
-  this->_char = static_cast<char>(this->getDouble());
-  this->_int = static_cast<int>(this->getDouble());
-  this->_float = static_cast<float>(this->getDouble());
-  return ;
-}
-
-//----------------------------
 
 int   ScalarConverter::checkType()
 {
