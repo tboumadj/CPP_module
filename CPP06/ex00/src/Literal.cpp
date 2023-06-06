@@ -237,6 +237,7 @@ void  ScalarConverter::convertDouble()
 
 bool  ScalarConverter::checkZero(const char *str)
 {
+  int len = 0;
   if (str == NULL || *str == '\0')
     return false;
   while (str)
@@ -244,12 +245,13 @@ bool  ScalarConverter::checkZero(const char *str)
     if (*str != '0')
       break;
     ++str;
+    ++len;
   }
-  if (str[0] == '0' && *str == '\0')
-    this->_data = this->_data.substr(*str);
+  if (*(str-len) == '0' && *str == '\0')
+    this->_data = '0';
   if (*str != '\0')
-    this->_data = this->_data.substr(*str);
-  std::cout << "_data: " << this->_data << std::endl;
+    this->_data = this->_data.substr(len, std::strlen(str));
+  //std::cout << "_data: " << this->_data << std::endl;
   return true;
 }
 
