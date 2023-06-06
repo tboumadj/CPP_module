@@ -21,20 +21,16 @@ int main(int argc, char **argv)
     try
     {
       a = new ScalarConverter(argv[1]);
+      delete (a);
     }
-      catch(...)
+    catch (ScalarConverter::ErrorExcept &e)
     {
-      return (-1);
+      std::cout << "error exception : " << e.what() << std::endl;
     }
-    //catch (Literal::ErrorExcept &e)
-    //{
-    //  std::cout << "error exception " << e.what() << std::endl;
-    //}
-    delete (a);
   }
   else
   {
-    std::cout << "Hello Test!" << std::endl;
+    std::cout << "ARG Missing ..." << std::endl;
   }
   return (0);
 }

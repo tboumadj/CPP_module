@@ -29,6 +29,7 @@ ScalarConverter::ScalarConverter(const std::string str): _data(str)
   this->_type = checkType();
   std::cout << "Type is: " << _type << std::endl;
   convert();
+  printConvert();
   return ;
 }
 
@@ -195,6 +196,8 @@ void  ScalarConverter::convertInt()
     this->_char = static_cast<unsigned char>(this->getInt());
     this->_float = static_cast<float>(this->getDouble());
   }
+  else
+    throw ErrorExcept();
   return ;
 }
 
@@ -209,6 +212,8 @@ void  ScalarConverter::convertFloat()
     this->_char = static_cast<char>(this->getFloat());
     this->_int = static_cast<int>(this->getFloat());
   }
+  else
+    throw ErrorExcept();
   return ;
 }
 
@@ -223,39 +228,59 @@ void  ScalarConverter::convertDouble()
     this->_int = static_cast<int>(this->getDouble());
     this->_float = static_cast<float>(this->getDouble());
   }
+  else
+    throw ErrorExcept();
   return ;
 }
 
 //----------------------------
 
+bool  ScalarConverter::checkZero(const char *str)
+{
+  if (str == NULL || *str == '\0')
+    return false;
+  while (str)
+  {
+    if (*str != '0')
+      break;
+    ++str;
+  }
+  if (str[0] == '0' && *str == '\0')
+    this->_data = this->_data.substr(*str);
+  if (*str != '\0')
+    this->_data = this->_data.substr(*str);
+  std::cout << "_data: " << this->_data << std::endl;
+  return true;
+}
+
 bool  ScalarConverter::checkMax()
 {
-  std::cout << "length of _Data: " << strlen(this->getData().c_str()) << std::endl;
+  //std::cout << "length of _Data: " << strlen(this->getData().c_str()) << std::endl;
   if(this->getData().c_str()[0] == '-')
   {
     const int INT_MIN_LENGTH = std::to_string(INT_MIN).length();
-    std::cout << "int min lgth: " << INT_MIN_LENGTH << std::endl;
+    //std::cout << "int min lgth: " << INT_MIN_LENGTH << std::endl;
     if (strlen(this->getData().c_str()) > INT_MIN_LENGTH)
       {
-        std::cout << "Integer Int min not valable .." << std::endl;
+        //std::cout << "Integer Int min not valable .." << std::endl;
         return false;
       }
   }
   else
   {
     const int INT_MAX_LENGTH = std::to_string(INT_MAX).length();
-    std::cout << "int max lgth: " << INT_MAX_LENGTH << std::endl;
+    //std::cout << "int max lgth: " << INT_MAX_LENGTH << std::endl;
     if (strlen(this->getData().c_str()) > INT_MAX_LENGTH)
     {
-      std::cout << "int max not valable.." << std::endl;
+      //std::cout << "int max not valable.." << std::endl;
       return false;
     }
   }
   const long max_long = atol(this->_data.c_str());
-  std::cout << "long : " << max_long << std::endl;
+  //std::cout << "long : " << max_long << std::endl;
   if (max_long > INT_MAX || max_long < INT_MIN)
   {
-    std::cout << "error value of Integer.." << std::endl;
+    //std::cout << "error value of Integer.." << std::endl;
     return false;
   }
   return true;
@@ -264,36 +289,37 @@ bool  ScalarConverter::checkMax()
 int   ScalarConverter::checkType()
 {
   const char *tmp = _data.c_str();
+  checkZero(tmp);
   
   if (isInt(tmp))
   {
-    std::cout << "Integer: " << atoi(tmp) << std::endl;
+    //std::cout << "Integer: " << atoi(tmp) << std::endl;
     return (INT);
   }
   else if (isNanif(tmp))
   {
-    std::cout << "Nanif: " << tmp << std::endl;
+    //std::cout << "Nanif: " << tmp << std::endl;
     return (NANIF);
   }
   else if (isDouble(tmp))
   {
-    std::cout << "Double: " << atof(tmp) << std::endl;
+    //std::cout << "Double: " << atof(tmp) << std::endl;
     return (DOUBLE);
   }
   else if (isFloat(tmp))
   {
-    std::cout << "Float: " << static_cast<float>(strtod(tmp, NULL)) << std::endl;
+    //std::cout << "Float: " << static_cast<float>(strtod(tmp, NULL)) << std::endl;
     return (FLOAT);
   }
   else if (isChar(tmp))
   {
-    std::cout << "Char: " << *tmp << std::endl;
+    //std::cout << "Char: " << *tmp << std::endl;
     return (CHAR);
   }
   else
   {
-    std::cout << "Error: invalid" << std::endl;
-    //throw
+    //std::cout << "Error: invalid" << std::endl;
+    throw ErrorExcept();
     return (ERROR);
   }
   return (0);
@@ -321,17 +347,58 @@ void  ScalarConverter::convert()
   return ;
 }
 
-void  ScalarConverter::printConvert()const
+void  ScalarConverter::printConvert()
 {
-  if (this->getType() == CHAR)
+  //------------------------Char
+  if (isprint(this->getChar()))
+    std::cout << "char : [" << this->getChar() << "]" << std::endl;
+  else
+    std::cout << "char : impossible" << std::endl;
+  //-----------------------Int
+  if (this->getType() != NANIF && this->checkMax() == true)//TEST PEUT ETRE ENLEVER
+    std::cout << "int : [" << this->getInt() << "]" << std::endl;
+  else
+    std::cout << "int : impossible" << std::endl;
+  //------------------------Float
+  if (this->getType() != NANIF)
   {
-    
+    if (this->getFloat() - this->getInt() == 0)
+      std::cout << "float : [" << this->getFloat() << ".0f]" << std::endl;
+    else
+      std::cout << "float : [" << this->getFloat() << "f]" << std::endl;
   }
+  else
+  {
+    if (this->getData().compare("nan") == 0 || this->getData().compare("nanf") == 0)
+      std::cout << "float : [nanf]" << std::endl;
+    else if (this->getData().c_str()[0] == '+')
+      std::cout << "float : [+inff]" << std::endl;
+    else
+      std::cout << "float : [-inff]" << std::endl;
+  }
+  //-------------------------Double
+  if (this->getType() != NANIF)
+  {
+    if(this->getDouble() - this->getInt() == 0)
+      std::cout << "double : [" << this->getDouble() << ".0]" << std::endl;
+    else
+      std::cout << "double : [" << this->getDouble() << "]" << std::endl;
+  }
+  else
+  {
+    if (this->getData().compare("nan") == 0 || this->getData().compare("nanf") == 0)
+      std::cout << "double : [nan]" << std::endl;
+    else if (this->getData().c_str()[0] == '+')
+      std::cout << "double : [+inf]" << std::endl;
+    else
+      std::cout << "double : [-inf]" << std::endl;
+  }
+  //------------------------
   return ;
 }
 
 //Exception----------------------
-//const char *Literal::ErrorExcept::what() const throw()
-//{
-//  return ("Error convert..");
-//}
+const char *ScalarConverter::ErrorExcept::what() const throw()
+{
+  return ("Error convert..");
+}
