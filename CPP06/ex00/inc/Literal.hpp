@@ -50,10 +50,11 @@ class ScalarConverter
     void  convertFloat();
     void  convertDouble();
     //------------------
+    bool  checkZero(const char *str);
     bool  checkMax();
     int   checkType();
     void  convert();
-    void  printConvert()const;
+    void  printConvert();
   //G&S
     std::string getData()const;
     int         getType()const;
@@ -63,11 +64,11 @@ class ScalarConverter
     double      getDouble()const;
 
   //Exception
-  //class ErrorExcept : public std::exception
-  //{
-  //  public:
-  //    const char *what() const throw();
-  //};
+  class ErrorExcept : public std::exception
+  {
+    public:
+      const char *what() const throw();
+  };
 
   private:
     std::string       _data;
