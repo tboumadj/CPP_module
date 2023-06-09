@@ -16,24 +16,6 @@
 #include "../inc/RobotomyRequestForm.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
 
-//int main()
-//{
-  //-------------------
-// Bureaucrat *a = new Bureaucrat("Truc", 52);
-// Form *b = new Form("Machin", 45, 151);
-  //-----------------
-//    std::cout << a;
-//    std::cout << b;
-  //-------------------
-//    a->Decrement();
-//    a->signForm(*b);
-  //--------------------
-//    delete a;
-//    delete b;
-  //-------------------
-//  return (0);
-//}
-
 int main()
 {
   Bureaucrat *a;

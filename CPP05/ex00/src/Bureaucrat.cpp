@@ -18,36 +18,6 @@ Bureaucrat::Bureaucrat(): _name("Default"), _grade(150)
   return ;
 }
 
-//Bureaucrat::Bureaucrat(std::string str, int nbr): _name(str)
-//{
-//  std::cout << "*Constructor Bureaucrat [" << this->_name << "] and graded [" << nbr << "] called!*" << std::endl;
-//  if (nbr < 1)
-//  {
-//    try
-//    {
-//     this->setGrade(nbr);
-//    }
-//    catch(GradeTooHighException &e)
-//    {
-//      std::cout << "Error instanciate grade! " << e.what() << std::endl;
-//      delete (this);
-//    }
-//  }
-//  else
-//  {
-//    try
-//    {
-//      this->setGrade(nbr);
-//    }
-//    catch(GradeTooLowException &e)
-//    {
-//      std::cout << "Error instanciate grade ! " << e.what() << std::endl;
-//      delete (this);
-//   }
-//  }
-//  return ;
-//}
-
 Bureaucrat::Bureaucrat(std::string str, int nbr): _name(str)
 {
   if (nbr < 1)
@@ -101,11 +71,6 @@ size_t Bureaucrat::getGrade()const
 
 void Bureaucrat::setGrade(int nbr)
 {
-  //if (nbr > 150)
-  //  throw GradeTooLowException();
-  //else if (nbr < 1)
-  //  throw GradeTooHighException();
-  //else
     this->_grade = nbr;
 }
 

@@ -21,40 +21,6 @@ Form::Form(): _name("Default"), _gradesign(150), _gradexec(150), _signed(false)
   return ;
 }
 
-//Form::Form(std::string str, int sign, int exec): _name(str), _gradesign(sign), _gradexec(exec), _signed(false)
-//{
-//  std::cout << "*Constructor Form [" << this->_name << "] called! " << 
-//  "grade to signe [" << this->_gradesign << "] " <<
-//  "and grade to exec [" << this->_gradexec << "]*" << std::endl;
-//  if (sign < 1 || exec < 1)
-//  {
-//    try
-//      {
-//        this->getGradeSign();
-//        this->getGradeXec();
-//      }
-//    catch(GradeTooHighException &e)
-//      {
-//        std::cout << "Error instanciate grade of form! " << e.what() << std::endl;
-//       // delete (this);
-//      }
-//  }
-//  else if (sign > 150 || exec > 150)
-//  {
-//    try
-//      {
-//        this->getGradeSign();
-//        this->getGradeXec();
-//      }
-//    catch(GradeTooLowException &e)
-//      {
-//        std::cout << "Error instanciat grade of form! " << e.what() << std::endl;
-//        // delete (this);
-//      }
-//    }
-//  return ;
-//}
-
 Form::Form(std::string str, int sign, int exec): _name(str), _gradesign(sign), _gradexec(exec), _signed(false)
 {
   if (_gradesign < 1 || _gradexec < 1)
@@ -113,21 +79,11 @@ const std::string Form::getName()const
 
 size_t Form::getGradeSign()const
 {
-  //if (this->_gradesign  > 150)
-  //  throw GradeTooLowException();
-  //else if (this->_gradesign < 1)
-  //  throw GradeTooHighException();
-  //else
     return (this->_gradesign);
 }
 
 size_t Form::getGradeXec()const
 {
-  //if (this->_gradexec > 150)
-  //  throw GradeTooLowException();
-  //else if (this->_gradexec < 1)
-  //  throw GradeTooHighException();
-  //else
     return (this->_gradexec);
 }
 

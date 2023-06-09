@@ -25,25 +25,22 @@ int main()
     a->Increment();
     std::cout << a;
     a->signForm(*b);
-    a->Increment();
-    std::cout << a;
-    a->signForm(*b);
   }
   catch (Bureaucrat::GradeTooHighException &e)
   {
-    std::cout << "error execption1 " << e.what() << std::endl;
+    std::cout << "error [execpt1] " << e.what() << std::endl;
   }
   catch (Bureaucrat::GradeTooLowException &e)
   {
-    std::cout << "error execption2 " << e.what() << std::endl;
+    std::cout << "error [execpt2] " << e.what() << std::endl;
   }
   catch (Form::GradeTooHighException &e)
   {
-    std::cout << "error exception3 " << e.what() << std::endl;
+    std::cout << "error [except3] " << e.what() << std::endl;
   }
   catch (Form::GradeTooLowException &e)
   {
-    std::cout << "error exception4 " << e.what() << std::endl;
+    std::cout << "error [except4] " << e.what() << std::endl;
   }
   delete (a);
   delete (b);

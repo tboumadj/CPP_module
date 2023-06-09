@@ -12,26 +12,6 @@
 
 #include "../inc/Bureaucrat.hpp"
 
-//int main()
-//{
-//  //-------------------
-//  Bureaucrat *a = new Bureaucrat;
-//  Bureaucrat *b = new Bureaucrat("Machin", 42);
-//  Bureaucrat *c = new Bureaucrat("Truc", 151);
-//  //Bureaucrat c("Truc", 151);
-//  //-----------------
-//  a->Decrement();
-
-//  std::cout << a;
-//  std::cout << b;
-//  std::cout << c;
-
-//  delete a;
-//  delete b;
-  //-------------------
-//  return (0);
-//}
-
 int main()
 {
   Bureaucrat *a;
@@ -41,21 +21,23 @@ int main()
   try
   {
     a = new Bureaucrat;
-    b = new Bureaucrat("Machin", 1);
+    b = new Bureaucrat("Machin", 2);
     c = new Bureaucrat("Truc", 150);
     //-----------
     b->Increment();
     std::cout << a;
     std::cout << b;
     std::cout << c;
+    b->Increment();
+    std::cout << a;
   }
   catch (Bureaucrat::GradeTooHighException &e)
   {
-    std::cout << "error execption1 " << e.what() << std::endl;
+    std::cout << "error [execpt1] " << e.what() << std::endl;
   }
   catch (Bureaucrat::GradeTooLowException &e)
   {
-    std::cout << "error execption2 " << e.what() << std::endl;
+    std::cout << "error [execpt2] " << e.what() << std::endl;
   }
   delete (a);
   delete (b);
