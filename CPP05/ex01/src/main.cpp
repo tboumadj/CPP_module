@@ -13,31 +13,13 @@
 #include "../inc/Bureaucrat.hpp"
 #include "../inc/Form.hpp"
 
-//int main()
-//{
-  //-------------------
-// Bureaucrat *a = new Bureaucrat("Truc", 52);
-// Form *b = new Form("Machin", 45, 151);
-  //-----------------
-//    std::cout << a;
-//    std::cout << b;
-  //-------------------
-//    a->Decrement();
-//    a->signForm(*b);
-  //--------------------
-//    delete a;
-//    delete b;
-  //-------------------
-//  return (0);
-//}
-
 int main()
 {
   Bureaucrat *a;
   Form *b;
   try
   {
-    a = new Bureaucrat("truc", 1);
+    a = new Bureaucrat("truc", 51);
     b = new Form("machin", 50, 150);
     a->signForm(*b);
     a->Increment();
