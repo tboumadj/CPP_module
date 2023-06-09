@@ -22,10 +22,6 @@ ScalarConverter::ScalarConverter()
 ScalarConverter::ScalarConverter(const std::string str): _data(str)
 {
   std::cout << "*Constructor called! for [" << this->getData() << "] called!*" << std::endl;
-  //this->_int = atoi(this->getData().c_str());
-  //std::cout << "int: " << this->getInt() << std::endl;
-  //this->_double = atof(this->getData().c_str());
-  //std::cout << "double: " << this->getDouble() << std::endl;
   this->_type = checkType();
   std::cout << "Type is: " << _type << std::endl;
   convert();
@@ -123,7 +119,6 @@ bool ScalarConverter::isFloat(const char *tmp)
 {
   bool decimdot = false;
   bool decimf = false;
-  //std::cout << "_Data : " << this->_data << std::endl;
   if (tmp == NULL || *tmp == '\0')
     return false;
   if (*tmp == '-' || *tmp == '+')
@@ -251,40 +246,26 @@ bool  ScalarConverter::checkZero(const char *str)
     this->_data = '0';
   if (*str != '\0')
     this->_data = this->_data.substr(len, std::strlen(str));
-  //std::cout << "_data: " << this->_data << std::endl;
   return true;
 }
 
 bool  ScalarConverter::checkMax()
 {
-  //std::cout << "length of _Data: " << strlen(this->getData().c_str()) << std::endl;
   if(this->getData().c_str()[0] == '-')
   {
     const int INT_MIN_LENGTH = std::to_string(INT_MIN).length();
-    //std::cout << "int min lgth: " << INT_MIN_LENGTH << std::endl;
     if (strlen(this->getData().c_str()) > INT_MIN_LENGTH)
-      {
-        //std::cout << "Integer Int min not valable .." << std::endl;
         return false;
-      }
   }
   else
   {
     const int INT_MAX_LENGTH = std::to_string(INT_MAX).length();
-    //std::cout << "int max lgth: " << INT_MAX_LENGTH << std::endl;
     if (strlen(this->getData().c_str()) > INT_MAX_LENGTH)
-    {
-      //std::cout << "int max not valable.." << std::endl;
       return false;
-    }
   }
   const long max_long = atol(this->_data.c_str());
-  //std::cout << "long : " << max_long << std::endl;
   if (max_long > INT_MAX || max_long < INT_MIN)
-  {
-    //std::cout << "error value of Integer.." << std::endl;
     return false;
-  }
   return true;
 }
 
@@ -294,33 +275,17 @@ int   ScalarConverter::checkType()
   checkZero(tmp);
   
   if (isInt(tmp))
-  {
-    //std::cout << "Integer: " << atoi(tmp) << std::endl;
     return (INT);
-  }
   else if (isNanif(tmp))
-  {
-    //std::cout << "Nanif: " << tmp << std::endl;
     return (NANIF);
-  }
   else if (isDouble(tmp))
-  {
-    //std::cout << "Double: " << atof(tmp) << std::endl;
     return (DOUBLE);
-  }
   else if (isFloat(tmp))
-  {
-    //std::cout << "Float: " << static_cast<float>(strtod(tmp, NULL)) << std::endl;
     return (FLOAT);
-  }
   else if (isChar(tmp))
-  {
-    //std::cout << "Char: " << *tmp << std::endl;
     return (CHAR);
-  }
   else
   {
-    //std::cout << "Error: invalid" << std::endl;
     throw ErrorExcept();
     return (ERROR);
   }
@@ -344,8 +309,6 @@ void  ScalarConverter::convert()
         break ;
     }
   }
-  //if (i == 4)
-  //  throw ScalarConverter::ErrorExcept();
   return ;
 }
 
