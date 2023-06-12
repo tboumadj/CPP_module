@@ -6,7 +6,7 @@
 #    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 19:11:05 by tboumadj@student  #+#    #+#              #
-#    Updated: 2023/05/29 15:51:28 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/06/12 16:52:54 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CHECK		=		-fsanitize=address
 
 SRCS		=		src/main.cpp
 OBJS		=		$(SRCS:.cpp=.o)
-#HEADER	=		inc/whatever.hpp
+HEADER	=		inc/Array.hpp
 
 #COLORS
 
@@ -36,7 +36,7 @@ _GREEN	=		$'\x1b[32m
 
 $(NAME):	$(OBJS)
 									@echo "$(_GREY)Compilation de Ex02 en cours...$(_END)"
-									$(CC) $(OBJS) $(FLAGS) -o $(NAME) #(CHECK)
+									$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
 									@echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 
 .SILENT	: $(OBJS) $(NAME)

@@ -1,5 +1,16 @@
-#include <iostream>
-#include <Array.hpp>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/12 17:01:49 by tboumadj          #+#    #+#             */
+/*   Updated: 2023/06/12 17:02:06 by tboumadj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/Array.hpp"
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -33,7 +44,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << "1" << '\n';
     }
     try
     {
@@ -41,7 +52,7 @@ int main(int, char**)
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << "2" << '\n';
     }
 
     for (int i = 0; i < MAX_VAL; i++)
