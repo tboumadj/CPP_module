@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:01:42 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/12 17:01:45 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:50:11 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ class Array
     {
       if (n < 0)
         throw IndexTooLowException();
-      if (this->_size < n || this->_tab == NULL)
+      if (this->_size < n)
         throw IndexTooHighException();
+      if (this->_tab == NULL)
+        throw ArrayVoid(); 
       else
         return this->_tab[n];
     }
@@ -85,6 +87,14 @@ class Array
         const char *what() const throw()
         {
           return ("index too high!..");
+        }
+    };
+    class ArrayVoid : public std::exception
+    {
+      public:
+        const char *what() const throw()
+        {
+          return ("Array void...");
         }
     };
 };

@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:01:49 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/12 17:02:06 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:43:15 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+    //delete [] mirror;//
     return 0;
 }
