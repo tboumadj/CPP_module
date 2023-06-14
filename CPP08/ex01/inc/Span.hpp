@@ -6,12 +6,13 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 15:24:35 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/13 16:11:07 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:47:23 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
+# include <exception>
 # include <ostream>
 # include <iostream>
 # include <vector>
@@ -31,9 +32,20 @@ class Span
     Span &operator=(const Span &co);
   //Method
     void addNumber(unsigned int nbr);
-    //unsigned int shortestSpan();
+    void addIt(unsigned int tot);
+    unsigned int shortestSpan();
     unsigned int longestSpan();
   //Test
     void printCnt();
+    class Errorexecpt : public std::exception
+    {
+      public:
+        const char *what() const throw();
+    };
+    class Nbrexcept : public std::exception
+    {
+      public:
+        const char *what() const throw();
+    };
   };
 #endif
