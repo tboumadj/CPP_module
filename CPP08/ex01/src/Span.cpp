@@ -74,6 +74,10 @@ void Span::addIt(unsigned int tot)
 {
   if (this->_n > 0)
   {
+    //this->_cnt.reserve(tot);
+    //std::vector<int>::iterator itBegin = this->_cnt.begin();
+    //std::vector<int>::iterator itEnd = this->_cnt.end();
+    //for (std::vector<int>::iterator it = itBegin; it != itEnd; ++it)
     while (this->_count < tot && this->_count < this->_n)
     {
       this->_cnt.push_back(this->_count+1);
