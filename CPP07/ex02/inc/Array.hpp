@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:01:42 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/12 17:50:11 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/06/15 14:43:56 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class Array
     }
     Array(const Array &co)
     {
+      std::cout << "Recopy called!" << std::endl;
       *this = co;
       return ;
     }
@@ -72,6 +73,15 @@ class Array
         return this->_tab[n];
     }
     //Method
+    int size()
+    {
+      if (this->_tab == NULL || this->_size == 0)
+        throw ArrayVoid();
+      int i = 0;
+      while (i < this->_size)
+        i++;
+      return (i);
+    }
     //Exception
     class IndexTooLowException : public std::exception
     {

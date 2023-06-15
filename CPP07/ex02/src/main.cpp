@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:01:49 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/12 17:43:15 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/06/15 14:47:16 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,18 @@ int main(int, char**)
     }
     try
     {
-        numbers[-2] = 0;
+      //numbers[-2] = 0;
+      std::cout << "size: " << numbers.size() << std::endl;
     }
-    catch(const std::exception& e)
+    catch(const Array<int>::ArrayVoid &e)
+    {
+        std::cerr << e.what() << "1" << '\n';
+    }
+    catch(const Array<int>::IndexTooLowException &e)
+    {
+        std::cerr << e.what() << "1" << '\n';
+    }
+    catch(const Array<int>::IndexTooHighException &e)
     {
         std::cerr << e.what() << "1" << '\n';
     }
@@ -50,15 +59,22 @@ int main(int, char**)
     {
         numbers[MAX_VAL] = 0;
     }
-    catch(const std::exception& e)
+    catch(const Array<int>::ArrayVoid &e)
     {
         std::cerr << e.what() << "2" << '\n';
     }
-
+    catch(const Array<int>::IndexTooLowException &e)
+    {
+        std::cerr << e.what() << "2" << '\n';
+    }
+    catch(const Array<int>::IndexTooHighException &e)
+    {
+        std::cerr << e.what() << "2" << '\n';
+    }
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
     }
-    //delete [] mirror;//
+    //delete [] mirror;
     return 0;
 }
