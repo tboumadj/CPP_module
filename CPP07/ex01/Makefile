@@ -22,7 +22,7 @@ CHECK		=		-fsanitize=address
 
 SRCS		=		src/main.cpp
 OBJS		=		$(SRCS:.cpp=.o)
-#HEADER	=		inc/
+HEADER	=		inc/iter.hpp
 
 #COLORS
 
