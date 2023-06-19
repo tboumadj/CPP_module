@@ -12,5 +12,10 @@
 
 #ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
+# include <ostream>
+# include <iostream>
+# include <sstream>
+# include <string>
+# include <vector>
 
 #endif
