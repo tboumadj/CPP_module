@@ -18,6 +18,7 @@
 # include <sstream>
 # include <string>
 # include <cctype>
+# include <cstdlib>
 # include <vector>
 
 #endif
