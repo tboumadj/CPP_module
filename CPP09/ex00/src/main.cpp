@@ -18,6 +18,19 @@ struct Data_csv
   std::string value;
 };
 
+std::vector<std::string> split(const std::string &str, char delimiter)
+{
+  std::vector<std::string> result;
+  std::stringstream ss(str);
+  std::string item;
+
+  while (std::getline(ss, item, delimiter))
+  {
+    result.push_back(item);
+  }
+  return result;
+}
+
 bool check_param(const std::string &str)
 {
   for (std::size_t i = 0; i < str.length(); ++i)
@@ -28,8 +41,78 @@ bool check_param(const std::string &str)
     return true;
 }
 
+bool check_bisextile(const std::string &date)
+{
+  size_t n = atof(date.c_str());
+  if (n == 2000 || n == 2004 || n == 2008 || n == 2012 || n == 2016 ||
+        n == 2020 || n == 2024 || n == 2028)
+  {
+    std::cout << "annee bisextile" << std::endl;
+    return true;
+  }
+  return false;
+}
+
+bool check_month(const std::string &month)
+{
+  size_t n = atof(month.c_str());
+  if (n > 12)
+    return false;
+  return true;
+}
+
+bool check_day(const std::string &day, const std::string &month, bool bi_year)
+{
+  size_t m = atof(month.c_str());
+  size_t d = atof(day.c_str());
+  if (bi_year == true && m == 02)
+  {
+    if (d > 29)
+      return false;
+  }
+  else if (bi_year == false && m == 02)
+  {
+    if (d > 28)
+      return false;
+  }
+  else
+  {
+    if (m == 01 || m == 03 || m == 05 || m == 07 || m == 8 || m == 10 || m == 12)
+    {
+      if (d > 31)
+        return false;
+    }
+    else
+    {
+        if(d > 30)
+          return false;
+    }
+  }
+  return true;
+}
+
 bool check_date(const std::string &date)
 {
+  std::vector<std::string> substrings = split(date, '-');
+  bool bi_year = false;
+  
+  //------------PRINT----------
+  for (std::size_t i = 0; i < substrings.size(); ++i)
+  {
+    std::cout << "Substring " << i + 1 << ": " << substrings[i] << std::endl;
+  }
+  //------------------------
+  bi_year = check_bisextile(substrings[0]);
+  if (check_month(substrings[1]) == false)
+  {
+    std::cout << "Error : month too big" << std::endl;
+    return false;
+  }
+  if (check_day(substrings[2], substrings[1], bi_year) == false)
+  {
+    std::cout << "Error : day too big" << std::endl;
+    return false;
+  }
   return true;
 }
 
@@ -113,10 +196,16 @@ int main(int argc, char **argv)
     for(std::vector<Data_csv>::const_iterator it2 = input.begin(); it2 != input.end(); ++it2)
     {
       const Data_csv tmp_input = *it2;
+      //--------------PRINT---------------
       std::cout << "----ligne input[" << ++i << "] -------" << std::endl;
       std::cout << "Date : " << tmp_input.date << std::endl;
       std::cout << "Value : " << tmp_input.value << std::endl;
-      check_value(tmp_input.value);
+      //---------------------------------
+      if (tmp_input.date.empty() == false || tmp_input.value.empty() == false)
+      {
+        check_date(tmp_input.date);
+        check_value(tmp_input.value);
+      }
       //if (i == 5)
       //  break ;
     }
@@ -128,9 +217,11 @@ int main(int argc, char **argv)
     for (std::vector<Data_csv>::const_iterator it = csv.begin(); it != csv.end(); ++it)
     {
       const Data_csv data = *it;
+      //-------------------PRINT-----------------
       std::cout << "----ligne csv[" << ++i << "] -------" << std::endl;
       std::cout << "Date : " << data.date << std::endl;
       std::cout << "Value : " << data.value << std::endl;
+      //------------------------------------------
       if (i == 2)
         break ;
     }
