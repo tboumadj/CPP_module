@@ -12,22 +12,32 @@
 
 #include "../inc/BitcoinExchange.hpp"
 
-struct Data 
+struct Data_csv 
 {
-  std::string champ1;
-  std::string champ2;
+  std::string date;
+  std::string value;
 };
 
-std::vector<Data>  extractData(const std::string &file_i)
+bool check_param(const std::string &str)
 {
-  std::vector<Data> dataas;
-  std::ifstream file;
+  for (std::size_t i = 0; i < str.length(); ++i)
+  {
+    if (!std::isdigit(str[i]) && !std::ispunct(str[i]) && str[i] != ' ')
+      return false;
+  }
+    return true;
+}
 
+std::vector<Data_csv>  extractData(const std::string &file_i, const char &s)
+{
+  std::vector<Data_csv> csv;
+  std::ifstream file;
+  
   file.open(file_i);
   if (file.fail())
   {
     std::cerr << "Error with opening file." << std::endl;
-    return (dataas); //data
+    return (csv);
   }
 
   std::string line;
@@ -35,18 +45,20 @@ std::vector<Data>  extractData(const std::string &file_i)
   {
     std::istringstream ss(line);
     std::string champ;
-    Data dataa;
+    Data_csv data;
 
-    while (std::getline(ss, champ, ','))
+    while (std::getline(ss, champ, s))
     {
-      dataa.champ1 = champ;
-      std::getline(ss, champ, ',');
-      dataa.champ2 = champ;
+      if (check_param(champ) == true)
+        data.date = champ;
+      std::getline(ss, champ, s);
+      if (check_param(champ) == true)
+        data.value = champ;
     }
-    dataas.push_back(dataa);
+    csv.push_back(data);
   }
   file.close();
-  return (dataas);
+  return (csv);
 }
 
 int main(int argc, char **argv)
@@ -58,14 +70,31 @@ int main(int argc, char **argv)
   }
   else
   {
-    std::vector<Data> tmps = extractData("data.csv");
+    //--------------CSV-------------------------------
+    std::vector<Data_csv> csv = extractData("data.csv", ',');
     int i = 1;
-    for (std::vector<Data>::const_iterator it = tmps.begin(); it != tmps.end(); ++it)
+    for (std::vector<Data_csv>::const_iterator it = csv.begin(); it != csv.end(); ++it)
     {
-      const Data dataa = *it;
-      std::cout << "----ligne [" << ++i << "] -------" << std::endl;
-      std::cout << "Champ 1 : " << dataa.champ1 << std::endl;
-      std::cout << "Champ 2 : " << dataa.champ2 << std::endl;
+      const Data_csv data = *it;
+      std::cout << "----ligne csv[" << ++i << "] -------" << std::endl;
+      std::cout << "Date : " << data.date << std::endl;
+      std::cout << "Value : " << data.value << std::endl;
+      if (i == 5)
+        break ;
+    }
+
+    //--------------Input-----------------------
+    std::cout << "--------------------------" << std::endl;
+    std::vector<Data_csv> input = extractData("input.txt", '|');
+    i = 1;
+    for(std::vector<Data_csv>::const_iterator it2 = input.begin(); it2 != input.end(); ++it2)
+    {
+      const Data_csv tmp_input = *it2;
+      std::cout << "----ligne input[" << ++i << "] -------" << std::endl;
+      std::cout << "Date : " << tmp_input.date << std::endl;
+      std::cout << "Value : " << tmp_input.value << std::endl;
+      if (i == 5)
+        break ;
     }
   }
   return (0);

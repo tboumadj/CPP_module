@@ -17,6 +17,7 @@
 # include <fstream>
 # include <sstream>
 # include <string>
+# include <cctype>
 # include <vector>
 
 #endif
