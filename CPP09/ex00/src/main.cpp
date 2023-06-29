@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/BitcoinExchange.hpp"
+#include <iomanip>
 
 struct Data_csv 
 {
@@ -292,7 +293,9 @@ int main(int argc, char **argv)
         check_value(tmp_input.value);
         it = find_date(tmp_input.date, csv, it);
         const Data_csv tmp_csv = *it;
-        std::cout << "date csv: " << tmp_csv.date << std::endl;
+        float v_in = atof(tmp_input.value.c_str());
+        float v_cs = atof(tmp_csv.value.c_str());
+        std::cout << tmp_input.date << " > " << tmp_csv.date << " = "<< std::fixed << std::setprecision(2) << v_in * v_cs << std::endl;
       }
       //if (i == 5)
       //  break ;
