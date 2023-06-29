@@ -26,6 +26,7 @@ std::vector<std::string> split(const std::string &str, char delimiter)
 
   while (std::getline(ss, item, delimiter))
   {
+    //std::cout << "item: " << item << std::endl;
     result.push_back(item);
   }
   return result;
@@ -91,6 +92,14 @@ bool check_day(const std::string &day, const std::string &month, bool bi_year)
   return true;
 }
 
+bool check_year(const std::string &year)
+{
+  size_t y = atof(year.c_str());
+  if (y < 2009 || y > 2023)
+    return false;
+  return true;
+}
+
 bool check_date(const std::string &date)
 {
   std::vector<std::string> substrings = split(date, '-');
@@ -103,6 +112,11 @@ bool check_date(const std::string &date)
   }
   //------------------------
   bi_year = check_bisextile(substrings[0]);
+  if (check_year(substrings[0]) == false)
+  {
+    std::cout << "Error: year past creation of BT" << std::endl;
+    return false;
+  }
   if (check_month(substrings[1]) == false)
   {
     std::cout << "Error : month too big" << std::endl;
@@ -144,6 +158,60 @@ bool check_value(const std::string &value)
     }
   }
   return true;
+}
+
+std::vector<Data_csv>::const_iterator find_incsv(std::string &date, std::vector<Data_csv> csv)
+{
+  std::vector<std::string> date_input = split(date, '-');
+  std::vector<Data_csv>::const_iterator it = csv.begin();
+  ++it;
+  while(++it != csv.end())
+  {
+    const Data_csv tmp_csv = *it;
+    std::vector<std::string> date_csv = split(tmp_csv.date, '-');
+    //std::cout << "date input: " << date_input[0] << std::endl;
+    //std::cout << "date csv: " << date_csv[0] << std::endl;
+    if (date_input[0] == date_csv[0] && date_input[1] == date_csv[1])
+    {
+      float d_input = std::stof(date_input[2]);
+      float d_csv = std::stof(date_csv[2]);
+      std::cout << "di: " << d_input << "dc: " << d_csv << std::endl;
+      std::cout << "ok find" << std::endl;
+      while(d_input > d_csv || (date_input[0] == date_csv[0] && date_input[1] == date_csv[1]))
+      {
+        --it;
+        const Data_csv tmp_csv = *it;
+        std::vector<std::string> date_csv = split(tmp_csv.date, '-');
+        float d_input = std::stof(date_input[2]);
+        float d_csv = std::stof(date_csv[2]);
+        std::cout << "di: " << d_input << "dc: " << d_csv << std::endl;
+        if (d_csv <= d_input)
+          return (it);
+        if (date_input[0] != date_csv[0] || date_input[1] != date_csv[1])
+          return (it);
+      }
+      return (it);
+    }
+    if (it == csv.end())
+    {
+      float y_input = std::stof(date_input[0]);
+      float y_csv = std::stof(date_csv[0]);
+      if (y_input > y_csv)
+        return (--it);
+    }
+  }
+  return (it);
+}
+
+std::vector<Data_csv>::const_iterator find_date(std::string input, std::vector<Data_csv> csv, std::vector<Data_csv>::const_iterator it)
+{
+  //for(std::vector<Data_csv>::const_iterator it = input.begin(); it != input.end(); ++it)
+  //{
+  //  const Data_csv tmp_input = *it;
+    //-----------
+    it = find_incsv(input, csv);
+  //}
+  return (it);
 }
 
 std::vector<Data_csv>  extractData(const std::string &file_i, const char &s)
@@ -189,10 +257,27 @@ int main(int argc, char **argv)
   }
   else
   {
+    std::cout << std::endl << "------------------------------" << std::endl;
+    //--------------CSV-------------------------------
+    std::vector<Data_csv> csv = extractData("data.csv", ',');
+    //int i = 1;
+    //for (std::vector<Data_csv>::const_iterator it = csv.begin(); it != csv.end(); ++it)
+    //{
+    //  const Data_csv data = *it;
+      //-------------------PRINT-----------------
+    //  std::cout << "----ligne csv[" << ++i << "] -------" << std::endl;
+    //  std::cout << "Date : " << data.date << std::endl;
+    //  std::cout << "Value : " << data.value << std::endl;
+      //------------------------------------------
+  //  }
+
+
+
     //--------------Input-----------------------
     std::cout << "--------------------------" << std::endl;
     std::vector<Data_csv> input = extractData(argv[1], '|');//try throw if not open
     int i = 1;
+    std::vector<Data_csv>::const_iterator it;
     for(std::vector<Data_csv>::const_iterator it2 = input.begin(); it2 != input.end(); ++it2)
     {
       const Data_csv tmp_input = *it2;
@@ -205,26 +290,14 @@ int main(int argc, char **argv)
       {
         check_date(tmp_input.date);
         check_value(tmp_input.value);
+        it = find_date(tmp_input.date, csv, it);
+        const Data_csv tmp_csv = *it;
+        std::cout << "date csv: " << tmp_csv.date << std::endl;
       }
       //if (i == 5)
       //  break ;
     }
 
-    std::cout << std::endl << "------------------------------" << std::endl;
-    //--------------CSV-------------------------------
-    std::vector<Data_csv> csv = extractData("data.csv", ',');
-    i = 1;
-    for (std::vector<Data_csv>::const_iterator it = csv.begin(); it != csv.end(); ++it)
-    {
-      const Data_csv data = *it;
-      //-------------------PRINT-----------------
-      std::cout << "----ligne csv[" << ++i << "] -------" << std::endl;
-      std::cout << "Date : " << data.date << std::endl;
-      std::cout << "Value : " << data.value << std::endl;
-      //------------------------------------------
-      if (i == 2)
-        break ;
-    }
   }
   return (0);
 }
