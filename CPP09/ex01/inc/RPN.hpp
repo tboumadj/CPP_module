@@ -12,5 +12,10 @@
 
 #ifndef RPN_HPP
 # define RPN_HPP
+# include <iostream>
+# include <ostream>
+# include <string>
+# include <stack>
+# include <cctype>
 
 #endif
