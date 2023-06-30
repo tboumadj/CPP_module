@@ -12,5 +12,12 @@
 
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
+# include <iostream>
+# include <ostream>
+# include <string>
+# include <cctype>
+# include <cstdlib>
+# include <list>
+# include <map>
 
 #endif
