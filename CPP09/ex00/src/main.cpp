@@ -178,7 +178,7 @@ std::vector<Data_csv>::const_iterator find_incsv(std::string &date, std::vector<
       float d_csv = std::stof(date_csv[2]);
       std::cout << "di: " << d_input << "dc: " << d_csv << std::endl;
       std::cout << "ok find" << std::endl;
-      while(d_input > d_csv || (date_input[0] == date_csv[0] && date_input[1] == date_csv[1]))
+      while(date_input[0] == date_csv[0] && date_input[1] == date_csv[1])
       {
         --it;
         const Data_csv tmp_csv = *it;
