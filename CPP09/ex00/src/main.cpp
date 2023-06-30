@@ -107,10 +107,10 @@ bool check_date(const std::string &date)
   bool bi_year = false;
   
   //------------PRINT----------
-  for (std::size_t i = 0; i < substrings.size(); ++i)
-  {
-    std::cout << "Substring " << i + 1 << ": " << substrings[i] << std::endl;
-  }
+  //for (std::size_t i = 0; i < substrings.size(); ++i)
+  //{
+  //  std::cout << "Substring " << i + 1 << ": " << substrings[i] << std::endl;
+  //}
   //------------------------
   bi_year = check_bisextile(substrings[0]);
   if (check_year(substrings[0]) == false)
@@ -143,7 +143,7 @@ bool check_value(const std::string &value)
   else
   {
     double n = atof(value.c_str());
-    std::cout << "n: " << n << std::endl;
+    //std::cout << "n: " << n << std::endl;
     if (n < 0 || n > 10000)
     {
       std::cout << "Error : too large number" << std::endl;
@@ -170,26 +170,25 @@ std::vector<Data_csv>::const_iterator find_incsv(std::string &date, std::vector<
   {
     const Data_csv tmp_csv = *it;
     std::vector<std::string> date_csv = split(tmp_csv.date, '-');
-    //std::cout << "date input: " << date_input[0] << std::endl;
-    //std::cout << "date csv: " << date_csv[0] << std::endl;
     if (date_input[0] == date_csv[0] && date_input[1] == date_csv[1])
     {
       float d_input = std::stof(date_input[2]);
       float d_csv = std::stof(date_csv[2]);
-      std::cout << "di: " << d_input << "dc: " << d_csv << std::endl;
-      std::cout << "ok find" << std::endl;
-      while(date_input[0] == date_csv[0] && date_input[1] == date_csv[1])
+      //std::cout << "di: " << d_input << "dc: " << d_csv << std::endl;
+      while(d_input > d_csv)
       {
-        --it;
+        ++it;
         const Data_csv tmp_csv = *it;
         std::vector<std::string> date_csv = split(tmp_csv.date, '-');
         float d_input = std::stof(date_input[2]);
         float d_csv = std::stof(date_csv[2]);
-        std::cout << "di: " << d_input << "dc: " << d_csv << std::endl;
-        if (d_csv <= d_input)
+        //std::cout << "di2: " << d_input << "dc2: " << d_csv << std::endl;
+        if (d_input == d_csv)
           return (it);
+        if (d_input < d_csv)
+          return (--it);
         if (date_input[0] != date_csv[0] || date_input[1] != date_csv[1])
-          return (it);
+          return (--it);
       }
       return (it);
     }
@@ -283,7 +282,8 @@ int main(int argc, char **argv)
     {
       const Data_csv tmp_input = *it2;
       //--------------PRINT---------------
-      std::cout << "----ligne input[" << ++i << "] -------" << std::endl;
+      //std::cout << "----ligne input[" << ++i << "] -------" << std::endl;
+      std::cout << "------------------------------" << std::endl;
       std::cout << "Date : " << tmp_input.date << std::endl;
       std::cout << "Value : " << tmp_input.value << std::endl;
       //---------------------------------
@@ -295,7 +295,7 @@ int main(int argc, char **argv)
         const Data_csv tmp_csv = *it;
         float v_in = atof(tmp_input.value.c_str());
         float v_cs = atof(tmp_csv.value.c_str());
-        std::cout << tmp_input.date << " > " << tmp_csv.date << " = "<< std::fixed << std::setprecision(2) << v_in * v_cs << std::endl;
+        std::cout << tmp_input.date << " > " << tmp_input.value << " = "<< std::fixed << std::setprecision(2) << v_in * v_cs << std::endl;
       }
       //if (i == 5)
       //  break ;
