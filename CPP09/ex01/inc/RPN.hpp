@@ -18,4 +18,16 @@
 # include <stack>
 # include <cctype>
 
+class RPN
+{
+  public:
+    RPN();
+    ~RPN();
+    RPN(const RPN &co);
+  //Method
+    int calcul_rpn(std::string data);
+
+  private:
+    std::stack<int> stk;
+};
 #endif
