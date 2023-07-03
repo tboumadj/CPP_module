@@ -18,7 +18,8 @@
 # include <cctype>
 # include <cstdlib>
 # include <list>
-# include <map>
+# include <deque>
+# include <chrono>
 
 class PmergeMe
 {
@@ -28,11 +29,11 @@ class PmergeMe
     PmergeMe(const PmergeMe &co);
   //Method
     void create_list(char **data);
-    void create_map(char **data);
+    void create_deque(char **data);
 
   private:
     std::list<int> n_list;
-    std::map<int, int> n_map;
+    std::deque<int> n_deq;
 };
 
 #endif

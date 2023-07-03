@@ -23,7 +23,7 @@ int main(int argc, char **argv)
   {
     PmergeMe merge;
     merge.create_list(argv);
-    merge.create_map(argv);
+    merge.create_deque(argv);
   }
   return (0);
 }
