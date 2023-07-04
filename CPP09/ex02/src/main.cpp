@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:06:28 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/15 15:06:42 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/07/04 14:49:38 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,16 @@ int main(int argc, char **argv)
   }
   else
   {
-    PmergeMe merge;
-    merge.create_list(argv);
-    merge.create_deque(argv);
+    try
+    {
+      PmergeMe merge;
+      merge.create_list(argv);
+      merge.create_deque(argv);
+    }
+    catch(...)
+    {
+      return (0);
+    }
   }
   return (0);
 }

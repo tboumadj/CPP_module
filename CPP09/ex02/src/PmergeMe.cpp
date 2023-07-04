@@ -6,11 +6,12 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:06:17 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/15 15:06:25 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/07/04 14:52:01 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/PmergeMe.hpp"
+#include <_ctype.h>
 
 PmergeMe::PmergeMe()
 {
@@ -30,7 +31,6 @@ PmergeMe::PmergeMe(const PmergeMe &co)
 
 //--------------LIST
 
-// Fonction de fusion de deux listes triées
 static std::list<int> merge(const std::list<int> &left, const std::list<int> &right)
 {
   std::list<int> result;
@@ -51,14 +51,12 @@ static std::list<int> merge(const std::list<int> &left, const std::list<int> &ri
       }
   }
 
-    // Ajouter les éléments restants de la liste de gauche
   while (leftIt != left.end())
   {
     result.push_back(*leftIt);
     ++leftIt;
   }
 
-  // Ajouter les éléments restants de la liste de droite
   while (rightIt != right.end())
   {
     result.push_back(*rightIt);
@@ -67,27 +65,22 @@ static std::list<int> merge(const std::list<int> &left, const std::list<int> &ri
   return result;
 }
 
-// Fonction de tri merge-insert sort
 static std::list<int> mergeInsertSort(std::list<int> &input)
 {
-  // Cas de base : si la liste est vide ou ne contient qu'un élément, elle est déjà triée
   if (input.size() <= 1)
   {
     return input;
   }
 
-  // Diviser la liste en deux moitiés
   std::list<int> left, right;
   std::list<int>::iterator it = input.begin();
   std::advance(it, input.size() / 2);
   left.splice(left.begin(), input, input.begin(), it);
   right.splice(right.begin(), input);
 
-  // Récursivement trier chaque moitié
   left = mergeInsertSort(left);
   right = mergeInsertSort(right);
 
-  // Fusionner les deux moitiés triées
   return merge(left, right);
 }
 
@@ -96,6 +89,11 @@ void PmergeMe::create_list(char **data)
   int i = 0;
   while (data[++i])
   {
+    if (!isdigit(*data[i]))
+    {
+      std::cerr << "error not digit.. or negativ number" << std::endl;
+      return ;
+    }
     int nbr = std::atoi(data[i]);
     //std::cout << "nbr_l: " << nbr << std::endl;
     this->n_list.push_back(nbr);
@@ -108,7 +106,7 @@ void PmergeMe::create_list(char **data)
     std::cout << *it << ", ";
     if (*it <= 0)
     {
-      std::cerr << "error" << std::endl;
+      std::cerr << "error negativ number.." << std::endl;
       return ;
     }
   }
@@ -171,13 +169,12 @@ static void mergeInsertSort_deq(std::deque<int>& arr)
 {
   if (arr.size() <= 1)
   {
-    return; // La liste est déjà triée
+    return;
   }
 
   std::deque<int> left, right;
   int middle = arr.size() / 2;
 
-    // Divise la liste en deux moitiés
   for (int i = 0; i < middle; i++)
   {
     left.push_back(arr[i]);
@@ -187,11 +184,9 @@ static void mergeInsertSort_deq(std::deque<int>& arr)
     right.push_back(arr[i]);
   }
 
-    // Trie récursivement les deux moitiés
     mergeInsertSort_deq(left);
     mergeInsertSort_deq(right);
 
-    // Fusionne les deux moitiés triées
     arr.clear();
     merge_deq(left, right, arr);
 }
@@ -201,6 +196,10 @@ void PmergeMe::create_deque(char **data)
   int i = 0;
   while(data[++i])
   {
+    if (!isdigit(*data[i]))
+    {
+      return ;
+    }
     int nbr = std::atoi(data[i]);
     //std::cout << "nbr_m: " << nbr << std::endl;
     this->n_deq.push_back(nbr);
