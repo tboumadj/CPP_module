@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:55:32 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/15 14:56:24 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/07/04 13:14:04 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,6 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange &co)
   *this = co;
   return ;
 }
-
-//---------------Surcharge
-//BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &co)
-//{
-//  if (this != &co)
-//    *this = co;
-//  return (*this);
-//}
 
 //---------------G&S
 void BitcoinExchange::set_date(const std::string &data)
@@ -137,7 +129,7 @@ bool BitcoinExchange::check_day(const std::string &day, const std::string &month
 bool BitcoinExchange::check_year(const std::string &year)
 {
   size_t y = atof(year.c_str());
-  if (y < 2009 || y > 2023)
+  if (y < 2009)
     return false;
   return true;
 }
@@ -178,7 +170,7 @@ bool BitcoinExchange::check_value(const std::string &value)
   else
   {
     double n = atof(value.c_str());
-    if (n < 0 || n > 10000)
+    if (n > 10000)
     {
       std::cerr << "Error : too large value" << std::endl;
       return false;
@@ -232,7 +224,7 @@ std::vector<BitcoinExchange>::const_iterator BitcoinExchange::find_incsv(const s
         return (--it);
     }
   }
-  return (it);
+  return (--it);
 }
 
 std::vector<BitcoinExchange>  BitcoinExchange::extractData(const std::string &file_i, const char &s)

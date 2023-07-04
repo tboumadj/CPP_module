@@ -6,7 +6,7 @@
 #    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 19:11:05 by tboumadj@student  #+#    #+#              #
-#    Updated: 2023/06/15 14:57:19 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/07/04 12:58:12 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,6 @@ NAME		=		btc
 CC			=		c++
 FLAGS		=		-Wall -Wextra -Werror -std=c++98
 RM			=		rm -f
-CHECK		=		-fsanitize=address
 
 #PATH
 
@@ -36,7 +35,7 @@ _GREEN	=		$'\x1b[32m
 
 $(NAME):	$(OBJS)
 									@echo "$(_GREY)Compilation de btc en cours...$(_END)"
-									$(CC) $(OBJS) $(FLAGS) -o $(NAME) $(CHECK)
+									$(CC) $(OBJS) $(FLAGS) -o $(NAME)
 									@echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 
 .SILENT	: $(OBJS) $(NAME)

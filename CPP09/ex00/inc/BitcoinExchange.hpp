@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:55:28 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/15 14:56:11 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/07/04 13:06:55 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ class BitcoinExchange
     BitcoinExchange();
     ~BitcoinExchange();
     BitcoinExchange(const BitcoinExchange &co);
-  //Surcharge
-    //BitcoinExchange &operator=(const BitcoinExchange &co);
   //G&S
     void set_date(const std::string &data);
     void set_value(const std::string &data);

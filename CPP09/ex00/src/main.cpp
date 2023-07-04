@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:55:03 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/15 14:55:24 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/07/04 13:10:19 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int main(int argc, char **argv)
           BitcoinExchange tmp_csv = *it;
           float v_in = atof(tmp_input.get_value().c_str());
           float v_cs = atof(tmp_csv.get_value().c_str());
+          //std::cout << "test date csv: " << tmp_csv.get_date() << "value: " << tmp_csv.get_value() << std::endl;
           std::cout << tmp_input.get_date() << " > " << tmp_input.get_value() << " = "<< std::fixed << std::setprecision(2) << v_in * v_cs << std::endl;
         }
       }
