@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 15:00:45 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/06/15 15:00:55 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:36:01 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int RPN::calcul_rpn(std::string data)
     if(std::isdigit(c))
     {
       this->stk.push(c - 48);
-      if (this->stk.size() > 2)
-        {
-          std::cerr << "error notation3" << std::endl;
-          exit (1);
-        }
+      //if (this->stk.size() > 2)
+      //  {
+      //    std::cerr << "error notation3" << std::endl;
+      //    exit (1);
+      // }
     }
     else if(!(std::isspace(c)))
     {
@@ -77,11 +77,11 @@ int RPN::calcul_rpn(std::string data)
           exit(1);
       }
     //std::cout << "size: " << stk.size() << std::endl;
-    if(this->stk.size() != 1)
-    {
-      std::cerr << "error notation2" << std::endl;
-      exit (1);
-    }
+    //if(this->stk.size() != 1)
+    //{
+    //  std::cerr << "error notation2" << std::endl;
+    //  exit (1);
+    //}
   }
   }
   int res = this->stk.top();
